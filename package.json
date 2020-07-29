@@ -1,6 +1,6 @@
 {
   "name": "@patch-technology/patch",
-  "version": "1.0.0.rc-1",
+  "version": "1.0.0-rc.1",
   "description": "Javascript wrapper for the Patch API",
   "license": "MIT",
   "main": "dist/index.js",
