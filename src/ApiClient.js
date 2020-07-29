@@ -11,6 +11,7 @@ import querystring from "querystring";
 
 class ApiClient {
     constructor() {
+        this.basePath = 'https://api.usepatch.com'.replace(/\/+$/, '');
         this.authentications = {
 
 
@@ -79,7 +80,7 @@ class ApiClient {
             path = '/' + path;
         }
 
-        var url = path;
+        var url = this.basePath + path;
 
         url = url.replace(/\{([\w-]+)\}/g, (fullMatch, key) => {
             var value;
@@ -322,7 +323,7 @@ class ApiClient {
             }
         }
 
-
+        
         return new Promise((resolve, reject) => {
             request.end((error, response) => {
                 if (error) {
@@ -349,8 +350,8 @@ class ApiClient {
             });
         });
 
-
-
+        
+        
     }
 
     static parseDate(str) {
@@ -418,27 +419,27 @@ class ApiClient {
 
     hostSettings() {
         return [
-
+            
             {
               'url': "https://api.usepatch.com",
               'description': "No description provided",
-
-
+              
+              
               'variables': {
-
+              
                 defaultHost: {
                     'description': "No description provided",
                     'default_value': "api.usepatch.com",
                     'enum_values': [
-
+                    
                     ]
                   }
-
+                
                 }
-
-
+                
+              
             }
-
+            
       ];
     }
 

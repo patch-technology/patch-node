@@ -1,2 +1,3 @@
 # OpenAPI Code gen artifacts
-.openapi-generator/**
+.openapi-generator
+.openapi-generator-ignore

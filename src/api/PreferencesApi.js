@@ -14,15 +14,22 @@ import PreferenceResponse from '../model/PreferenceResponse';
 
 
 export default class PreferencesApi {
-    constructor(apiClient) {
-        this.apiClient = apiClient || ApiClient.instance;
+  constructor(apiClient) {
+    this.apiClient = apiClient || ApiClient.instance;
+    this.createPreference = this.createPreference.bind(this);
+    this.createPreferenceWithHttpInfo = this.createPreferenceWithHttpInfo.bind(this);
+    this.deletePreference = this.deletePreference.bind(this);
+    this.deletePreferenceWithHttpInfo = this.deletePreferenceWithHttpInfo.bind(this);
+    this.retrievePreference = this.retrievePreference.bind(this);
+    this.retrievePreferenceWithHttpInfo = this.retrievePreferenceWithHttpInfo.bind(this);
+    this.retrievePreferences = this.retrievePreferences.bind(this);
+    this.retrievePreferencesWithHttpInfo = this.retrievePreferencesWithHttpInfo.bind(this);
     }
 
 
   createPreferenceWithHttpInfo(createPreferenceRequest) {
       
-      let postBody = opts['']
-        
+      let postBody = createPreferenceRequest;
 
 
       // verify the required parameter 'createPreferenceRequest' is set
@@ -49,7 +56,7 @@ export default class PreferencesApi {
       return this.apiClient.callApi(
         '/v1/preferences', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType 
+        authNames, contentTypes, accepts, returnType
       );
     }
 
@@ -63,8 +70,7 @@ export default class PreferencesApi {
 
   deletePreferenceWithHttpInfo(id) {
       
-      let postBody = null
-      
+      let postBody = null;
 
 
       // verify the required parameter 'id' is set
@@ -92,7 +98,7 @@ export default class PreferencesApi {
       return this.apiClient.callApi(
         '/v1/preferences/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType 
+        authNames, contentTypes, accepts, returnType
       );
     }
 
@@ -106,8 +112,7 @@ export default class PreferencesApi {
 
   retrievePreferenceWithHttpInfo(id) {
       
-      let postBody = null
-      
+      let postBody = null;
 
 
       // verify the required parameter 'id' is set
@@ -135,7 +140,7 @@ export default class PreferencesApi {
       return this.apiClient.callApi(
         '/v1/preferences/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType 
+        authNames, contentTypes, accepts, returnType
       );
     }
 
@@ -151,8 +156,7 @@ export default class PreferencesApi {
       
       opts = opts || {};
       
-      let postBody = null
-      
+      let postBody = null;
 
 
 
@@ -177,7 +181,7 @@ export default class PreferencesApi {
       return this.apiClient.callApi(
         '/v1/preferences', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType 
+        authNames, contentTypes, accepts, returnType
       );
     }
 

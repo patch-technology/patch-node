@@ -26,6 +26,10 @@ var ProjectsApi = /*#__PURE__*/function () {
     _classCallCheck(this, ProjectsApi);
 
     this.apiClient = apiClient || _ApiClient["default"].instance;
+    this.retrieveProject = this.retrieveProject.bind(this);
+    this.retrieveProjectWithHttpInfo = this.retrieveProjectWithHttpInfo.bind(this);
+    this.retrieveProjects = this.retrieveProjects.bind(this);
+    this.retrieveProjectsWithHttpInfo = this.retrieveProjectsWithHttpInfo.bind(this);
   }
 
   _createClass(ProjectsApi, [{

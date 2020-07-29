@@ -28,6 +28,16 @@ var OrdersApi = /*#__PURE__*/function () {
     _classCallCheck(this, OrdersApi);
 
     this.apiClient = apiClient || _ApiClient["default"].instance;
+    this.cancelOrder = this.cancelOrder.bind(this);
+    this.cancelOrderWithHttpInfo = this.cancelOrderWithHttpInfo.bind(this);
+    this.createOrder = this.createOrder.bind(this);
+    this.createOrderWithHttpInfo = this.createOrderWithHttpInfo.bind(this);
+    this.placeOrder = this.placeOrder.bind(this);
+    this.placeOrderWithHttpInfo = this.placeOrderWithHttpInfo.bind(this);
+    this.retrieveOrder = this.retrieveOrder.bind(this);
+    this.retrieveOrderWithHttpInfo = this.retrieveOrderWithHttpInfo.bind(this);
+    this.retrieveOrders = this.retrieveOrders.bind(this);
+    this.retrieveOrdersWithHttpInfo = this.retrieveOrdersWithHttpInfo.bind(this);
   }
 
   _createClass(OrdersApi, [{
@@ -61,7 +71,7 @@ var OrdersApi = /*#__PURE__*/function () {
   }, {
     key: "createOrderWithHttpInfo",
     value: function createOrderWithHttpInfo(createOrderRequest) {
-      var postBody = opts['']; // verify the required parameter 'createOrderRequest' is set
+      var postBody = createOrderRequest; // verify the required parameter 'createOrderRequest' is set
 
       if (createOrderRequest === undefined || createOrderRequest === null) {
         throw new Error("Missing the required parameter 'createOrderRequest' when calling createOrder");

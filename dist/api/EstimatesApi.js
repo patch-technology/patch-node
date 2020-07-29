@@ -28,12 +28,18 @@ var EstimatesApi = /*#__PURE__*/function () {
     _classCallCheck(this, EstimatesApi);
 
     this.apiClient = apiClient || _ApiClient["default"].instance;
+    this.createMassEstimate = this.createMassEstimate.bind(this);
+    this.createMassEstimateWithHttpInfo = this.createMassEstimateWithHttpInfo.bind(this);
+    this.retrieveEstimate = this.retrieveEstimate.bind(this);
+    this.retrieveEstimateWithHttpInfo = this.retrieveEstimateWithHttpInfo.bind(this);
+    this.retrieveEstimates = this.retrieveEstimates.bind(this);
+    this.retrieveEstimatesWithHttpInfo = this.retrieveEstimatesWithHttpInfo.bind(this);
   }
 
   _createClass(EstimatesApi, [{
     key: "createMassEstimateWithHttpInfo",
     value: function createMassEstimateWithHttpInfo(createMassEstimateRequest) {
-      var postBody = opts['']; // verify the required parameter 'createMassEstimateRequest' is set
+      var postBody = createMassEstimateRequest; // verify the required parameter 'createMassEstimateRequest' is set
 
       if (createMassEstimateRequest === undefined || createMassEstimateRequest === null) {
         throw new Error("Missing the required parameter 'createMassEstimateRequest' when calling createMassEstimate");

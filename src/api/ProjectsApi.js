@@ -13,15 +13,18 @@ import ProjectResponse from '../model/ProjectResponse';
 
 
 export default class ProjectsApi {
-    constructor(apiClient) {
-        this.apiClient = apiClient || ApiClient.instance;
+  constructor(apiClient) {
+    this.apiClient = apiClient || ApiClient.instance;
+    this.retrieveProject = this.retrieveProject.bind(this);
+    this.retrieveProjectWithHttpInfo = this.retrieveProjectWithHttpInfo.bind(this);
+    this.retrieveProjects = this.retrieveProjects.bind(this);
+    this.retrieveProjectsWithHttpInfo = this.retrieveProjectsWithHttpInfo.bind(this);
     }
 
 
   retrieveProjectWithHttpInfo(id) {
       
-      let postBody = null
-      
+      let postBody = null;
 
 
       // verify the required parameter 'id' is set
@@ -49,7 +52,7 @@ export default class ProjectsApi {
       return this.apiClient.callApi(
         '/v1/projects/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType 
+        authNames, contentTypes, accepts, returnType
       );
     }
 
@@ -65,8 +68,7 @@ export default class ProjectsApi {
       
       opts = opts || {};
       
-      let postBody = null
-      
+      let postBody = null;
 
 
 
@@ -91,7 +93,7 @@ export default class ProjectsApi {
       return this.apiClient.callApi(
         '/v1/projects', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType 
+        authNames, contentTypes, accepts, returnType
       );
     }
 

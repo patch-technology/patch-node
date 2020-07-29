@@ -14,15 +14,20 @@ import EstimateResponse from '../model/EstimateResponse';
 
 
 export default class EstimatesApi {
-    constructor(apiClient) {
-        this.apiClient = apiClient || ApiClient.instance;
+  constructor(apiClient) {
+    this.apiClient = apiClient || ApiClient.instance;
+    this.createMassEstimate = this.createMassEstimate.bind(this);
+    this.createMassEstimateWithHttpInfo = this.createMassEstimateWithHttpInfo.bind(this);
+    this.retrieveEstimate = this.retrieveEstimate.bind(this);
+    this.retrieveEstimateWithHttpInfo = this.retrieveEstimateWithHttpInfo.bind(this);
+    this.retrieveEstimates = this.retrieveEstimates.bind(this);
+    this.retrieveEstimatesWithHttpInfo = this.retrieveEstimatesWithHttpInfo.bind(this);
     }
 
 
   createMassEstimateWithHttpInfo(createMassEstimateRequest) {
       
-      let postBody = opts['']
-        
+      let postBody = createMassEstimateRequest;
 
 
       // verify the required parameter 'createMassEstimateRequest' is set
@@ -49,7 +54,7 @@ export default class EstimatesApi {
       return this.apiClient.callApi(
         '/v1/estimates/mass', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType 
+        authNames, contentTypes, accepts, returnType
       );
     }
 
@@ -63,8 +68,7 @@ export default class EstimatesApi {
 
   retrieveEstimateWithHttpInfo(id) {
       
-      let postBody = null
-      
+      let postBody = null;
 
 
       // verify the required parameter 'id' is set
@@ -92,7 +96,7 @@ export default class EstimatesApi {
       return this.apiClient.callApi(
         '/v1/estimates/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType 
+        authNames, contentTypes, accepts, returnType
       );
     }
 
@@ -108,8 +112,7 @@ export default class EstimatesApi {
       
       opts = opts || {};
       
-      let postBody = null
-      
+      let postBody = null;
 
 
 
@@ -134,7 +137,7 @@ export default class EstimatesApi {
       return this.apiClient.callApi(
         '/v1/estimates', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType 
+        authNames, contentTypes, accepts, returnType
       );
     }
 
