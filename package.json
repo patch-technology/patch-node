@@ -3,6 +3,10 @@
   "version": "1.0.0-rc.2",
   "description": "Javascript wrapper for the Patch API",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/patch-technology/patch-node.git"
+  },
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src -d dist",
@@ -37,9 +41,16 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
     "chai": "^4.2.0",
-    "mocha": "^8.0.1"
+    "husky": "^4.2.5",
+    "mocha": "^8.0.1",
+    "prettier": "2.0.5"
   },
   "files": [
     "dist"
-  ]
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx prettier --write ."
+    }
+  }
 }
