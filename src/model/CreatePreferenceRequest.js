@@ -7,39 +7,30 @@
 
 import ApiClient from '../ApiClient';
 
-
 class CreatePreferenceRequest {
-    constructor(projectId) { 
-        
-        CreatePreferenceRequest.initialize(this, projectId);
+  constructor(projectId) {
+    CreatePreferenceRequest.initialize(this, projectId);
+  }
+
+  static initialize(obj, projectId) {
+    obj['project_id'] = projectId;
+  }
+
+  static constructFromObject(data, obj) {
+    if (data) {
+      obj = obj || new CreatePreferenceRequest();
+
+      if (data.hasOwnProperty('project_id')) {
+        obj['project_id'] = ApiClient.convertToType(
+          data['project_id'],
+          'String'
+        );
+      }
     }
-
-    static initialize(obj, projectId) { 
-        obj['project_id'] = projectId;
-    }
-
-    static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new CreatePreferenceRequest();
-
-            
-            if (data.hasOwnProperty('project_id')) {
-                obj['project_id'] = ApiClient.convertToType(data['project_id'], 'String');
-            }
-            
-        }
-        return obj;
-    }
-
-
+    return obj;
+  }
 }
-
 
 CreatePreferenceRequest.prototype['project_id'] = undefined;
 
-
-
-
 export default CreatePreferenceRequest;
-
-
