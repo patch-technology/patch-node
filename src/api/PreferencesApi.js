@@ -5,11 +5,11 @@
  * Contact: developers@usepatch.com
  */
 
-import ApiClient from "../ApiClient";
-import CreatePreferenceRequest from "../model/CreatePreferenceRequest";
-import ErrorResponse from "../model/ErrorResponse";
-import PreferenceListResponse from "../model/PreferenceListResponse";
-import PreferenceResponse from "../model/PreferenceResponse";
+import ApiClient from '../ApiClient';
+import CreatePreferenceRequest from '../model/CreatePreferenceRequest';
+import ErrorResponse from '../model/ErrorResponse';
+import PreferenceListResponse from '../model/PreferenceListResponse';
+import PreferenceResponse from '../model/PreferenceResponse';
 
 export default class PreferencesApi {
   constructor(apiClient) {
@@ -50,14 +50,14 @@ export default class PreferencesApi {
     let headerParams = {};
     let formParams = {};
 
-    let authNames = ["bearer_auth"];
-    let contentTypes = ["application/json"];
-    let accepts = ["application/json"];
+    let authNames = ['bearer_auth'];
+    let contentTypes = ['application/json'];
+    let accepts = ['application/json'];
     let returnType = PreferenceResponse;
 
     return this.apiClient.callApi(
-      "/v1/preferences",
-      "POST",
+      '/v1/preferences',
+      'POST',
       pathParams,
       queryParams,
       headerParams,
@@ -71,11 +71,7 @@ export default class PreferencesApi {
   }
 
   createPreference(createPreferenceRequest) {
-    return this.createPreferenceWithHttpInfo(createPreferenceRequest).then(
-      function (response_and_data) {
-        return response_and_data.data;
-      }
-    );
+    return this.createPreferenceWithHttpInfo(createPreferenceRequest);
   }
 
   deletePreferenceWithHttpInfo(id) {
@@ -89,20 +85,20 @@ export default class PreferencesApi {
     }
 
     let pathParams = {
-      id: id,
+      id: id
     };
     let queryParams = {};
     let headerParams = {};
     let formParams = {};
 
-    let authNames = ["bearer_auth"];
+    let authNames = ['bearer_auth'];
     let contentTypes = [];
-    let accepts = ["application/json"];
+    let accepts = ['application/json'];
     let returnType = PreferenceResponse;
 
     return this.apiClient.callApi(
-      "/v1/preferences/{id}",
-      "DELETE",
+      '/v1/preferences/{id}',
+      'DELETE',
       pathParams,
       queryParams,
       headerParams,
@@ -116,11 +112,7 @@ export default class PreferencesApi {
   }
 
   deletePreference(id) {
-    return this.deletePreferenceWithHttpInfo(id).then(function (
-      response_and_data
-    ) {
-      return response_and_data.data;
-    });
+    return this.deletePreferenceWithHttpInfo(id);
   }
 
   retrievePreferenceWithHttpInfo(id) {
@@ -134,20 +126,20 @@ export default class PreferencesApi {
     }
 
     let pathParams = {
-      id: id,
+      id: id
     };
     let queryParams = {};
     let headerParams = {};
     let formParams = {};
 
-    let authNames = ["bearer_auth"];
+    let authNames = ['bearer_auth'];
     let contentTypes = [];
-    let accepts = ["application/json"];
+    let accepts = ['application/json'];
     let returnType = PreferenceResponse;
 
     return this.apiClient.callApi(
-      "/v1/preferences/{id}",
-      "GET",
+      '/v1/preferences/{id}',
+      'GET',
       pathParams,
       queryParams,
       headerParams,
@@ -161,11 +153,7 @@ export default class PreferencesApi {
   }
 
   retrievePreference(id) {
-    return this.retrievePreferenceWithHttpInfo(id).then(function (
-      response_and_data
-    ) {
-      return response_and_data.data;
-    });
+    return this.retrievePreferenceWithHttpInfo(id);
   }
 
   retrievePreferencesWithHttpInfo(opts) {
@@ -175,19 +163,19 @@ export default class PreferencesApi {
 
     let pathParams = {};
     let queryParams = {
-      page: opts["page"],
+      page: opts['page']
     };
     let headerParams = {};
     let formParams = {};
 
-    let authNames = ["bearer_auth"];
+    let authNames = ['bearer_auth'];
     let contentTypes = [];
-    let accepts = ["application/json"];
+    let accepts = ['application/json'];
     let returnType = PreferenceListResponse;
 
     return this.apiClient.callApi(
-      "/v1/preferences",
-      "GET",
+      '/v1/preferences',
+      'GET',
       pathParams,
       queryParams,
       headerParams,
@@ -201,10 +189,6 @@ export default class PreferencesApi {
   }
 
   retrievePreferences(opts) {
-    return this.retrievePreferencesWithHttpInfo(opts).then(function (
-      response_and_data
-    ) {
-      return response_and_data.data;
-    });
+    return this.retrievePreferencesWithHttpInfo(opts);
   }
 }

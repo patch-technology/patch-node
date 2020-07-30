@@ -5,7 +5,7 @@
  * Contact: developers@usepatch.com
  */
 
-import ApiClient from "../ApiClient";
+import ApiClient from '../ApiClient';
 
 class Allocation {
   constructor() {
@@ -18,29 +18,29 @@ class Allocation {
     if (data) {
       obj = obj || new Allocation();
 
-      if (data.hasOwnProperty("id")) {
-        obj["id"] = ApiClient.convertToType(data["id"], "String");
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
 
-      if (data.hasOwnProperty("production")) {
-        obj["production"] = ApiClient.convertToType(
-          data["production"],
-          "Boolean"
+      if (data.hasOwnProperty('production')) {
+        obj['production'] = ApiClient.convertToType(
+          data['production'],
+          'Boolean'
         );
       }
 
-      if (data.hasOwnProperty("mass_g")) {
-        obj["mass_g"] = ApiClient.convertToType(data["mass_g"], "Number");
+      if (data.hasOwnProperty('mass_g')) {
+        obj['mass_g'] = ApiClient.convertToType(data['mass_g'], 'Number');
       }
     }
     return obj;
   }
 }
 
-Allocation.prototype["id"] = undefined;
+Allocation.prototype['id'] = undefined;
 
-Allocation.prototype["production"] = undefined;
+Allocation.prototype['production'] = undefined;
 
-Allocation.prototype["mass_g"] = undefined;
+Allocation.prototype['mass_g'] = undefined;
 
 export default Allocation;

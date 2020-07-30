@@ -5,14 +5,14 @@
  * Contact: developers@usepatch.com
  */
 
-import superagent from "superagent";
-import querystring from "querystring";
+import superagent from 'superagent';
+import querystring from 'querystring';
 
 class ApiClient {
   constructor() {
-    this.basePath = "https://api.usepatch.com".replace(/\/+$/, "");
+    this.basePath = 'https://api.usepatch.com'.replace(/\/+$/, '');
     this.authentications = {
-      bearer_auth: { type: "bearer" },
+      bearer_auth: { type: 'bearer' }
     };
 
     this.defaultHeaders = {};
@@ -38,7 +38,7 @@ class ApiClient {
      * Used to save and return cookies in a node.js (non-browser) setting,
      * if this.enableCookies is set to true.
      */
-    if (typeof window === "undefined") {
+    if (typeof window === 'undefined') {
       this.agent = new superagent.agent();
     }
 
@@ -55,7 +55,7 @@ class ApiClient {
 
   paramToString(param) {
     if (param == undefined || param == null) {
-      return "";
+      return '';
     }
     if (param instanceof Date) {
       return param.toJSON();
@@ -66,7 +66,7 @@ class ApiClient {
 
   buildUrl(path, pathParams) {
     if (!path.match(/^\//)) {
-      path = "/" + path;
+      path = '/' + path;
     }
 
     var url = this.basePath + path;
@@ -103,10 +103,10 @@ class ApiClient {
 
   isFileParam(param) {
     // fs.ReadStream in Node.js and Electron (but not in runtime like browserify)
-    if (typeof require === "function") {
+    if (typeof require === 'function') {
       let fs;
       try {
-        fs = require("fs");
+        fs = require('fs');
       } catch (err) {}
       if (fs && fs.ReadStream && param instanceof fs.ReadStream) {
         return true;
@@ -114,17 +114,17 @@ class ApiClient {
     }
 
     // Buffer in Node.js
-    if (typeof Buffer === "function" && param instanceof Buffer) {
+    if (typeof Buffer === 'function' && param instanceof Buffer) {
       return true;
     }
 
     // Blob in browser
-    if (typeof Blob === "function" && param instanceof Blob) {
+    if (typeof Blob === 'function' && param instanceof Blob) {
       return true;
     }
 
     // File in browser (it seems File object is also instance of Blob, but keep this for safe)
-    if (typeof File === "function" && param instanceof File) {
+    if (typeof File === 'function' && param instanceof File) {
       return true;
     }
 
@@ -156,19 +156,19 @@ class ApiClient {
       return null;
     }
     switch (collectionFormat) {
-      case "csv":
-        return param.map(this.paramToString).join(",");
-      case "ssv":
-        return param.map(this.paramToString).join(" ");
-      case "tsv":
-        return param.map(this.paramToString).join("\t");
-      case "pipes":
-        return param.map(this.paramToString).join("|");
-      case "multi":
+      case 'csv':
+        return param.map(this.paramToString).join(',');
+      case 'ssv':
+        return param.map(this.paramToString).join(' ');
+      case 'tsv':
+        return param.map(this.paramToString).join('\t');
+      case 'pipes':
+        return param.map(this.paramToString).join('|');
+      case 'multi':
         //return the array directly as SuperAgent will handle it as expected
         return param.map(this.paramToString);
       default:
-        throw new Error("Unknown collection format: " + collectionFormat);
+        throw new Error('Unknown collection format: ' + collectionFormat);
     }
   }
 
@@ -176,28 +176,28 @@ class ApiClient {
     authNames.forEach((authName) => {
       var auth = this.authentications[authName];
       switch (auth.type) {
-        case "basic":
+        case 'basic':
           if (auth.username || auth.password) {
-            request.auth(auth.username || "", auth.password || "");
+            request.auth(auth.username || '', auth.password || '');
           }
 
           break;
-        case "bearer":
+        case 'bearer':
           if (auth.accessToken) {
-            request.set({ Authorization: "Bearer " + auth.accessToken });
+            request.set({ Authorization: 'Bearer ' + auth.accessToken });
           }
 
           break;
-        case "apiKey":
+        case 'apiKey':
           if (auth.apiKey) {
             var data = {};
             if (auth.apiKeyPrefix) {
-              data[auth.name] = auth.apiKeyPrefix + " " + auth.apiKey;
+              data[auth.name] = auth.apiKeyPrefix + ' ' + auth.apiKey;
             } else {
               data[auth.name] = auth.apiKey;
             }
 
-            if (auth["in"] === "header") {
+            if (auth['in'] === 'header') {
               request.set(data);
             } else {
               request.query(data);
@@ -205,14 +205,14 @@ class ApiClient {
           }
 
           break;
-        case "oauth2":
+        case 'oauth2':
           if (auth.accessToken) {
-            request.set({ Authorization: "Bearer " + auth.accessToken });
+            request.set({ Authorization: 'Bearer ' + auth.accessToken });
           }
 
           break;
         default:
-          throw new Error("Unknown authentication type: " + auth.type);
+          throw new Error('Unknown authentication type: ' + auth.type);
       }
     });
   }
@@ -227,8 +227,8 @@ class ApiClient {
     var data = response.body;
     if (
       data == null ||
-      (typeof data === "object" &&
-        typeof data.length === "undefined" &&
+      (typeof data === 'object' &&
+        typeof data.length === 'undefined' &&
         !Object.keys(data).length)
     ) {
       // SuperAgent does not always produce a body; use the unparsed response as a fallback
@@ -266,8 +266,8 @@ class ApiClient {
     this.applyAuthToRequest(request, authNames);
 
     // set query parameters
-    if (httpMethod.toUpperCase() === "GET" && this.cache === false) {
-      queryParams["_"] = new Date().getTime();
+    if (httpMethod.toUpperCase() === 'GET' && this.cache === false) {
+      queryParams['_'] = new Date().getTime();
     }
 
     request.query(this.normalizeParams(queryParams));
@@ -286,16 +286,16 @@ class ApiClient {
     var contentType = this.jsonPreferredMime(contentTypes);
     if (contentType) {
       // Issue with superagent and multipart/form-data (https://github.com/visionmedia/superagent/issues/746)
-      if (contentType != "multipart/form-data") {
+      if (contentType != 'multipart/form-data') {
         request.type(contentType);
       }
-    } else if (!request.header["Content-Type"]) {
-      request.type("application/json");
+    } else if (!request.header['Content-Type']) {
+      request.type('application/json');
     }
 
-    if (contentType === "application/x-www-form-urlencoded") {
+    if (contentType === 'application/x-www-form-urlencoded') {
       request.send(querystring.stringify(this.normalizeParams(formParams)));
-    } else if (contentType == "multipart/form-data") {
+    } else if (contentType == 'multipart/form-data') {
       var _formParams = this.normalizeParams(formParams);
       for (var key in _formParams) {
         if (_formParams.hasOwnProperty(key)) {
@@ -316,15 +316,15 @@ class ApiClient {
       request.accept(accept);
     }
 
-    if (returnType === "Blob") {
-      request.responseType("blob");
-    } else if (returnType === "String") {
-      request.responseType("string");
+    if (returnType === 'Blob') {
+      request.responseType('blob');
+    } else if (returnType === 'String') {
+      request.responseType('string');
     }
 
     // Attach previously saved cookies, if enabled
     if (this.enableCookies) {
-      if (typeof window === "undefined") {
+      if (typeof window === 'undefined') {
         this.agent._attachCookies(request);
       } else {
         request.withCredentials();
@@ -333,26 +333,14 @@ class ApiClient {
 
     return new Promise((resolve, reject) => {
       request.end((error, response) => {
+        var data = this.deserialize(response, returnType);
         if (error) {
-          var err = {};
-          err.status = response.status;
-          err.statusText = response.statusText;
-          err.body = response.body;
-          err.response = response;
-          err.error = error;
-
-          reject(err);
+          reject(data);
         } else {
-          try {
-            var data = this.deserialize(response, returnType);
-            if (this.enableCookies && typeof window === "undefined") {
-              this.agent._saveCookies(response);
-            }
-
-            resolve({ data, response });
-          } catch (err) {
-            reject(err);
+          if (this.enableCookies && typeof window === 'undefined') {
+            this.agent._saveCookies(response);
           }
+          resolve(data);
         }
       });
     });
@@ -366,23 +354,23 @@ class ApiClient {
     if (data === null || data === undefined) return data;
 
     switch (type) {
-      case "Boolean":
+      case 'Boolean':
         return Boolean(data);
-      case "Integer":
+      case 'Integer':
         return parseInt(data, 10);
-      case "Number":
+      case 'Number':
         return parseFloat(data);
-      case "String":
+      case 'String':
         return String(data);
-      case "Date":
+      case 'Date':
         return ApiClient.parseDate(String(data));
-      case "Blob":
+      case 'Blob':
         return data;
       default:
         if (type === Object) {
           // generic object, return directly
           return data;
-        } else if (typeof type.constructFromObject === "function") {
+        } else if (typeof type.constructFromObject === 'function') {
           // for model type like User and enum class
           return type.constructFromObject(data);
         } else if (Array.isArray(type)) {
@@ -392,7 +380,7 @@ class ApiClient {
           return data.map((item) => {
             return ApiClient.convertToType(item, itemType);
           });
-        } else if (typeof type === "object") {
+        } else if (typeof type === 'object') {
           // for plain object type like: {'String': 'Integer'}
           var keyType, valueType;
           for (var k in type) {
@@ -423,17 +411,17 @@ class ApiClient {
   hostSettings() {
     return [
       {
-        url: "https://api.usepatch.com",
-        description: "No description provided",
+        url: 'https://api.usepatch.com',
+        description: 'No description provided',
 
         variables: {
           defaultHost: {
-            description: "No description provided",
-            default_value: "api.usepatch.com",
-            enum_values: [],
-          },
-        },
-      },
+            description: 'No description provided',
+            default_value: 'api.usepatch.com',
+            enum_values: []
+          }
+        }
+      }
     ];
   }
 
@@ -443,44 +431,44 @@ class ApiClient {
     // check array index out of bound
     if (index < 0 || index >= servers.length) {
       throw new Error(
-        "Invalid index " +
+        'Invalid index ' +
           index +
-          " when selecting the host settings. Must be less than " +
+          ' when selecting the host settings. Must be less than ' +
           servers.length
       );
     }
 
     var server = servers[index];
-    var url = server["url"];
+    var url = server['url'];
 
     // go through variable and assign a value
-    for (var variable_name in server["variables"]) {
+    for (var variable_name in server['variables']) {
       if (variable_name in variables) {
-        let variable = server["variables"][variable_name];
+        let variable = server['variables'][variable_name];
         if (
-          !("enum_values" in variable) ||
-          variable["enum_values"].includes(variables[variable_name])
+          !('enum_values' in variable) ||
+          variable['enum_values'].includes(variables[variable_name])
         ) {
           url = url.replace(
-            "{" + variable_name + "}",
+            '{' + variable_name + '}',
             variables[variable_name]
           );
         } else {
           throw new Error(
-            "The variable `" +
+            'The variable `' +
               variable_name +
-              "` in the host URL has invalid value " +
+              '` in the host URL has invalid value ' +
               variables[variable_name] +
-              ". Must be " +
-              server["variables"][variable_name]["enum_values"] +
-              "."
+              '. Must be ' +
+              server['variables'][variable_name]['enum_values'] +
+              '.'
           );
         }
       } else {
         // use default value
         url = url.replace(
-          "{" + variable_name + "}",
-          server["variables"][variable_name]["default_value"]
+          '{' + variable_name + '}',
+          server['variables'][variable_name]['default_value']
         );
       }
     }
@@ -503,11 +491,11 @@ class ApiClient {
 }
 
 ApiClient.CollectionFormatEnum = {
-  CSV: ",",
-  SSV: " ",
-  TSV: "\t",
-  PIPES: "|",
-  MULTI: "multi",
+  CSV: ',',
+  SSV: ' ',
+  TSV: '\t',
+  PIPES: '|',
+  MULTI: 'multi'
 };
 
 ApiClient.instance = new ApiClient();

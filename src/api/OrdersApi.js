@@ -5,11 +5,11 @@
  * Contact: developers@usepatch.com
  */
 
-import ApiClient from "../ApiClient";
-import CreateOrderRequest from "../model/CreateOrderRequest";
-import ErrorResponse from "../model/ErrorResponse";
-import OrderListResponse from "../model/OrderListResponse";
-import OrderResponse from "../model/OrderResponse";
+import ApiClient from '../ApiClient';
+import CreateOrderRequest from '../model/CreateOrderRequest';
+import ErrorResponse from '../model/ErrorResponse';
+import OrderListResponse from '../model/OrderListResponse';
+import OrderResponse from '../model/OrderResponse';
 
 export default class OrdersApi {
   constructor(apiClient) {
@@ -39,20 +39,20 @@ export default class OrdersApi {
     }
 
     let pathParams = {
-      id: id,
+      id: id
     };
     let queryParams = {};
     let headerParams = {};
     let formParams = {};
 
-    let authNames = ["bearer_auth"];
+    let authNames = ['bearer_auth'];
     let contentTypes = [];
-    let accepts = ["application/json"];
+    let accepts = ['application/json'];
     let returnType = OrderResponse;
 
     return this.apiClient.callApi(
-      "/v1/orders/{id}/cancel",
-      "PATCH",
+      '/v1/orders/{id}/cancel',
+      'PATCH',
       pathParams,
       queryParams,
       headerParams,
@@ -66,9 +66,7 @@ export default class OrdersApi {
   }
 
   cancelOrder(id) {
-    return this.cancelOrderWithHttpInfo(id).then(function (response_and_data) {
-      return response_and_data.data;
-    });
+    return this.cancelOrderWithHttpInfo(id);
   }
 
   createOrderWithHttpInfo(createOrderRequest) {
@@ -86,14 +84,14 @@ export default class OrdersApi {
     let headerParams = {};
     let formParams = {};
 
-    let authNames = ["bearer_auth"];
-    let contentTypes = ["application/json"];
-    let accepts = ["application/json"];
+    let authNames = ['bearer_auth'];
+    let contentTypes = ['application/json'];
+    let accepts = ['application/json'];
     let returnType = OrderResponse;
 
     return this.apiClient.callApi(
-      "/v1/orders",
-      "POST",
+      '/v1/orders',
+      'POST',
       pathParams,
       queryParams,
       headerParams,
@@ -107,11 +105,7 @@ export default class OrdersApi {
   }
 
   createOrder(createOrderRequest) {
-    return this.createOrderWithHttpInfo(createOrderRequest).then(function (
-      response_and_data
-    ) {
-      return response_and_data.data;
-    });
+    return this.createOrderWithHttpInfo(createOrderRequest);
   }
 
   placeOrderWithHttpInfo(id) {
@@ -125,20 +119,20 @@ export default class OrdersApi {
     }
 
     let pathParams = {
-      id: id,
+      id: id
     };
     let queryParams = {};
     let headerParams = {};
     let formParams = {};
 
-    let authNames = ["bearer_auth"];
+    let authNames = ['bearer_auth'];
     let contentTypes = [];
-    let accepts = ["application/json"];
+    let accepts = ['application/json'];
     let returnType = OrderResponse;
 
     return this.apiClient.callApi(
-      "/v1/orders/{id}/place",
-      "PATCH",
+      '/v1/orders/{id}/place',
+      'PATCH',
       pathParams,
       queryParams,
       headerParams,
@@ -152,9 +146,7 @@ export default class OrdersApi {
   }
 
   placeOrder(id) {
-    return this.placeOrderWithHttpInfo(id).then(function (response_and_data) {
-      return response_and_data.data;
-    });
+    return this.placeOrderWithHttpInfo(id);
   }
 
   retrieveOrderWithHttpInfo(id) {
@@ -168,20 +160,20 @@ export default class OrdersApi {
     }
 
     let pathParams = {
-      id: id,
+      id: id
     };
     let queryParams = {};
     let headerParams = {};
     let formParams = {};
 
-    let authNames = ["bearer_auth"];
+    let authNames = ['bearer_auth'];
     let contentTypes = [];
-    let accepts = ["application/json"];
+    let accepts = ['application/json'];
     let returnType = OrderResponse;
 
     return this.apiClient.callApi(
-      "/v1/orders/{id}",
-      "GET",
+      '/v1/orders/{id}',
+      'GET',
       pathParams,
       queryParams,
       headerParams,
@@ -195,11 +187,7 @@ export default class OrdersApi {
   }
 
   retrieveOrder(id) {
-    return this.retrieveOrderWithHttpInfo(id).then(function (
-      response_and_data
-    ) {
-      return response_and_data.data;
-    });
+    return this.retrieveOrderWithHttpInfo(id);
   }
 
   retrieveOrdersWithHttpInfo(opts) {
@@ -209,19 +197,19 @@ export default class OrdersApi {
 
     let pathParams = {};
     let queryParams = {
-      page: opts["page"],
+      page: opts['page']
     };
     let headerParams = {};
     let formParams = {};
 
-    let authNames = ["bearer_auth"];
+    let authNames = ['bearer_auth'];
     let contentTypes = [];
-    let accepts = ["application/json"];
+    let accepts = ['application/json'];
     let returnType = OrderListResponse;
 
     return this.apiClient.callApi(
-      "/v1/orders",
-      "GET",
+      '/v1/orders',
+      'GET',
       pathParams,
       queryParams,
       headerParams,
@@ -235,10 +223,6 @@ export default class OrdersApi {
   }
 
   retrieveOrders(opts) {
-    return this.retrieveOrdersWithHttpInfo(opts).then(function (
-      response_and_data
-    ) {
-      return response_and_data.data;
-    });
+    return this.retrieveOrdersWithHttpInfo(opts);
   }
 }

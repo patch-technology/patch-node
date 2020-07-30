@@ -5,11 +5,11 @@
  * Contact: developers@usepatch.com
  */
 
-import ApiClient from "../ApiClient";
-import CreateMassEstimateRequest from "../model/CreateMassEstimateRequest";
-import ErrorResponse from "../model/ErrorResponse";
-import EstimateListResponse from "../model/EstimateListResponse";
-import EstimateResponse from "../model/EstimateResponse";
+import ApiClient from '../ApiClient';
+import CreateMassEstimateRequest from '../model/CreateMassEstimateRequest';
+import ErrorResponse from '../model/ErrorResponse';
+import EstimateListResponse from '../model/EstimateListResponse';
+import EstimateResponse from '../model/EstimateResponse';
 
 export default class EstimatesApi {
   constructor(apiClient) {
@@ -46,14 +46,14 @@ export default class EstimatesApi {
     let headerParams = {};
     let formParams = {};
 
-    let authNames = ["bearer_auth"];
-    let contentTypes = ["application/json"];
-    let accepts = ["application/json"];
+    let authNames = ['bearer_auth'];
+    let contentTypes = ['application/json'];
+    let accepts = ['application/json'];
     let returnType = EstimateResponse;
 
     return this.apiClient.callApi(
-      "/v1/estimates/mass",
-      "POST",
+      '/v1/estimates/mass',
+      'POST',
       pathParams,
       queryParams,
       headerParams,
@@ -67,11 +67,7 @@ export default class EstimatesApi {
   }
 
   createMassEstimate(createMassEstimateRequest) {
-    return this.createMassEstimateWithHttpInfo(createMassEstimateRequest).then(
-      function (response_and_data) {
-        return response_and_data.data;
-      }
-    );
+    return this.createMassEstimateWithHttpInfo(createMassEstimateRequest);
   }
 
   retrieveEstimateWithHttpInfo(id) {
@@ -85,20 +81,20 @@ export default class EstimatesApi {
     }
 
     let pathParams = {
-      id: id,
+      id: id
     };
     let queryParams = {};
     let headerParams = {};
     let formParams = {};
 
-    let authNames = ["bearer_auth"];
+    let authNames = ['bearer_auth'];
     let contentTypes = [];
-    let accepts = ["application/json"];
+    let accepts = ['application/json'];
     let returnType = EstimateResponse;
 
     return this.apiClient.callApi(
-      "/v1/estimates/{id}",
-      "GET",
+      '/v1/estimates/{id}',
+      'GET',
       pathParams,
       queryParams,
       headerParams,
@@ -112,11 +108,7 @@ export default class EstimatesApi {
   }
 
   retrieveEstimate(id) {
-    return this.retrieveEstimateWithHttpInfo(id).then(function (
-      response_and_data
-    ) {
-      return response_and_data.data;
-    });
+    return this.retrieveEstimateWithHttpInfo(id);
   }
 
   retrieveEstimatesWithHttpInfo(opts) {
@@ -126,19 +118,19 @@ export default class EstimatesApi {
 
     let pathParams = {};
     let queryParams = {
-      page: opts["page"],
+      page: opts['page']
     };
     let headerParams = {};
     let formParams = {};
 
-    let authNames = ["bearer_auth"];
+    let authNames = ['bearer_auth'];
     let contentTypes = [];
-    let accepts = ["application/json"];
+    let accepts = ['application/json'];
     let returnType = EstimateListResponse;
 
     return this.apiClient.callApi(
-      "/v1/estimates",
-      "GET",
+      '/v1/estimates',
+      'GET',
       pathParams,
       queryParams,
       headerParams,
@@ -152,10 +144,6 @@ export default class EstimatesApi {
   }
 
   retrieveEstimates(opts) {
-    return this.retrieveEstimatesWithHttpInfo(opts).then(function (
-      response_and_data
-    ) {
-      return response_and_data.data;
-    });
+    return this.retrieveEstimatesWithHttpInfo(opts);
   }
 }

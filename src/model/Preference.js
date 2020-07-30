@@ -5,8 +5,8 @@
  * Contact: developers@usepatch.com
  */
 
-import ApiClient from "../ApiClient";
-import Project from "./Project";
+import ApiClient from '../ApiClient';
+import Project from './Project';
 
 class Preference {
   constructor() {
@@ -19,29 +19,29 @@ class Preference {
     if (data) {
       obj = obj || new Preference();
 
-      if (data.hasOwnProperty("id")) {
-        obj["id"] = ApiClient.convertToType(data["id"], "String");
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
 
-      if (data.hasOwnProperty("allocation_percentage")) {
-        obj["allocation_percentage"] = ApiClient.convertToType(
-          data["allocation_percentage"],
-          "Number"
+      if (data.hasOwnProperty('allocation_percentage')) {
+        obj['allocation_percentage'] = ApiClient.convertToType(
+          data['allocation_percentage'],
+          'Number'
         );
       }
 
-      if (data.hasOwnProperty("project")) {
-        obj["project"] = Project.constructFromObject(data["project"]);
+      if (data.hasOwnProperty('project')) {
+        obj['project'] = Project.constructFromObject(data['project']);
       }
     }
     return obj;
   }
 }
 
-Preference.prototype["id"] = undefined;
+Preference.prototype['id'] = undefined;
 
-Preference.prototype["allocation_percentage"] = undefined;
+Preference.prototype['allocation_percentage'] = undefined;
 
-Preference.prototype["project"] = undefined;
+Preference.prototype['project'] = undefined;
 
 export default Preference;

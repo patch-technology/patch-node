@@ -5,17 +5,17 @@
  * Contact: developers@usepatch.com
  */
 
-import ApiClient from "./ApiClient";
-import EstimatesApi from "./api/EstimatesApi";
-import OrdersApi from "./api/OrdersApi";
-import PreferencesApi from "./api/PreferencesApi";
-import ProjectsApi from "./api/ProjectsApi";
+import ApiClient from './ApiClient';
+import EstimatesApi from './api/EstimatesApi';
+import OrdersApi from './api/OrdersApi';
+import PreferencesApi from './api/PreferencesApi';
+import ProjectsApi from './api/ProjectsApi';
 
 export default function Patch(accessToken) {
   if (!(this instanceof Patch)) return new Patch(accessToken);
 
   this.client = ApiClient.instance;
-  this.client.authentications["bearer_auth"].accessToken = accessToken;
+  this.client.authentications['bearer_auth'].accessToken = accessToken;
 
   this.estimates = new EstimatesApi(this.client);
 

@@ -35,11 +35,11 @@ After installing the package, you'll have to configure it with your API key whic
 
 ```javascript
 // ES6+
-import Patch from "@patch-technology/patch";
-const patch = Patch("key_test_1234");
+import Patch from '@patch-technology/patch';
+const patch = Patch('key_test_1234');
 
 // ES5
-var patch = require("@patch-technology/patch")("key_test_1234");
+var patch = require('@patch-technology/patch')('key_test_1234');
 ```
 
 ### Orders
@@ -86,7 +86,7 @@ const mass = 1000000; // Pass in the mass in grams (i.e. 1 metric tonne)
 patch.estimates.createMassEstimate({ mass_g: mass });
 
 // Retrieve an estimate
-const estimateId = "est_test_1234";
+const estimateId = 'est_test_1234';
 patch.estimates.retrieveEstimate(estimate_id);
 
 // Retrieve a list of estimates
@@ -104,7 +104,7 @@ Projects are the ways Patch takes CO2 out of the air. They can represent refores
 
 ```javascript
 // Retrieve a project
-const project_id = "pro_test_1234"; // Pass in the project's ID
+const project_id = 'pro_test_1234'; // Pass in the project's ID
 patch.projects.retrieveProject(project_id);
 
 // Retrieve a list of projects
@@ -122,15 +122,15 @@ Preferences are how you route your orders in Patch. If you don't have a preferen
 
 ```javascript
 // Create a preference
-const projectId = "pro_test_1234"; // Pass in the project_id for your preference
+const projectId = 'pro_test_1234'; // Pass in the project_id for your preference
 patch.preferences.create_preference((project_id: projectId));
 
 // Retrieve a preference
-const preferenceId = "pre_test_1234"; // Pass in the preferences's id
+const preferenceId = 'pre_test_1234'; // Pass in the preferences's id
 patch.preferences.retrieve_preference(preferenceId);
 
 // Delete a preference
-const preferenceId = "pre_test_1234"; // Pass in the preferences's id
+const preferenceId = 'pre_test_1234'; // Pass in the preferences's id
 patch.preferences.delete_preference(preferenceId);
 
 // Retrieve a list of preferences
