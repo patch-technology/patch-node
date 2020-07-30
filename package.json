@@ -48,6 +48,17 @@
   "files": [
     "dist"
   ],
+  "keywords": [
+    "carbon",
+    "offset",
+    "patch",
+    "sustainability",
+    "carbon neutral",
+    "carbon removal",
+    "carbon sequestration",
+    "trees",
+    "api"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "npx prettier --write ."

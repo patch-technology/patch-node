@@ -40,7 +40,7 @@ import Patch from '@patch-technology/patch';
 const patch = Patch('key_test_1234');
 
 // ES5
-var patch = require('@patch-technology/patch')('key_test_1234');
+var patch = require('@patch-technology/patch').default('key_test_1234');
 ```
 
 ### Orders
