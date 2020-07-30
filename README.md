@@ -105,7 +105,7 @@ Projects are the ways Patch takes CO2 out of the air. They can represent refores
 ```javascript
 // Retrieve a project
 const project_id = 'pro_test_1234'; // Pass in the project's ID
-patch.projects.retrieveProject(project_id);
+patch.projects.retrieveProject(projectId);
 
 // Retrieve a list of projects
 const page = 1; // Pass in which page of projects you'd like
