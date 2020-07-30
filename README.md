@@ -123,7 +123,7 @@ Preferences are how you route your orders in Patch. If you don't have a preferen
 ```javascript
 // Create a preference
 const projectId = 'pro_test_1234'; // Pass in the project_id for your preference
-patch.preferences.create_preference((project_id: projectId));
+patch.preferences.createPreference((project_id: projectId));
 
 // Retrieve a preference
 const preferenceId = 'pre_test_1234'; // Pass in the preferences's id
