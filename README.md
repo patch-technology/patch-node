@@ -109,7 +109,7 @@ patch.projects.retrieveProject(projectId);
 
 // Retrieve a list of projects
 const page = 1; // Pass in which page of projects you'd like
-patch.projects.retrieve_projects({ page });
+patch.projects.retrieveProjects({ page });
 ```
 
 ### Preferences
