@@ -127,7 +127,7 @@ patch.preferences.create_preference((project_id: projectId));
 
 // Retrieve a preference
 const preferenceId = 'pre_test_1234'; // Pass in the preferences's id
-patch.preferences.retrieve_preference(preferenceId);
+patch.preferences.retrievePreference(preferenceId);
 
 // Delete a preference
 const preferenceId = 'pre_test_1234'; // Pass in the preferences's id
