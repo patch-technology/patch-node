@@ -131,7 +131,7 @@ patch.preferences.retrieve_preference(preferenceId);
 
 // Delete a preference
 const preferenceId = 'pre_test_1234'; // Pass in the preferences's id
-patch.preferences.delete_preference(preferenceId);
+patch.preferences.deletePreference(preferenceId);
 
 // Retrieve a list of preferences
 const page = 1; // Pass in which page of preferences you'd like
