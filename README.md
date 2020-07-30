@@ -135,5 +135,5 @@ patch.preferences.delete_preference(preferenceId);
 
 // Retrieve a list of preferences
 const page = 1; // Pass in which page of preferences you'd like
-patch.preferences.retrieve_preferences({ page });
+patch.preferences.retrievePreferences({ page });
 ```
