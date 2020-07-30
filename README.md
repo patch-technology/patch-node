@@ -11,12 +11,12 @@ For a complete API reference, check out [Patch's API Reference.](https://docs.us
 
 ### NPM
 ```shell
-npm install patch-node --save
+npm install @patch-technology/patch --save
 ```
 
 ### Yarn
 ```shell
-yarn add patch-node
+yarn add @patch-technology/patch
 ```
 
 ### Requirements
@@ -29,11 +29,11 @@ yarn add patch-node
 After installing the package, you'll have to configure it with your API key which is available from the API key page in the Patch dashboard:
 ```javascript
 // ES6+
-import Patch from 'patch-node'
+import Patch from '@patch-technology/patch'
 const patch = Patch('key_test_1234')
 
 // ES5
-var patch = require('patch-node')('key_test_1234')
+var patch = require('@patch-technology/patch')('key_test_1234')
 ```
 
 ### Orders
