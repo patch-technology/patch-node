@@ -1,6 +1,7 @@
 # Patch Javascript SDK
 
 ![Test](https://github.com/patch-technology/patch-node/workflows/Test/badge.svg)
+[![npm version](https://badge.fury.io/js/%40patch-technology%2Fpatch@2x.png)](https://badge.fury.io/js/%40patch-technology%2Fpatch)
 [![Discord](https://img.shields.io/discord/733029448558837792)](https://discord.gg/M23NnGR)
 
 The official Javascript package for the [Patch API](https://www.usepatch.com)
@@ -39,7 +40,7 @@ import Patch from '@patch-technology/patch';
 const patch = Patch('key_test_1234');
 
 // ES5
-var patch = require('@patch-technology/patch')('key_test_1234');
+var patch = require('@patch-technology/patch').default('key_test_1234');
 ```
 
 ### Orders

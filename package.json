@@ -1,6 +1,6 @@
 {
   "name": "@patch-technology/patch",
-  "version": "1.0.0-rc.2",
+  "version": "1.0.0",
   "description": "Javascript wrapper for the Patch API",
   "license": "MIT",
   "repository": {
@@ -47,6 +47,17 @@
   },
   "files": [
     "dist"
+  ],
+  "keywords": [
+    "carbon",
+    "offset",
+    "patch",
+    "sustainability",
+    "carbon neutral",
+    "carbon removal",
+    "carbon sequestration",
+    "trees",
+    "api"
   ],
   "husky": {
     "hooks": {
