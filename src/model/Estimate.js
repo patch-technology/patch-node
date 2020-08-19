@@ -9,11 +9,15 @@ import ApiClient from '../ApiClient';
 import Order from './Order';
 
 class Estimate {
-  constructor() {
-    Estimate.initialize(this);
+  constructor(id, production, type) {
+    Estimate.initialize(this, id, production, type);
   }
 
-  static initialize(obj) {}
+  static initialize(obj, id, production, type) {
+    obj['id'] = id;
+    obj['production'] = production;
+    obj['type'] = type;
+  }
 
   static constructFromObject(data, obj) {
     if (data) {

@@ -23,11 +23,26 @@ class CreateOrderRequest {
       if (data.hasOwnProperty('mass_g')) {
         obj['mass_g'] = ApiClient.convertToType(data['mass_g'], 'Number');
       }
+
+      if (data.hasOwnProperty('project_id')) {
+        obj['project_id'] = ApiClient.convertToType(
+          data['project_id'],
+          'String'
+        );
+      }
+
+      if (data.hasOwnProperty('metadata')) {
+        obj['metadata'] = ApiClient.convertToType(data['metadata'], Object);
+      }
     }
     return obj;
   }
 }
 
 CreateOrderRequest.prototype['mass_g'] = undefined;
+
+CreateOrderRequest.prototype['project_id'] = undefined;
+
+CreateOrderRequest.prototype['metadata'] = undefined;
 
 export default CreateOrderRequest;

@@ -23,11 +23,20 @@ class CreateMassEstimateRequest {
       if (data.hasOwnProperty('mass_g')) {
         obj['mass_g'] = ApiClient.convertToType(data['mass_g'], 'Number');
       }
+
+      if (data.hasOwnProperty('project_id')) {
+        obj['project_id'] = ApiClient.convertToType(
+          data['project_id'],
+          'String'
+        );
+      }
     }
     return obj;
   }
 }
 
 CreateMassEstimateRequest.prototype['mass_g'] = undefined;
+
+CreateMassEstimateRequest.prototype['project_id'] = undefined;
 
 export default CreateMassEstimateRequest;
