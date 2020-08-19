@@ -150,3 +150,23 @@ patch.preferences.deletePreference(preferenceId)
 const page = 1 // Pass in which page of preferences you'd like
 patch.preferences.retrievePreferences({ page })
 ```
+
+## Development
+
+Install node modules
+
+```
+$ npm install
+```
+
+Set required environment variables:
+
+```
+$ export SANDBOX_API_KEY=<SANDBOX API KEY>
+```
+
+Run tests:
+
+```
+$ npm test
+```
