@@ -53,24 +53,32 @@ In Patch, orders represent a purchase of carbon offsets or negative emissions by
 
 ```javascript
 // Create an order
-const mass = 1000000 // Pass in the mass in grams (i.e. 1 metric tonne)
-patch.orders.createOrder({ mass_g: mass })
+const mass = 1000000; // Pass in the mass in grams (i.e. 1 metric tonne)
+patch.orders.createOrder({ mass_g: mass });
+
+// You can also specify a project-id field (optional) to be used instead of the preferred one
+projectId = 'pro_test_1234'; // Pass in the project's ID
+patch.orders.createOrder({ mass_g: mass, project_id: projectId });
+
+// Orders also accept a metadata field (optional)
+metadata = { user: 'john doe' };
+patch.orders.createOrder({ mass_g: mass, metadata: metadata });
 
 // Retrieve an order
-orderId = 'ord_test_1234' // Pass in the order's id
-patch.orders.retrieveOrder(orderId)
+orderId = 'ord_test_1234'; // Pass in the order's id
+patch.orders.retrieveOrder(orderId);
 
 // Place an order
-const orderId = 'ord_test_1234' // Pass in the order's id
-patch.orders.placeOrder(orderId)
+const orderId = 'ord_test_1234'; // Pass in the order's id
+patch.orders.placeOrder(orderId);
 
 // Cancel an order
-const orderId = 'ord_test_1234' // Pass in the order's id
-patch.orders.cancelOrder(orderId)
+const orderId = 'ord_test_1234'; // Pass in the order's id
+patch.orders.cancelOrder(orderId);
 
 // Retrieve a list of orders
-const page = 1 // Pass in which page of orders you'd like
-patch.orders.retrieveOrders({ page })
+const page = 1; // Pass in which page of orders you'd like
+patch.orders.retrieveOrders({ page });
 ```
 
 ### Estimates
@@ -85,6 +93,10 @@ Estimates allow API users to get a quote for the cost of compensating a certain 
 // Create an estimate
 const mass = 1000000; // Pass in the mass in grams (i.e. 1 metric tonne)
 patch.estimates.createMassEstimate({ mass_g: mass });
+
+// You can also specify a project-id field (optional) to be used instead of the preferred one
+projectId = 'pro_test_1234'; // Pass in the project's ID
+patch.estimates.createMassEstimate({ mass_g: mass, project_id: projectId });
 
 // Retrieve an estimate
 const estimateId = 'est_test_1234';
@@ -124,7 +136,7 @@ Preferences are how you route your orders in Patch. If you don't have a preferen
 ```javascript
 // Create a preference
 const projectId = 'pro_test_1234'; // Pass in the project_id for your preference
-patch.preferences.createPreference((project_id: projectId));
+patch.preferences.createPreference({ project_id: projectId });
 
 // Retrieve a preference
 const preferenceId = 'pre_test_1234'; // Pass in the preferences's id
