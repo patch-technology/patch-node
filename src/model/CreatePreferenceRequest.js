@@ -5,32 +5,32 @@
  * Contact: developers@usepatch.com
  */
 
-import ApiClient from '../ApiClient';
+import ApiClient from '../ApiClient'
 
 class CreatePreferenceRequest {
   constructor(projectId) {
-    CreatePreferenceRequest.initialize(this, projectId);
+    CreatePreferenceRequest.initialize(this, projectId)
   }
 
   static initialize(obj, projectId) {
-    obj['project_id'] = projectId;
+    obj['project_id'] = projectId
   }
 
   static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new CreatePreferenceRequest();
+      obj = obj || new CreatePreferenceRequest()
 
       if (data.hasOwnProperty('project_id')) {
         obj['project_id'] = ApiClient.convertToType(
           data['project_id'],
           'String'
-        );
+        )
       }
     }
-    return obj;
+    return obj
   }
 }
 
-CreatePreferenceRequest.prototype['project_id'] = undefined;
+CreatePreferenceRequest.prototype['project_id'] = undefined
 
-export default CreatePreferenceRequest;
+export default CreatePreferenceRequest
