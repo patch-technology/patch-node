@@ -39,7 +39,7 @@ describe('Orders Integration', function () {
 
     expect(createOrderResponse.success).to.equal(true)
     expect(createOrderResponse.data.id).not.to.be.empty
-    expect(createOrderResponse.data.metadata).to.eq({ user: 'john doe' })
+    expect(createOrderResponse.data.metadata.user).to.eq('john doe')
   })
 
   it('supports placing orders in a `draft` state', async function () {
