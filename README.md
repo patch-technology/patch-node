@@ -165,6 +165,12 @@ Set required environment variables:
 $ export SANDBOX_API_KEY=<SANDBOX API KEY>
 ```
 
+Build:
+
+```
+$ npm run build
+```
+
 Run tests:
 
 ```

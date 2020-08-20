@@ -16,11 +16,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * Contact: developers@usepatch.com
  */
 class Allocation {
-  constructor() {
-    Allocation.initialize(this);
+  constructor(id, production, massG) {
+    Allocation.initialize(this, id, production, massG);
   }
 
-  static initialize(obj) {}
+  static initialize(obj, id, production, massG) {
+    obj['id'] = id;
+    obj['production'] = production;
+    obj['mass_g'] = massG;
+  }
 
   static constructFromObject(data, obj) {
     if (data) {

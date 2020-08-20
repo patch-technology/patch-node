@@ -18,11 +18,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * Contact: developers@usepatch.com
  */
 class Preference {
-  constructor() {
-    Preference.initialize(this);
+  constructor(id, allocationPercentage, project) {
+    Preference.initialize(this, id, allocationPercentage, project);
   }
 
-  static initialize(obj) {}
+  static initialize(obj, id, allocationPercentage, project) {
+    obj['id'] = id;
+    obj['allocation_percentage'] = allocationPercentage;
+    obj['project'] = project;
+  }
 
   static constructFromObject(data, obj) {
     if (data) {
