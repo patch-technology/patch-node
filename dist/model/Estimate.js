@@ -18,11 +18,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * Contact: developers@usepatch.com
  */
 class Estimate {
-  constructor() {
-    Estimate.initialize(this);
+  constructor(id, production, type) {
+    Estimate.initialize(this, id, production, type);
   }
 
-  static initialize(obj) {}
+  static initialize(obj, id, production, type) {
+    obj['id'] = id;
+    obj['production'] = production;
+    obj['type'] = type;
+  }
 
   static constructFromObject(data, obj) {
     if (data) {

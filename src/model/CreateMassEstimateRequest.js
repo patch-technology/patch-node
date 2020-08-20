@@ -5,29 +5,38 @@
  * Contact: developers@usepatch.com
  */
 
-import ApiClient from '../ApiClient';
+import ApiClient from '../ApiClient'
 
 class CreateMassEstimateRequest {
   constructor(massG) {
-    CreateMassEstimateRequest.initialize(this, massG);
+    CreateMassEstimateRequest.initialize(this, massG)
   }
 
   static initialize(obj, massG) {
-    obj['mass_g'] = massG;
+    obj['mass_g'] = massG
   }
 
   static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new CreateMassEstimateRequest();
+      obj = obj || new CreateMassEstimateRequest()
 
       if (data.hasOwnProperty('mass_g')) {
-        obj['mass_g'] = ApiClient.convertToType(data['mass_g'], 'Number');
+        obj['mass_g'] = ApiClient.convertToType(data['mass_g'], 'Number')
+      }
+
+      if (data.hasOwnProperty('project_id')) {
+        obj['project_id'] = ApiClient.convertToType(
+          data['project_id'],
+          'String'
+        )
       }
     }
-    return obj;
+    return obj
   }
 }
 
-CreateMassEstimateRequest.prototype['mass_g'] = undefined;
+CreateMassEstimateRequest.prototype['mass_g'] = undefined
 
-export default CreateMassEstimateRequest;
+CreateMassEstimateRequest.prototype['project_id'] = undefined
+
+export default CreateMassEstimateRequest
