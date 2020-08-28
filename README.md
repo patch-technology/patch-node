@@ -8,7 +8,7 @@ The official Javascript package for the [Patch API](https://www.usepatch.com)
 
 ## Documentation
 
-For a complete API reference, check out [Patch's API Reference.](https://docs.usepatch.com/docs/patch/openapi/v1/swagger.yaml)
+For a complete API reference, check out [Patch's API Reference.](https://docs.usepatch.com)
 
 ## Installation
 
@@ -47,7 +47,7 @@ var patch = require('@patch-technology/patch').default('key_test_1234')
 
 In Patch, orders represent a purchase of carbon offsets or negative emissions by mass. Place orders directly if you know the amount of carbon dioxide you would like to sequester. If you do not know how much to purchase, use an estimate.
 
-[API Reference](https://docs.usepatch.com/docs/patch/openapi/v1/swagger.yaml/paths/~1v1~1orders/get)
+[API Reference](https://docs.usepatch.com/#/?id=orders)
 
 #### Examples
 
@@ -85,7 +85,7 @@ patch.orders.retrieveOrders({ page })
 
 Estimates allow API users to get a quote for the cost of compensating a certain amount of CO2. When creating an estimate, an order in the `draft` state will also be created, reserving the allocation of a project for 5 minutes. If you don't place your draft order within those 5 minutes, the order will automatically be cancelled.
 
-[API Reference](https://docs.usepatch.com/docs/patch/openapi/v1/swagger.yaml/paths/~1v1~1estimates/get)
+[API Reference](https://docs.usepatch.com/#/?id=estimates)
 
 #### Examples
 
@@ -111,7 +111,7 @@ patch.estimates.retrieveEstimates({ page })
 
 Projects are the ways Patch takes CO2 out of the air. They can represent reforestation, enhanced weathering, direct air carbon capture, etc. When you place an order via Patch, it is allocated to a project.
 
-[API Reference](https://docs.usepatch.com/docs/patch/openapi/v1/swagger.yaml/paths/~1v1~1projects/get)
+[API Reference](https://docs.usepatch.com/#/?id=projects)
 
 #### Examples
 
@@ -129,7 +129,7 @@ patch.projects.retrieveProjects({ page })
 
 Preferences are how you route your orders in Patch. If you don't have a preference, Patch will allocate your order to the least expensive option. If you do have a preference, all of your orders will be sent to that project. You can set your preferences via API, or through the [Patch Dashboard](https://dashboard.usepatch.com/projects).
 
-[API Reference](https://docs.usepatch.com/docs/patch/openapi/v1/swagger.yaml/paths/~1v1~1preferences/post)
+[API Reference](https://docs.usepatch.com/#/?id=preferences)
 
 #### Examples
 
