@@ -1,6 +1,6 @@
 {
   "name": "@patch-technology/patch",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "Javascript wrapper for the Patch API",
   "license": "MIT",
   "repository": {
@@ -42,7 +42,7 @@
     "@babel/register": "^7.0.0",
     "chai": "^4.2.0",
     "husky": "^4.2.5",
-    "mocha": "^8.0.1",
+    "mocha": ">=8.1.0",
     "prettier": "2.0.5"
   },
   "files": [
