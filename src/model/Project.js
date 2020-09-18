@@ -6,13 +6,53 @@
  */
 
 import ApiClient from '../ApiClient';
+import OneOfstandard from './OneOfstandard';
+import Photo from './Photo';
 
 class Project {
-  constructor() {
-    Project.initialize(this);
+  constructor(
+    id,
+    production,
+    name,
+    description,
+    country,
+    developer,
+    averagePricePerTonneCentsUsd,
+    remainingMassG
+  ) {
+    Project.initialize(
+      this,
+      id,
+      production,
+      name,
+      description,
+      country,
+      developer,
+      averagePricePerTonneCentsUsd,
+      remainingMassG
+    );
   }
 
-  static initialize(obj) {}
+  static initialize(
+    obj,
+    id,
+    production,
+    name,
+    description,
+    country,
+    developer,
+    averagePricePerTonneCentsUsd,
+    remainingMassG
+  ) {
+    obj['id'] = id;
+    obj['production'] = production;
+    obj['name'] = name;
+    obj['description'] = description;
+    obj['country'] = country;
+    obj['developer'] = developer;
+    obj['average_price_per_tonne_cents_usd'] = averagePricePerTonneCentsUsd;
+    obj['remaining_mass_g'] = remainingMassG;
+  }
 
   static constructFromObject(data, obj) {
     if (data) {
@@ -40,24 +80,41 @@ class Project {
         );
       }
 
+      if (data.hasOwnProperty('type')) {
+        obj['type'] = ApiClient.convertToType(data['type'], 'String');
+      }
+
       if (data.hasOwnProperty('country')) {
         obj['country'] = ApiClient.convertToType(data['country'], 'String');
       }
 
-      if (data.hasOwnProperty('longitude')) {
-        obj['longitude'] = ApiClient.convertToType(data['longitude'], 'Number');
-      }
-
-      if (data.hasOwnProperty('latitude')) {
-        obj['latitude'] = ApiClient.convertToType(data['latitude'], 'Number');
-      }
-
-      if (data.hasOwnProperty('verifier')) {
-        obj['verifier'] = ApiClient.convertToType(data['verifier'], 'String');
-      }
-
       if (data.hasOwnProperty('developer')) {
         obj['developer'] = ApiClient.convertToType(data['developer'], 'String');
+      }
+
+      if (data.hasOwnProperty('photos')) {
+        obj['photos'] = ApiClient.convertToType(data['photos'], [Photo]);
+      }
+
+      if (data.hasOwnProperty('average_price_per_tonne_cents_usd')) {
+        obj['average_price_per_tonne_cents_usd'] = ApiClient.convertToType(
+          data['average_price_per_tonne_cents_usd'],
+          'Number'
+        );
+      }
+
+      if (data.hasOwnProperty('remaining_mass_g')) {
+        obj['remaining_mass_g'] = ApiClient.convertToType(
+          data['remaining_mass_g'],
+          'Number'
+        );
+      }
+
+      if (data.hasOwnProperty('standard')) {
+        obj['standard'] = ApiClient.convertToType(
+          data['standard'],
+          OneOfstandard
+        );
       }
     }
     return obj;
@@ -72,14 +129,18 @@ Project.prototype['name'] = undefined;
 
 Project.prototype['description'] = undefined;
 
+Project.prototype['type'] = undefined;
+
 Project.prototype['country'] = undefined;
 
-Project.prototype['longitude'] = undefined;
-
-Project.prototype['latitude'] = undefined;
-
-Project.prototype['verifier'] = undefined;
-
 Project.prototype['developer'] = undefined;
+
+Project.prototype['photos'] = undefined;
+
+Project.prototype['average_price_per_tonne_cents_usd'] = undefined;
+
+Project.prototype['remaining_mass_g'] = undefined;
+
+Project.prototype['standard'] = undefined;
 
 export default Project;

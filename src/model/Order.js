@@ -9,11 +9,49 @@ import ApiClient from '../ApiClient';
 import Allocation from './Allocation';
 
 class Order {
-  constructor() {
-    Order.initialize(this);
+  constructor(
+    id,
+    massG,
+    production,
+    state,
+    allocationState,
+    priceCentsUsd,
+    allocations,
+    metadata
+  ) {
+    Order.initialize(
+      this,
+      id,
+      massG,
+      production,
+      state,
+      allocationState,
+      priceCentsUsd,
+      allocations,
+      metadata
+    );
   }
 
-  static initialize(obj) {}
+  static initialize(
+    obj,
+    id,
+    massG,
+    production,
+    state,
+    allocationState,
+    priceCentsUsd,
+    allocations,
+    metadata
+  ) {
+    obj['id'] = id;
+    obj['mass_g'] = massG;
+    obj['production'] = production;
+    obj['state'] = state;
+    obj['allocation_state'] = allocationState;
+    obj['price_cents_usd'] = priceCentsUsd;
+    obj['allocations'] = allocations;
+    obj['metadata'] = metadata;
+  }
 
   static constructFromObject(data, obj) {
     if (data) {
@@ -57,6 +95,10 @@ class Order {
           Allocation
         ]);
       }
+
+      if (data.hasOwnProperty('metadata')) {
+        obj['metadata'] = ApiClient.convertToType(data['metadata'], Object);
+      }
     }
     return obj;
   }
@@ -75,5 +117,7 @@ Order.prototype['allocation_state'] = undefined;
 Order.prototype['price_cents_usd'] = undefined;
 
 Order.prototype['allocations'] = undefined;
+
+Order.prototype['metadata'] = undefined;
 
 export default Order;
