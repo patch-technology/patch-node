@@ -6,8 +6,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import OneOfstandard from './OneOfstandard';
 import Photo from './Photo';
+import Standard from './Standard';
 
 class Project {
   constructor(
@@ -111,10 +111,7 @@ class Project {
       }
 
       if (data.hasOwnProperty('standard')) {
-        obj['standard'] = ApiClient.convertToType(
-          data['standard'],
-          OneOfstandard
-        );
+        obj['standard'] = ApiClient.convertToType(data['standard'], Standard);
       }
     }
     return obj;
