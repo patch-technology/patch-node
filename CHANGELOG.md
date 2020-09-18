@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - `photos` field to `projects`
-- `average_price_per_tonne` field to `projects`
+- `average_price_per_tonne_cents_usd` field to `projects`
 - `remaining_mass_g` field to `projects`
 - `standard` field to `projects`
 - validations on `mass_g` field (has to be greater than 1 and less than 2,000,000,000) to `orders` and `estimates` creation
