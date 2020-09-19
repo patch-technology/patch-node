@@ -1,3 +1,5 @@
 # OpenAPI Code gen artifacts
 .openapi-generator
 .openapi-generator-ignore
+dist
+node_modules

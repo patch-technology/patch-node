@@ -22,7 +22,8 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Install Node Modules
         run: npm install
-
+      - name: Build package
+        run: npm run build
       - name: Run tests
         env:
           SANDBOX_API_KEY: ${{ secrets.SANDBOX_API_KEY }}
