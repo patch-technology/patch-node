@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.2] - 2020-09-18
+
+### Added
+
+- `photos` field to `projects`
+
 ## [1.2.1] - 2020-09-18
 
 ### Fixed
@@ -17,7 +23,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- `photos` field to `projects`
 - `average_price_per_tonne_cents_usd` field to `projects`
 - `remaining_mass_g` field to `projects`
 - `standard` field to `projects`

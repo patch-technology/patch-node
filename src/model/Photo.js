@@ -18,14 +18,14 @@ class Photo {
     if (data) {
       obj = obj || new Photo();
 
-      if (data.hasOwnProperty('file')) {
-        obj['file'] = ApiClient.convertToType(data['file'], 'String');
+      if (data.hasOwnProperty('url')) {
+        obj['url'] = ApiClient.convertToType(data['url'], 'String');
       }
     }
     return obj;
   }
 }
 
-Photo.prototype['file'] = undefined;
+Photo.prototype['url'] = undefined;
 
 export default Photo;
