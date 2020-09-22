@@ -1,7 +1,7 @@
 name: Health check
 on:
   schedule:
-    - cron: '0 8 * * *' # Run once a day at 8am UTC
+    - cron: '0 9 * * * America/Los_Angeles'
 
 jobs:
   build-and-test:
@@ -26,3 +26,16 @@ jobs:
         env:
           SANDBOX_API_KEY: ${{ secrets.SANDBOX_API_KEY }}
         run: npm test
+
+  failure-notification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: exit 1
+      - name: Health check failure
+        if: always()
+        uses: kpritam/slack-job-status-action@v1
+        with:
+          job-status: ${{ job.status }}
+          slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
+          channel: github-actions
