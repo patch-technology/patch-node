@@ -138,3 +138,57 @@ patch.preferences.deletePreference(preferenceId);
 const page = 1; // Pass in which page of preferences you'd like
 patch.preferences.retrievePreferences({ page });
 ```
+
+## Development
+
+### Build and manually test
+
+To build and test the package locally, run:
+
+```
+$ npm run build
+```
+
+This will generate a `dist` folder with the compiled code. Next you want to link the package and use it in a different folder.
+
+In the patch-node folder, run:
+
+```
+$ npm link
+```
+
+Navigate to a different, empty folder:
+
+```
+$ cd ..
+$ mkdir test-patch-node
+$ cd test-patch-node
+```
+
+In that repository, run the following command to use the locally built package:
+
+```
+$ npm link @patch-technology/patch
+```
+
+This will create a `node_modules` directory in your test repository which will symlink to your locally built package. To test out the package, open a node REPL and import the package and run some queries.
+
+```
+$ node
+> const Patch = require('@patch-technology/patch')
+> Patch.default('<PATCH_API_KEY>').projects.retrieveProjects().then((response) => console.log(response))
+```
+
+### Run the specs
+
+Before running the tests, make sure you set the test API key! (please use test API keys and not production ones, they usually start with `key_test_`)
+
+```
+$ export SANDBOX_API_KEY=<PATCH_TEST_API_KEY>
+```
+
+Then you are ready to run the tests:
+
+```
+$ npm run test
+```
