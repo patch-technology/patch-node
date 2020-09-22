@@ -1,0 +1,28 @@
+name: Health check
+on:
+  schedule:
+    - cron: '0 8 * * *' # Run once a day at 8am UTC
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ['10', '12', '14']
+    name: Node ${{ matrix.node }} Test
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Install Node Modules
+        run: npm install
+      - name: Build package
+        run: npm run build
+      - name: Run tests
+        env:
+          SANDBOX_API_KEY: ${{ secrets.SANDBOX_API_KEY }}
+        run: npm test
