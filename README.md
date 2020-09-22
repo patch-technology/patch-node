@@ -181,7 +181,7 @@ $ node
 
 ### Run the specs
 
-Before running the tests, make sure you set the API key!
+Before running the tests, make sure you set the test API key! (please use test API keys and not production ones, they usually start with `key_test_`)
 
 ```
 $ export SANDBOX_API_KEY=<PATCH_API_KEY>
