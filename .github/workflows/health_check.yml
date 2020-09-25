@@ -1,7 +1,7 @@
 name: Health check
 on:
   schedule:
-    - cron: '0 9 * * * America/Los_Angeles'
+    - cron: '0 17 * * *'
 
 jobs:
   build-and-test:
