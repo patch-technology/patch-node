@@ -11,11 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- `patch_fee_cents_usd` `integer` field to `orders`
-
-## Changed
-
-- `price_cents_usd` type changed from `string` to `integer`
+- `patch_fee_cents_usd` field to `orders`
 
 ## [1.2.2] - 2020-09-18
 
