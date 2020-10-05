@@ -16,6 +16,7 @@ class Order {
     state,
     allocationState,
     priceCentsUsd,
+    patchFeeCentsUsd,
     allocations,
     metadata
   ) {
@@ -27,6 +28,7 @@ class Order {
       state,
       allocationState,
       priceCentsUsd,
+      patchFeeCentsUsd,
       allocations,
       metadata
     );
@@ -40,6 +42,7 @@ class Order {
     state,
     allocationState,
     priceCentsUsd,
+    patchFeeCentsUsd,
     allocations,
     metadata
   ) {
@@ -49,6 +52,7 @@ class Order {
     obj['state'] = state;
     obj['allocation_state'] = allocationState;
     obj['price_cents_usd'] = priceCentsUsd;
+    obj['patch_fee_cents_usd'] = patchFeeCentsUsd;
     obj['allocations'] = allocations;
     obj['metadata'] = metadata;
   }
@@ -90,6 +94,13 @@ class Order {
         );
       }
 
+      if (data.hasOwnProperty('patch_fee_cents_usd')) {
+        obj['patch_fee_cents_usd'] = ApiClient.convertToType(
+          data['patch_fee_cents_usd'],
+          'String'
+        );
+      }
+
       if (data.hasOwnProperty('allocations')) {
         obj['allocations'] = ApiClient.convertToType(data['allocations'], [
           Allocation
@@ -115,6 +126,8 @@ Order.prototype['state'] = undefined;
 Order.prototype['allocation_state'] = undefined;
 
 Order.prototype['price_cents_usd'] = undefined;
+
+Order.prototype['patch_fee_cents_usd'] = undefined;
 
 Order.prototype['allocations'] = undefined;
 

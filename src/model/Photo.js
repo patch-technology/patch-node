@@ -8,11 +8,13 @@
 import ApiClient from '../ApiClient';
 
 class Photo {
-  constructor() {
-    Photo.initialize(this);
+  constructor(url) {
+    Photo.initialize(this, url);
   }
 
-  static initialize(obj) {}
+  static initialize(obj, url) {
+    obj['url'] = url;
+  }
 
   static constructFromObject(data, obj) {
     if (data) {
