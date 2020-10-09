@@ -8,13 +8,11 @@
 import ApiClient from '../ApiClient';
 
 class CreateOrderRequest {
-  constructor(massG) {
-    CreateOrderRequest.initialize(this, massG);
+  constructor() {
+    CreateOrderRequest.initialize(this);
   }
 
-  static initialize(obj, massG) {
-    obj['mass_g'] = massG;
-  }
+  static initialize(obj) {}
 
   static constructFromObject(data, obj) {
     if (data) {
@@ -22,6 +20,13 @@ class CreateOrderRequest {
 
       if (data.hasOwnProperty('mass_g')) {
         obj['mass_g'] = ApiClient.convertToType(data['mass_g'], 'Number');
+      }
+
+      if (data.hasOwnProperty('total_price_cents_usd')) {
+        obj['total_price_cents_usd'] = ApiClient.convertToType(
+          data['total_price_cents_usd'],
+          'Number'
+        );
       }
 
       if (data.hasOwnProperty('project_id')) {
@@ -40,6 +45,8 @@ class CreateOrderRequest {
 }
 
 CreateOrderRequest.prototype['mass_g'] = undefined;
+
+CreateOrderRequest.prototype['total_price_cents_usd'] = undefined;
 
 CreateOrderRequest.prototype['project_id'] = undefined;
 
