@@ -7,13 +7,21 @@ describe('Orders Integration', function () {
     const createOrderResponse = await patch.orders.createOrder({ mass_g: 100 });
     const orderId = createOrderResponse.data.id;
 
-    const retreiveOrderResponse = await patch.orders.retrieveOrder(orderId);
-    expect(retreiveOrderResponse.data.id).to.equal(orderId);
+    const retrieveOrderResponse = await patch.orders.retrieveOrder(orderId);
+    expect(retrieveOrderResponse.data.id).to.equal(orderId);
 
     const retrieveOrdersResponse = await patch.orders.retrieveOrders({
       page: 1
     });
     expect(retrieveOrdersResponse.data.length).to.be.above(0);
+  });
+
+  it('supports create orders with a total price', async function () {
+    const createOrderResponse = await patch.orders.createOrder({
+      total_price_cents_usd: 1000
+    });
+    expect(createOrderResponse.data.price_cents_usd).to.equal('6.66');
+    expect(createOrderResponse.data.patch_fee_cents_usd).to.equal('3.33');
   });
 
   it('supports placing orders in a `draft` state', async function () {
