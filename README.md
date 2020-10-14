@@ -45,22 +45,28 @@ var patch = require('@patch-technology/patch').default('key_test_1234');
 
 ### Orders
 
-In Patch, orders represent a purchase of carbon offsets or negative emissions by mass. Place orders directly if you know the amount of carbon dioxide you would like to sequester. If you do not know how much to purchase, use an estimate.
+In Patch, orders represent a purchase of carbon offsets or negative emissions by mass. 
+Place orders directly if you know the amount of carbon dioxide you would like to sequester. 
+If you do not know how much to purchase, use an estimate.
+You can also create an order with a maximum desired price, and we'll allocate enough mass to 
+fulfill the order for you.
 
 [API Reference](https://docs.usepatch.com/#/?id=orders)
 
 #### Examples
 
 ```javascript
-// Create an order
+// Create an order - you can create an order with either mass or total price
+
+// Create order with mass
 const mass = 1000000 // Pass in the mass in grams (i.e. 1 metric tonne)
 patch.orders.createOrder({ mass_g: mass })
 
-// Create an order with maximum total price
+// Create an order with a maximum total price
 const totalPriceCentsUSD = 500 // Pass in the total price in cents (i.e. 5 dollars)
 patch.orders.createOrder({ total_price_cents_usd: totalPriceCentsUSD })
 
-# Retrieve an order
+// Retrieve an order
 orderId = 'ord_test_1234' // Pass in the order's id
 patch.orders.retrieveOrder(orderId)
 
