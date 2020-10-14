@@ -56,6 +56,10 @@ In Patch, orders represent a purchase of carbon offsets or negative emissions by
 const mass = 1000000 // Pass in the mass in grams (i.e. 1 metric tonne)
 patch.orders.createOrder({ mass_g: mass })
 
+// Create an order with maximum total price
+const totalPriceCentsUSD = 500 // Pass in the total price in cents (i.e. 5 dollars)
+patch.orders.createOrder({ total_price_cents_usd: totalPriceCentsUSD })
+
 # Retrieve an order
 orderId = 'ord_test_1234' // Pass in the order's id
 patch.orders.retrieveOrder(orderId)
