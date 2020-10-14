@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.4] - 2020-10-14
+
+### Added
+
+- `total_price_cents_usd` field to `orders`
+- allows users to create an order by total price
+
+### Changed
+
+- order creation requires either `mass_g` or `total_price_cents_usd`, but not both
+
 ## [1.2.3] - 2020-09-28
 
 ### Added
