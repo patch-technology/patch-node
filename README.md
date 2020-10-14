@@ -45,10 +45,10 @@ var patch = require('@patch-technology/patch').default('key_test_1234');
 
 ### Orders
 
-In Patch, orders represent a purchase of carbon offsets or negative emissions by mass. 
-Place orders directly if you know the amount of carbon dioxide you would like to sequester. 
+In Patch, orders represent a purchase of carbon offsets or negative emissions by mass.
+Place orders directly if you know the amount of carbon dioxide you would like to sequester.
 If you do not know how much to purchase, use an estimate.
-You can also create an order with a maximum desired price, and we'll allocate enough mass to 
+You can also create an order with a maximum desired price, and we'll allocate enough mass to
 fulfill the order for you.
 
 [API Reference](https://docs.usepatch.com/#/?id=orders)
@@ -56,31 +56,32 @@ fulfill the order for you.
 #### Examples
 
 ```javascript
-// Create an order - you can create an order with either mass or total price
+// Create an order - you can create an order
+// providing either mass_g or total_price_cents_usd, but not both
 
 // Create order with mass
-const mass = 1000000 // Pass in the mass in grams (i.e. 1 metric tonne)
-patch.orders.createOrder({ mass_g: mass })
+const mass = 1000000; // Pass in the mass in grams (i.e. 1 metric tonne)
+patch.orders.createOrder({ mass_g: mass });
 
 // Create an order with a maximum total price
-const totalPriceCentsUSD = 500 // Pass in the total price in cents (i.e. 5 dollars)
-patch.orders.createOrder({ total_price_cents_usd: totalPriceCentsUSD })
+const totalPriceCentsUSD = 500; // Pass in the total price in cents (i.e. 5 dollars)
+patch.orders.createOrder({ total_price_cents_usd: totalPriceCentsUSD });
 
 // Retrieve an order
-orderId = 'ord_test_1234' // Pass in the order's id
-patch.orders.retrieveOrder(orderId)
+orderId = 'ord_test_1234'; // Pass in the order's id
+patch.orders.retrieveOrder(orderId);
 
 // Place an order
-const orderId = 'ord_test_1234' // Pass in the order's id
-patch.orders.placeOrder(orderId)
+const orderId = 'ord_test_1234'; // Pass in the order's id
+patch.orders.placeOrder(orderId);
 
 // Cancel an order
-const orderId = 'ord_test_1234' // Pass in the order's id
-patch.orders.cancelOrder(orderId)
+const orderId = 'ord_test_1234'; // Pass in the order's id
+patch.orders.cancelOrder(orderId);
 
 // Retrieve a list of orders
-const page = 1 // Pass in which page of orders you'd like
-patch.orders.retrieveOrders({ page })
+const page = 1; // Pass in which page of orders you'd like
+patch.orders.retrieveOrders({ page });
 ```
 
 ### Estimates
