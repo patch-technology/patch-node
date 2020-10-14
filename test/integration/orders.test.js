@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import Patch from '../../dist/index';
 const patch = Patch(process.env.SANDBOX_API_KEY);
+const biomass_test_project_id = 'pro_test_c3a9feba769fc7a8806377266ca9ff6a';
 
 describe('Orders Integration', function () {
   it('supports create, place, cancel, retrieve and list', async function () {
@@ -18,12 +19,13 @@ describe('Orders Integration', function () {
 
   it('supports create orders with a total price', async function () {
     const createOrderResponse = await patch.orders.createOrder({
-      total_price_cents_usd: 500
+      total_price_cents_usd: 500,
+      project_id: biomass_test_project_id
     });
 
-    expect(createOrderResponse.data.price_cents_usd).to.equal('125.0');
-    expect(createOrderResponse.data.patch_fee_cents_usd).to.equal('375.0');
-    expect(createOrderResponse.data.mass_g).to.equal(1250000);
+    expect(createOrderResponse.data.price_cents_usd).to.equal('500.0');
+    expect(createOrderResponse.data.patch_fee_cents_usd).to.equal('0.0');
+    expect(createOrderResponse.data.mass_g).to.equal(5000000);
   });
 
   it('supports placing orders in a `draft` state', async function () {
