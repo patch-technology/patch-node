@@ -180,7 +180,7 @@ This will create a `node_modules` directory in your test repository which will s
 ```
 $ node
 > const Patch = require('@patch-technology/patch')
-> Patch.default('<PATCH_API_KEY>').projects.retrieveProjects().then((response) => console.log(response))
+> Patch.default(process.env.SANDBOX_API_KEY).projects.retrieveProjects().then((response) => console.log(response))
 ```
 
 ### Run the specs
