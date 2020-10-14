@@ -18,10 +18,12 @@ describe('Orders Integration', function () {
 
   it('supports create orders with a total price', async function () {
     const createOrderResponse = await patch.orders.createOrder({
-      total_price_cents_usd: 1000
+      total_price_cents_usd: 500
     });
-    expect(createOrderResponse.data.price_cents_usd).to.equal('6.66');
-    expect(createOrderResponse.data.patch_fee_cents_usd).to.equal('3.33');
+
+    expect(createOrderResponse.data.price_cents_usd).to.equal('125.0');
+    expect(createOrderResponse.data.patch_fee_cents_usd).to.equal('375.0');
+    expect(createOrderResponse.data.mass_g).to.equal(1250000);
   });
 
   it('supports placing orders in a `draft` state', async function () {
