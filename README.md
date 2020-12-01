@@ -1,10 +1,10 @@
-# Patch Javascript SDK
+# Patch JavaScript SDK
 
 ![Test](https://github.com/patch-technology/patch-node/workflows/Test/badge.svg)
 [![npm version](https://badge.fury.io/js/%40patch-technology%2Fpatch@2x.svg)](https://www.npmjs.com/package/@patch-technology/patch)
 [![Discord](https://img.shields.io/discord/733029448558837792)](https://discord.gg/M23NnGR)
 
-The official Javascript package for the [Patch API](https://www.usepatch.com)
+The official JavaScript package for the [Patch API](https://www.usepatch.com).
 
 ## Documentation
 
@@ -26,7 +26,7 @@ yarn add @patch-technology/patch
 
 ### Requirements
 
-- Node 10 +
+- Node 10+
 
 ## Usage
 
@@ -156,7 +156,7 @@ patch.preferences.retrievePreferences({ page });
 
 To build and test the package locally, run:
 
-```
+```sh
 $ npm run build
 ```
 
@@ -164,13 +164,13 @@ This will generate a `dist` folder with the compiled code. Next you want to link
 
 In the patch-node folder, run:
 
-```
+```sh
 $ npm link
 ```
 
 Navigate to a different, empty folder:
 
-```
+```sh
 $ cd ..
 $ mkdir test-patch-node
 $ cd test-patch-node
@@ -178,13 +178,13 @@ $ cd test-patch-node
 
 In that repository, run the following command to use the locally built package:
 
-```
+```sh
 $ npm link @patch-technology/patch
 ```
 
 This will create a `node_modules` directory in your test repository which will symlink to your locally built package. To test out the package, open a node REPL and import the package and run some queries.
 
-```
+```sh
 $ node
 > const Patch = require('@patch-technology/patch')
 > Patch.default(process.env.SANDBOX_API_KEY).projects.retrieveProjects().then((response) => console.log(response))
@@ -192,14 +192,14 @@ $ node
 
 ### Run the specs
 
-Before running the tests, make sure you set the test API key! (please use test API keys and not production ones, they usually start with `key_test_`)
+Before running the tests, make sure you set the test API key! Please use test API keys and not production ones, they usually start with `key_test_`.
 
-```
+```sh
 $ export SANDBOX_API_KEY=<PATCH_TEST_API_KEY>
 ```
 
 Then you are ready to run the tests:
 
-```
+```sh
 $ npm run test
 ```
