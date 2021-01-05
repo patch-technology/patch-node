@@ -45,6 +45,9 @@
     "mocha": ">=8.1.0",
     "prettier": "2.0.5"
   },
+  "peerDependencies": {
+    "querystring": "^0.2.0"
+  },
   "files": [
     "dist"
   ],
