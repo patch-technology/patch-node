@@ -25,7 +25,7 @@ describe('Orders Integration', function () {
 
     expect(createOrderResponse.data.price_cents_usd).to.equal('500.0');
     expect(createOrderResponse.data.patch_fee_cents_usd).to.equal('0.0');
-    expect(createOrderResponse.data.mass_g).to.equal(5000000);
+    expect(createOrderResponse.data.mass_g).to.equal(500000);
   });
 
   it('supports placing orders in a `draft` state', async function () {

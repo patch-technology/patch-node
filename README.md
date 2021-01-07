@@ -43,6 +43,14 @@ const patch = Patch('key_test_1234');
 var patch = require('@patch-technology/patch').default('key_test_1234');
 ```
 
+#### Peer dependencies
+
+For environments that do not include the Node Standard Library, such as React Native, you will need to install the listed peer dependencies in order for the package to work as expected. You can install the peer dependencies by running:
+
+```
+npm install install-peers
+```
+
 ### Orders
 
 In Patch, orders represent a purchase of carbon offsets or negative emissions by mass.
