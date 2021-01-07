@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.2.45 - 2020-01-07
+## [1.2.5] - 2020-01-07
 
 ### Added
 
@@ -15,7 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Fixed a spec that was breaking due to Patch core changes.
+- Fixed a spec that was breaking due Patch core changes.
 
 ## [1.2.4] - 2020-10-14
 
