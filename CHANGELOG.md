@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.45 - 2020-01-07
+
+### Added
+
+- Added [`querystring`](https://www.npmjs.com/package/querystring) as a peer dependency in the package.json and an explanation in the README for when you'd need to install it manually.
+
+### Fixed
+
+- Fixed a spec that was breaking due to Patch core changes.
+
 ## [1.2.4] - 2020-10-14
 
 ### Added
