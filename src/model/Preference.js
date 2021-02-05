@@ -35,7 +35,7 @@ class Preference {
       }
 
       if (data.hasOwnProperty('project')) {
-        obj['project'] = Project.constructFromObject(data['project']);
+        obj['project'] = ApiClient.convertToType(data['project'], Project);
       }
     }
     return obj;

@@ -38,8 +38,12 @@ class Estimate {
         obj['type'] = ApiClient.convertToType(data['type'], 'String');
       }
 
+      if (data.hasOwnProperty('mass_g')) {
+        obj['mass_g'] = ApiClient.convertToType(data['mass_g'], 'Number');
+      }
+
       if (data.hasOwnProperty('order')) {
-        obj['order'] = Order.constructFromObject(data['order']);
+        obj['order'] = ApiClient.convertToType(data['order'], Order);
       }
     }
     return obj;
@@ -51,6 +55,8 @@ Estimate.prototype['id'] = undefined;
 Estimate.prototype['production'] = undefined;
 
 Estimate.prototype['type'] = undefined;
+
+Estimate.prototype['mass_g'] = undefined;
 
 Estimate.prototype['order'] = undefined;
 

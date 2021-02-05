@@ -19,4 +19,14 @@ describe('Estimates Integration', function () {
     });
     expect(retrieveEstimatesResponse.data.length).to.be.above(0);
   });
+
+  it('supports creating flight estimates', async function () {
+    const createEstimateResponse = await patch.estimates.createFlightEstimate({
+      distance_m: 1000
+    });
+    const estimate = createEstimateResponse.data;
+
+    expect(estimate.mass_g).to.be.above(0);
+    expect(estimate.production).to.be.eq(false);
+  });
 });

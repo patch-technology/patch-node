@@ -6,6 +6,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import CreateFlightEstimateRequest from '../model/CreateFlightEstimateRequest';
 import CreateMassEstimateRequest from '../model/CreateMassEstimateRequest';
 import ErrorResponse from '../model/ErrorResponse';
 import EstimateListResponse from '../model/EstimateListResponse';
@@ -14,6 +15,10 @@ import EstimateResponse from '../model/EstimateResponse';
 export default class EstimatesApi {
   constructor(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
+    this.createFlightEstimate = this.createFlightEstimate.bind(this);
+    this.createFlightEstimateWithHttpInfo = this.createFlightEstimateWithHttpInfo.bind(
+      this
+    );
     this.createMassEstimate = this.createMassEstimate.bind(this);
     this.createMassEstimateWithHttpInfo = this.createMassEstimateWithHttpInfo.bind(
       this
@@ -26,6 +31,48 @@ export default class EstimatesApi {
     this.retrieveEstimatesWithHttpInfo = this.retrieveEstimatesWithHttpInfo.bind(
       this
     );
+  }
+
+  createFlightEstimateWithHttpInfo(createFlightEstimateRequest) {
+    let postBody = createFlightEstimateRequest;
+
+    // verify the required parameter 'createFlightEstimateRequest' is set
+    if (
+      createFlightEstimateRequest === undefined ||
+      createFlightEstimateRequest === null
+    ) {
+      throw new Error(
+        "Missing the required parameter 'createFlightEstimateRequest' when calling createFlightEstimate"
+      );
+    }
+
+    let pathParams = {};
+    let queryParams = {};
+    let headerParams = {};
+    let formParams = {};
+
+    let authNames = ['bearer_auth'];
+    let contentTypes = ['application/json'];
+    let accepts = ['application/json'];
+    let returnType = EstimateResponse;
+
+    return this.apiClient.callApi(
+      '/v1/estimates/flight',
+      'POST',
+      pathParams,
+      queryParams,
+      headerParams,
+      formParams,
+      postBody,
+      authNames,
+      contentTypes,
+      accepts,
+      returnType
+    );
+  }
+
+  createFlightEstimate(createFlightEstimateRequest) {
+    return this.createFlightEstimateWithHttpInfo(createFlightEstimateRequest);
   }
 
   createMassEstimateWithHttpInfo(createMassEstimateRequest) {
