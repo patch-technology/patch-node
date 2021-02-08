@@ -2,15 +2,16 @@ import { expect } from 'chai';
 import Patch from '../../dist/index';
 const patch = Patch(process.env.SANDBOX_API_KEY);
 
-describe('Preferences Integration', function (done) {
+describe('Preferences Integration', async function () {
   it('supports create, delete, retrieve and list', async function () {
     const projectResponse = await patch.projects.retrieveProjects();
     expect(projectResponse.data.length).to.be.above(0);
 
     const projectId = projectResponse.data[0].id;
+    let createPreferenceResponse;
 
     try {
-      await patch.preferences.createPreference({
+      createPreferenceResponse = await patch.preferences.createPreference({
         project_id: projectId
       });
     } catch ({ error }) {
@@ -21,15 +22,13 @@ describe('Preferences Integration', function (done) {
           (await patch.preferences.retrievePreferences()).data[0].id
         );
 
-        // Create it again
-        await patch.preferences.createPreference({
+        createPreferenceResponse = await patch.preferences.createPreference({
           project_id: projectId
         });
       }
     }
 
-    const preferenceId = (await patch.preferences.retrievePreferences()).data[0]
-      .id;
+    const preferenceId = createPreferenceResponse.data.id;
     const retrievePreferenceResponse = await patch.preferences.retrievePreference(
       preferenceId
     );
@@ -44,7 +43,5 @@ describe('Preferences Integration', function (done) {
       preferenceId
     );
     expect(deletePreferenceResponse.data.id).to.equal(preferenceId);
-
-    done;
   });
 });
