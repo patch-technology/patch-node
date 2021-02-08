@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.5] - 2020-02-08
+
+### Added
+
+- Adds support for creating carbon emission estimates for flights, shipping, and vehicles. See the [docs](https://docs.usepatch.com/#/?id=estimates) for more information.
+
 ## [1.2.5] - 2020-01-07
 
 ### Added
