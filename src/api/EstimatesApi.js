@@ -8,6 +8,8 @@
 import ApiClient from '../ApiClient';
 import CreateFlightEstimateRequest from '../model/CreateFlightEstimateRequest';
 import CreateMassEstimateRequest from '../model/CreateMassEstimateRequest';
+import CreateShippingEstimateRequest from '../model/CreateShippingEstimateRequest';
+import CreateVehicleEstimateRequest from '../model/CreateVehicleEstimateRequest';
 import ErrorResponse from '../model/ErrorResponse';
 import EstimateListResponse from '../model/EstimateListResponse';
 import EstimateResponse from '../model/EstimateResponse';
@@ -21,6 +23,14 @@ export default class EstimatesApi {
     );
     this.createMassEstimate = this.createMassEstimate.bind(this);
     this.createMassEstimateWithHttpInfo = this.createMassEstimateWithHttpInfo.bind(
+      this
+    );
+    this.createShippingEstimate = this.createShippingEstimate.bind(this);
+    this.createShippingEstimateWithHttpInfo = this.createShippingEstimateWithHttpInfo.bind(
+      this
+    );
+    this.createVehicleEstimate = this.createVehicleEstimate.bind(this);
+    this.createVehicleEstimateWithHttpInfo = this.createVehicleEstimateWithHttpInfo.bind(
       this
     );
     this.retrieveEstimate = this.retrieveEstimate.bind(this);
@@ -115,6 +125,92 @@ export default class EstimatesApi {
 
   createMassEstimate(createMassEstimateRequest) {
     return this.createMassEstimateWithHttpInfo(createMassEstimateRequest);
+  }
+
+  createShippingEstimateWithHttpInfo(createShippingEstimateRequest) {
+    let postBody = createShippingEstimateRequest;
+
+    // verify the required parameter 'createShippingEstimateRequest' is set
+    if (
+      createShippingEstimateRequest === undefined ||
+      createShippingEstimateRequest === null
+    ) {
+      throw new Error(
+        "Missing the required parameter 'createShippingEstimateRequest' when calling createShippingEstimate"
+      );
+    }
+
+    let pathParams = {};
+    let queryParams = {};
+    let headerParams = {};
+    let formParams = {};
+
+    let authNames = ['bearer_auth'];
+    let contentTypes = ['application/json'];
+    let accepts = ['application/json'];
+    let returnType = EstimateResponse;
+
+    return this.apiClient.callApi(
+      '/v1/estimates/shipping',
+      'POST',
+      pathParams,
+      queryParams,
+      headerParams,
+      formParams,
+      postBody,
+      authNames,
+      contentTypes,
+      accepts,
+      returnType
+    );
+  }
+
+  createShippingEstimate(createShippingEstimateRequest) {
+    return this.createShippingEstimateWithHttpInfo(
+      createShippingEstimateRequest
+    );
+  }
+
+  createVehicleEstimateWithHttpInfo(createVehicleEstimateRequest) {
+    let postBody = createVehicleEstimateRequest;
+
+    // verify the required parameter 'createVehicleEstimateRequest' is set
+    if (
+      createVehicleEstimateRequest === undefined ||
+      createVehicleEstimateRequest === null
+    ) {
+      throw new Error(
+        "Missing the required parameter 'createVehicleEstimateRequest' when calling createVehicleEstimate"
+      );
+    }
+
+    let pathParams = {};
+    let queryParams = {};
+    let headerParams = {};
+    let formParams = {};
+
+    let authNames = ['bearer_auth'];
+    let contentTypes = ['application/json'];
+    let accepts = ['application/json'];
+    let returnType = EstimateResponse;
+
+    return this.apiClient.callApi(
+      '/v1/estimates/vehicle',
+      'POST',
+      pathParams,
+      queryParams,
+      headerParams,
+      formParams,
+      postBody,
+      authNames,
+      contentTypes,
+      accepts,
+      returnType
+    );
+  }
+
+  createVehicleEstimate(createVehicleEstimateRequest) {
+    return this.createVehicleEstimateWithHttpInfo(createVehicleEstimateRequest);
   }
 
   retrieveEstimateWithHttpInfo(id) {
