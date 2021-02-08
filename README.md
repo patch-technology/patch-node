@@ -101,9 +101,32 @@ Estimates allow API users to get a quote for the cost of compensating a certain 
 #### Examples
 
 ```javascript
-// Create an estimate
+// Create a mass estimate
 const mass = 1000000; // Pass in the mass in grams (i.e. 1 metric tonne)
 patch.estimates.createMassEstimate({ mass_g: mass });
+
+// Create a flight estimate
+const distance_m = 9000000; // Pass in the distance traveled in meters
+patch.estimates.createFlightEstimate({ distance_m: distance_m });
+
+// Create a shipping estimate
+const distance_m = 9000000;
+// Pass in the shipping distance in meters, the transportation method, and the package mass
+patch.estimates.createFlightEstimate({
+  distance_m: distance_m,
+  transportation_method: 'air',
+  package_mass_g: 1000
+});
+
+// Create a vehicle estimate
+const distance_m = 9000000;
+// Pass in the shipping distance in meters and the model/make/year of the vehicle
+patch.estimates.createFlightEstimate({
+  distance_m: distance_m,
+  make: 'Toyota',
+  model: 'Corolla',
+  year: 1995
+});
 
 // Retrieve an estimate
 const estimateId = 'est_test_1234';
