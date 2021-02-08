@@ -8,10 +8,9 @@ describe('Preferences Integration', function () {
     expect(projectResponse.data.length).to.be.above(0);
 
     const projectId = projectResponse.data[0].id;
-    let createPreferenceResponse;
 
     try {
-      createPreferenceResponse = await patch.preferences.createPreference({
+      await patch.preferences.createPreference({
         project_id: projectId
       });
     } catch ({ error }) {
@@ -22,13 +21,13 @@ describe('Preferences Integration', function () {
           (await patch.preferences.retrievePreferences()).data[0].id
         );
 
-        createPreferenceResponse = await patch.preferences.createPreference({
+        await patch.preferences.createPreference({
           project_id: projectId
         });
       }
     }
 
-    const preferenceId = createPreferenceResponse.data.id;
+    const preferenceId = (await patch.preferences.retrievePreferences()).data[0].id
     const retrievePreferenceResponse = await patch.preferences.retrievePreference(
       preferenceId
     );
