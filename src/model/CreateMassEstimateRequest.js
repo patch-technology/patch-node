@@ -24,6 +24,13 @@ class CreateMassEstimateRequest {
         obj['mass_g'] = ApiClient.convertToType(data['mass_g'], 'Number');
       }
 
+      if (data.hasOwnProperty('create_order')) {
+        obj['create_order'] = ApiClient.convertToType(
+          data['create_order'],
+          'Boolean'
+        );
+      }
+
       if (data.hasOwnProperty('project_id')) {
         obj['project_id'] = ApiClient.convertToType(
           data['project_id'],
@@ -36,6 +43,8 @@ class CreateMassEstimateRequest {
 }
 
 CreateMassEstimateRequest.prototype['mass_g'] = undefined;
+
+CreateMassEstimateRequest.prototype['create_order'] = undefined;
 
 CreateMassEstimateRequest.prototype['project_id'] = undefined;
 

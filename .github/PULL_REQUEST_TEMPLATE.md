@@ -9,7 +9,7 @@
 ### SDK Release Checklist
 
 - [ ] Have you added an integration test for the changes?
-- [ ] Have you built the gem locally and made queries against it successfully?
+- [ ] Have you built the package locally and made queries against it successfully?
 - [ ] Did you update the changelog?
 - [ ] Did you bump the package version?
 - [ ] For breaking changes, did you plan for the release of the new SDK versions and deploy the API to production?
