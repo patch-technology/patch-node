@@ -39,8 +39,7 @@ describe('Orders Integration', function () {
     expect(placeOrderResponse.data.state).to.equal('placed');
     expect(placeOrderResponse.data.production).to.equal(false);
     expect(placeOrderResponse.data.mass_g).to.equal(100);
-    expect(placeOrderResponse.data.price_cents_usd).to.equal('1.0');
-    expect(placeOrderResponse.data.patch_fee_cents_usd).to.equal('0.0');
+    expect(placeOrderResponse.data.allocation_state).to.equal('pending');
   });
 
   it('supports cancelling orders in a `draft` state', async function () {
