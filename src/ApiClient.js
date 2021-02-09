@@ -411,7 +411,7 @@ class ApiClient {
   hostSettings() {
     return [
       {
-        url: 'https://{defaultHost}',
+        url: 'https://api.usepatch.com',
         description: 'No description provided',
 
         variables: {
