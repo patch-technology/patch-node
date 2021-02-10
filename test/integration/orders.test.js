@@ -39,7 +39,6 @@ describe('Orders Integration', function () {
     expect(placeOrderResponse.data.state).to.equal('placed');
     expect(placeOrderResponse.data.production).to.equal(false);
     expect(placeOrderResponse.data.mass_g).to.equal(100);
-    expect(placeOrderResponse.data.allocation_state).to.equal('pending');
   });
 
   it('supports cancelling orders in a `draft` state', async function () {
