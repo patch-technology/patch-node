@@ -16,9 +16,18 @@ describe('Project Integration', function () {
   });
 
   it('supports fetching all projects from the United States', async function () {
-    const { data } = await patch.projects.retrieveProjects({ country: 'US' });
+    const country = 'US'
+    const { data } = await patch.projects.retrieveProjects({ country });
     data.map((project) => {
-      expect(project.country).to.equal('US');
+      expect(project.country).to.equal(country);
+    });
+  });
+
+  it('supports fetching all biomass projects', async function () {
+    const type = 'biomass'
+    const { data } = await patch.projects.retrieveProjects({ type });
+    data.map((project) => {
+      expect(project.type).to.equal(type);
     });
   });
 });
