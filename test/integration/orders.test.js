@@ -26,7 +26,7 @@ describe('Orders Integration', function () {
     expect(parseFloat(createOrderResponse.data.price_cents_usd)).to.be.closeTo(
       500,
       1
-    )
+    );
     expect(createOrderResponse.data.patch_fee_cents_usd).to.equal('0.0');
     expect(createOrderResponse.data.mass_g).to.equal(500000);
   });
