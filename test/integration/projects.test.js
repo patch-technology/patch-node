@@ -14,4 +14,11 @@ describe('Project Integration', function () {
     const projectResponse = await patch.projects.retrieveProject(projectId);
     expect(projectResponse.data.id).to.equal(projectId);
   });
+
+  it('supports fetching all projects from the United States', async function () {
+    const { data } = await patch.projects.retrieveProjects({ country: 'US' });
+    data.map((project) => {
+      expect(project.country).to.equal('US');
+    });
+  });
 });

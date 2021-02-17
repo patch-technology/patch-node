@@ -71,7 +71,11 @@ export default class ProjectsApi {
 
     let pathParams = {};
     let queryParams = {
-      page: opts['page']
+      page: opts['page'],
+
+      country: opts['country'],
+
+      type: opts['type']
     };
     let headerParams = {};
     let formParams = {};

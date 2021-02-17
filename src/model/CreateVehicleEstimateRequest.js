@@ -8,15 +8,12 @@
 import ApiClient from '../ApiClient';
 
 class CreateVehicleEstimateRequest {
-  constructor(distanceM, make, model, year) {
-    CreateVehicleEstimateRequest.initialize(this, distanceM, make, model, year);
+  constructor(distanceM) {
+    CreateVehicleEstimateRequest.initialize(this, distanceM);
   }
 
-  static initialize(obj, distanceM, make, model, year) {
+  static initialize(obj, distanceM) {
     obj['distance_m'] = distanceM;
-    obj['make'] = make;
-    obj['model'] = model;
-    obj['year'] = year;
   }
 
   static constructFromObject(data, obj) {

@@ -7,6 +7,7 @@
 
 import ApiClient from '../ApiClient';
 import Photo from './Photo';
+import Sdg from './Sdg';
 import Standard from './Standard';
 
 class Project {
@@ -113,6 +114,10 @@ class Project {
       if (data.hasOwnProperty('standard')) {
         obj['standard'] = ApiClient.convertToType(data['standard'], Standard);
       }
+
+      if (data.hasOwnProperty('sdgs')) {
+        obj['sdgs'] = ApiClient.convertToType(data['sdgs'], [Sdg]);
+      }
     }
     return obj;
   }
@@ -139,5 +144,7 @@ Project.prototype['average_price_per_tonne_cents_usd'] = undefined;
 Project.prototype['remaining_mass_g'] = undefined;
 
 Project.prototype['standard'] = undefined;
+
+Project.prototype['sdgs'] = undefined;
 
 export default Project;
