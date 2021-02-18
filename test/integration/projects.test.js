@@ -14,4 +14,20 @@ describe('Project Integration', function () {
     const projectResponse = await patch.projects.retrieveProject(projectId);
     expect(projectResponse.data.id).to.equal(projectId);
   });
+
+  it('supports fetching all projects from the United States', async function () {
+    const country = 'US';
+    const { data } = await patch.projects.retrieveProjects({ country });
+    data.map((project) => {
+      expect(project.country).to.equal(country);
+    });
+  });
+
+  it('supports fetching all biomass projects', async function () {
+    const type = 'biomass';
+    const { data } = await patch.projects.retrieveProjects({ type });
+    data.map((project) => {
+      expect(project.type).to.equal(type);
+    });
+  });
 });

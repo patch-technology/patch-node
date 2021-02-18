@@ -141,6 +141,11 @@ patch.estimates.retrieveEstimates({ page });
 
 Projects are the ways Patch takes CO2 out of the air. They can represent reforestation, enhanced weathering, direct air carbon capture, etc. When you place an order via Patch, it is allocated to a project.
 
+When fetching Projects, you can add filters to the query to narrow the result. Currently supported filters are:
+
+- `country`
+- `type`
+
 [API Reference](https://docs.usepatch.com/#/?id=projects)
 
 #### Examples
@@ -153,6 +158,14 @@ patch.projects.retrieveProject(projectId);
 // Retrieve a list of projects
 const page = 1; // Pass in which page of projects you'd like
 patch.projects.retrieveProjects({ page });
+
+// Retrieve a filtered list of projects
+const country = 'CA'; // Pass in the country you'd like to get projects from
+patch.projects.retrieveProjects({ country });
+
+// Retrieve a filtered list of projects
+const type = 'biomass'; // Pass in the project type you'd like to filter by
+patch.projects.retrieveProjects({ type });
 ```
 
 ### Preferences
