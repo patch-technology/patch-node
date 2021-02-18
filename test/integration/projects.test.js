@@ -30,4 +30,12 @@ describe('Project Integration', function () {
       expect(project.type).to.equal(type);
     });
   });
+
+  it('supports fetching all projects with more than 100 grams of available inventory', async function () {
+    const remainingMassG = 100;
+    const { data } = await patch.projects.retrieveProjects({ remainingMassG });
+    data.map((project) => {
+      expect(project.remainingMassG >= remainingMassG).to.be.true;
+    });
+  });
 });

@@ -75,7 +75,9 @@ export default class ProjectsApi {
 
       country: opts['country'],
 
-      type: opts['type']
+      type: opts['type'],
+
+      remainaing_mass_g: opts['remainaingMassG']
     };
     let headerParams = {};
     let formParams = {};
