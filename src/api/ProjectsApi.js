@@ -77,7 +77,7 @@ export default class ProjectsApi {
 
       type: opts['type'],
 
-      remainaing_mass_g: opts['remainaingMassG']
+      minimum_available_mass: opts['minimumAvailableMass']
     };
     let headerParams = {};
     let formParams = {};

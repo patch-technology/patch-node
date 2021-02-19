@@ -30,7 +30,6 @@ describe('Preferences Integration', async function () {
       const createdPreference = await patch.preferences.createPreference({
         project_id: projectId
       });
-      console.log(createdPreference);
 
       expect(createdPreference.data.projectId).to.eq(projectId);
 

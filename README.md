@@ -145,7 +145,7 @@ When fetching Projects, you can add filters to the query to narrow the result. C
 
 - `country`
 - `type`
-- `remaining_mass_g`
+- `minimumAvailableMass`
 
 [API Reference](https://docs.usepatch.com/#/?id=projects)
 
@@ -169,8 +169,8 @@ const type = 'biomass'; // Pass in the project type you'd like to filter by
 patch.projects.retrieveProjects({ type });
 
 // Retrieve a filtered list of projects
-const remainingMassG = 100; // Pass in the minimum available inventory the projects should have
-patch.projects.retrieveProjects({ remainingMassG });
+const minimumAvailableMass = 100; // Pass in the minimum available inventory the projects should have
+patch.projects.retrieveProjects({ minimumAvailableMass });
 ```
 
 ### Preferences
