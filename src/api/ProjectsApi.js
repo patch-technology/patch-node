@@ -75,7 +75,9 @@ export default class ProjectsApi {
 
       country: opts['country'],
 
-      type: opts['type']
+      type: opts['type'],
+
+      minimum_available_mass: opts['minimumAvailableMass']
     };
     let headerParams = {};
     let formParams = {};
