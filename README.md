@@ -4,11 +4,11 @@
 [![npm version](https://badge.fury.io/js/%40patch-technology%2Fpatch@2x.svg)](https://www.npmjs.com/package/@patch-technology/patch)
 [![Discord](https://img.shields.io/discord/733029448558837792)](https://discord.gg/M23NnGR)
 
-The official JavaScript package for the [Patch API](https://www.usepatch.com).
+The official JavaScript package for the [Patch API](https://www.patch.io).
 
 ## Documentation
 
-For a complete API reference, check out [Patch's API Reference.](https://docs.usepatch.com)
+For a complete API reference, check out [Patch's API Reference.](https://docs.patch.io)
 
 ## Installation
 
@@ -59,7 +59,7 @@ If you do not know how much to purchase, use an estimate.
 You can also create an order with a maximum desired price, and we'll allocate enough mass to
 fulfill the order for you.
 
-[API Reference](https://docs.usepatch.com/#/?id=orders)
+[API Reference](https://docs.patch.io/#/?id=orders)
 
 #### Examples
 
@@ -96,7 +96,7 @@ patch.orders.retrieveOrders({ page });
 
 Estimates allow API users to get a quote for the cost of compensating a certain amount of CO2. When creating an estimate, an order in the `draft` state will also be created, reserving the allocation of a project for 5 minutes. If you don't place your draft order within those 5 minutes, the order will automatically be cancelled.
 
-[API Reference](https://docs.usepatch.com/#/?id=estimates)
+[API Reference](https://docs.patch.io/#/?id=estimates)
 
 #### Examples
 
@@ -147,7 +147,7 @@ When fetching Projects, you can add filters to the query to narrow the result. C
 - `type`
 - `minimumAvailableMass`
 
-[API Reference](https://docs.usepatch.com/#/?id=projects)
+[API Reference](https://docs.patch.io/#/?id=projects)
 
 #### Examples
 
@@ -175,9 +175,9 @@ patch.projects.retrieveProjects({ minimumAvailableMass });
 
 ### Preferences
 
-Preferences are how you route your orders in Patch. If you don't have a preference, Patch will allocate your order to the least expensive option. If you do have a preference, all of your orders will be sent to that project. You can set your preferences via API, or through the [Patch Dashboard](https://dashboard.usepatch.com/projects).
+Preferences are how you route your orders in Patch. If you don't have a preference, Patch will allocate your order to the least expensive option. If you do have a preference, all of your orders will be sent to that project. You can set your preferences via API, or through the [Patch Dashboard](https://dashboard.patch.io/projects).
 
-[API Reference](https://docs.usepatch.com/#/?id=preferences)
+[API Reference](https://docs.patch.io/#/?id=preferences)
 
 #### Examples
 
