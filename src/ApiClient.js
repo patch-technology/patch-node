@@ -10,7 +10,7 @@ import querystring from 'querystring';
 
 class ApiClient {
   constructor() {
-    this.basePath = 'https://api.usepatch.com'.replace(/\/+$/, '');
+    this.basePath = 'https://api.patch.io'.replace(/\/+$/, '');
     this.authentications = {
       bearer_auth: { type: 'bearer' }
     };
@@ -411,13 +411,13 @@ class ApiClient {
   hostSettings() {
     return [
       {
-        url: 'https://api.usepatch.com',
+        url: 'https://api.patch.io',
         description: 'No description provided',
 
         variables: {
           defaultHost: {
             description: 'No description provided',
-            default_value: 'api.usepatch.com',
+            default_value: 'api.patch.io',
             enum_values: []
           }
         }
