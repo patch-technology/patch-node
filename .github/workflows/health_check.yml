@@ -18,22 +18,17 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
+
       - name: Install Node Modules
         run: npm install
+
       - name: Build package
         run: npm run build
+
       - name: Run tests
         env:
           SANDBOX_API_KEY: ${{ secrets.SANDBOX_API_KEY }}
         run: npm test
-
-  failure-notification:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: exit 1
-      - name: Health check failure
-        if: always()
         uses: kpritam/slack-job-status-action@v1
         with:
           job-status: ${{ job.status }}
