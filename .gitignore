@@ -3,3 +3,6 @@
 .openapi-generator-ignore
 dist
 node_modules
+
+# OS artifacts
+.DS_Store
