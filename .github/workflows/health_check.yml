@@ -29,6 +29,8 @@ jobs:
         env:
           SANDBOX_API_KEY: ${{ secrets.SANDBOX_API_KEY }}
         run: npm test
+
+      - name: Notify slack
         uses: kpritam/slack-job-status-action@v1
         with:
           job-status: ${{ job.status }}
