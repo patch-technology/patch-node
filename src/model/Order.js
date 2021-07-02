@@ -107,6 +107,13 @@ class Order {
         ]);
       }
 
+      if (data.hasOwnProperty('registry_url')) {
+        obj['registry_url'] = ApiClient.convertToType(
+          data['registry_url'],
+          'String'
+        );
+      }
+
       if (data.hasOwnProperty('metadata')) {
         obj['metadata'] = ApiClient.convertToType(data['metadata'], Object);
       }
@@ -130,6 +137,8 @@ Order.prototype['price_cents_usd'] = undefined;
 Order.prototype['patch_fee_cents_usd'] = undefined;
 
 Order.prototype['allocations'] = undefined;
+
+Order.prototype['registry_url'] = undefined;
 
 Order.prototype['metadata'] = undefined;
 
