@@ -112,7 +112,7 @@ patch.estimates.createFlightEstimate({ distance_m: distance_m });
 // Create a shipping estimate
 const distance_m = 9000000;
 // Pass in the shipping distance in meters, the transportation method, and the package mass
-patch.estimates.createFlightEstimate({
+patch.estimates.createShippingEstimate({
   distance_m: distance_m,
   transportation_method: 'air',
   package_mass_g: 1000
@@ -121,7 +121,7 @@ patch.estimates.createFlightEstimate({
 // Create a vehicle estimate
 const distance_m = 9000000;
 // Pass in the shipping distance in meters and the model/make/year of the vehicle
-patch.estimates.createFlightEstimate({
+patch.estimates.createVehicleEstimate({
   distance_m: distance_m,
   make: 'Toyota',
   model: 'Corolla',
