@@ -11,7 +11,7 @@
   "scripts": {
     "build": "babel src -d dist",
     "prepack": "npm run build",
-    "test": "mocha --require @babel/register --recursive"
+    "test": "mocha"
   },
   "browser": {
     "fs": false

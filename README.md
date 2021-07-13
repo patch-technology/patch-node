@@ -102,27 +102,33 @@ Estimates allow API users to get a quote for the cost of compensating a certain 
 
 ```javascript
 // Create a mass estimate
-const mass = 1000000; // Pass in the mass in grams (i.e. 1 metric tonne)
-patch.estimates.createMassEstimate({ mass_g: mass });
+const mass_g = 1000000; // Pass in the mass in grams (i.e. 1 metric tonne)
+patch.estimates.createMassEstimate({ mass_g });
 
 // Create a flight estimate
 const distance_m = 9000000; // Pass in the distance traveled in meters
-patch.estimates.createFlightEstimate({ distance_m: distance_m });
+patch.estimates.createFlightEstimate({ distance_m });
 
 // Create a shipping estimate
 const distance_m = 9000000;
 // Pass in the shipping distance in meters, the transportation method, and the package mass
 patch.estimates.createShippingEstimate({
-  distance_m: distance_m,
+  distance_m,
   transportation_method: 'air',
   package_mass_g: 1000
+});
+
+// Create a bitcoin estimate
+const transaction_value_btc_sats = 1000; // [Optional] Pass in the transaction value in satoshis
+patch.estimates.createBitcoinEstimate({
+  transaction_value_btc_sats
 });
 
 // Create a vehicle estimate
 const distance_m = 9000000;
 // Pass in the shipping distance in meters and the model/make/year of the vehicle
 patch.estimates.createVehicleEstimate({
-  distance_m: distance_m,
+  distance_m,
   make: 'Toyota',
   model: 'Corolla',
   year: 1995
@@ -184,7 +190,7 @@ Preferences are how you route your orders in Patch. If you don't have a preferen
 ```javascript
 // Create a preference
 const projectId = 'pro_test_1234'; // Pass in the project_id for your preference
-patch.preferences.createPreference((project_id: projectId));
+patch.preferences.createPreference({ project_id: projectId });
 
 // Retrieve a preference
 const preferenceId = 'pre_test_1234'; // Pass in the preferences's id

@@ -23,12 +23,9 @@ describe('Orders Integration', function () {
       project_id: biomass_test_project_id
     });
 
-    expect(parseFloat(createOrderResponse.data.price_cents_usd)).to.be.closeTo(
-      500,
-      1
-    );
-    expect(createOrderResponse.data.patch_fee_cents_usd).to.equal('0.0');
-    expect(createOrderResponse.data.mass_g).to.equal(500000);
+    expect(createOrderResponse.data.price_cents_usd).to.equal('455.0');
+    expect(createOrderResponse.data.patch_fee_cents_usd).to.equal('45.0');
+    expect(createOrderResponse.data.mass_g).to.equal(455000);
   });
 
   it('supports placing orders in a `draft` state', async function () {
