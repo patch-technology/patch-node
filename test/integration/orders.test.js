@@ -23,7 +23,10 @@ describe('Orders Integration', function () {
       project_id: biomass_test_project_id
     });
 
-    expect(createOrderResponse.data.price_cents_usd).to.equal('455.0');
+    expect(parseFloat(createOrderResponse.data.price_cents_usd)).to.be.closeTo(
+      455,
+      1
+    );
     expect(createOrderResponse.data.patch_fee_cents_usd).to.equal('45.0');
     expect(createOrderResponse.data.mass_g).to.equal(455000);
   });
