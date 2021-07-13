@@ -240,9 +240,13 @@ $ npm link @patch-technology/patch
 This will create a `node_modules` directory in your test repository which will symlink to your locally built package. To test out the package, open a node REPL and import the package and run some queries.
 
 ```sh
-$ node
-> const Patch = require('@patch-technology/patch')
-> Patch.default(process.env.SANDBOX_API_KEY).projects.retrieveProjects().then((response) => console.log(response))
+SANDBOX_API_KEY=xxx node
+```
+
+```node
+const Patch = require('@patch-technology/patch');
+const patch = Patch.default(process.env.SANDBOX_API_KEY);
+patch.projects.retrieveProjects().then((response) => console.log(response));
 ```
 
 ### Run the specs
