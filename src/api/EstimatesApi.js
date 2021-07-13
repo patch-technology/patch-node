@@ -6,6 +6,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import CreateBitcoinEstimateRequest from '../model/CreateBitcoinEstimateRequest';
 import CreateFlightEstimateRequest from '../model/CreateFlightEstimateRequest';
 import CreateMassEstimateRequest from '../model/CreateMassEstimateRequest';
 import CreateShippingEstimateRequest from '../model/CreateShippingEstimateRequest';
@@ -17,6 +18,10 @@ import EstimateResponse from '../model/EstimateResponse';
 export default class EstimatesApi {
   constructor(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
+    this.createBitcoinEstimate = this.createBitcoinEstimate.bind(this);
+    this.createBitcoinEstimateWithHttpInfo = this.createBitcoinEstimateWithHttpInfo.bind(
+      this
+    );
     this.createFlightEstimate = this.createFlightEstimate.bind(this);
     this.createFlightEstimateWithHttpInfo = this.createFlightEstimateWithHttpInfo.bind(
       this
@@ -41,6 +46,48 @@ export default class EstimatesApi {
     this.retrieveEstimatesWithHttpInfo = this.retrieveEstimatesWithHttpInfo.bind(
       this
     );
+  }
+
+  createBitcoinEstimateWithHttpInfo(createBitcoinEstimateRequest) {
+    let postBody = createBitcoinEstimateRequest;
+
+    // verify the required parameter 'createBitcoinEstimateRequest' is set
+    if (
+      createBitcoinEstimateRequest === undefined ||
+      createBitcoinEstimateRequest === null
+    ) {
+      throw new Error(
+        "Missing the required parameter 'createBitcoinEstimateRequest' when calling createBitcoinEstimate"
+      );
+    }
+
+    let pathParams = {};
+    let queryParams = {};
+    let headerParams = {};
+    let formParams = {};
+
+    let authNames = ['bearer_auth'];
+    let contentTypes = ['application/json'];
+    let accepts = ['application/json'];
+    let returnType = EstimateResponse;
+
+    return this.apiClient.callApi(
+      '/v1/estimates/crypto/btc',
+      'POST',
+      pathParams,
+      queryParams,
+      headerParams,
+      formParams,
+      postBody,
+      authNames,
+      contentTypes,
+      accepts,
+      returnType
+    );
+  }
+
+  createBitcoinEstimate(createBitcoinEstimateRequest) {
+    return this.createBitcoinEstimateWithHttpInfo(createBitcoinEstimateRequest);
   }
 
   createFlightEstimateWithHttpInfo(createFlightEstimateRequest) {
