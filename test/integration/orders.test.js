@@ -19,16 +19,13 @@ describe('Orders Integration', function () {
 
   it('supports create orders with a total price', async function () {
     const createOrderResponse = await patch.orders.createOrder({
-      total_price_cents_usd: 500,
+      total_price_cents_usd: 100,
       project_id: biomass_test_project_id
     });
 
-    expect(parseFloat(createOrderResponse.data.price_cents_usd)).to.be.closeTo(
-      455,
-      1
-    );
-    expect(createOrderResponse.data.patch_fee_cents_usd).to.equal('45.0');
-    expect(createOrderResponse.data.mass_g).to.equal(455000);
+    expect(createOrderResponse.data.price_cents_usd).to.equal('91.0');
+    expect(createOrderResponse.data.patch_fee_cents_usd).to.equal('9.0');
+    expect(createOrderResponse.data.mass_g).to.equal(91000);
   });
 
   it('supports placing orders in a `draft` state', async function () {
