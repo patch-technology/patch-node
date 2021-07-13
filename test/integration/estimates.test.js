@@ -66,4 +66,17 @@ describe('Estimates Integration', function () {
     expect(estimate.production).to.be.eq(false);
     expect(estimate.order).to.be.eq(null);
   });
+
+  it('supports creating bitcoin estimates without an order', async function () {
+    const createEstimateResponse = await patch.estimates.createBitcoinEstimate({
+      create_order: false
+    });
+
+    const estimate = createEstimateResponse.data;
+
+    expect(estimate.type).to.be.eq('bitcoin');
+    expect(estimate.mass_g).to.be.above(0);
+    expect(estimate.production).to.be.eq(false);
+    expect(estimate.order).to.be.eq(null);
+  });
 });
