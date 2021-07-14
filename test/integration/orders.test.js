@@ -23,9 +23,7 @@ describe('Orders Integration', function () {
       project_id: biomass_test_project_id
     });
 
-    expect(parseFloat(data.price_cents_usd)).to.be.closeTo(91, 1);
-    expect(parseFloat(data.patch_fee_cents_usd)).to.be.closeTo(9, 1);
-    expect(parseFloat(data.mass_g)).to.be.closeTo(91000, 2000);
+    expect(data.price_cents_usd + data.patch_fee_cents_usd).to.eq(100);
   });
 
   it('supports placing orders in a `draft` state', async function () {
