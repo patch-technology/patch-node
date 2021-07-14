@@ -49,9 +49,8 @@ class CreateBitcoinEstimateRequest {
 
 CreateBitcoinEstimateRequest.prototype['timestamp'] = undefined;
 
-CreateBitcoinEstimateRequest.prototype[
-  'transaction_value_btc_sats'
-] = undefined;
+CreateBitcoinEstimateRequest.prototype['transaction_value_btc_sats'] =
+  undefined;
 
 CreateBitcoinEstimateRequest.prototype['project_id'] = undefined;
 

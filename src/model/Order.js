@@ -90,14 +90,14 @@ class Order {
       if (data.hasOwnProperty('price_cents_usd')) {
         obj['price_cents_usd'] = ApiClient.convertToType(
           data['price_cents_usd'],
-          'String'
+          'Number'
         );
       }
 
       if (data.hasOwnProperty('patch_fee_cents_usd')) {
         obj['patch_fee_cents_usd'] = ApiClient.convertToType(
           data['patch_fee_cents_usd'],
-          'String'
+          'Number'
         );
       }
 

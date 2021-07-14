@@ -23,9 +23,8 @@ export default class OrdersApi {
     this.retrieveOrder = this.retrieveOrder.bind(this);
     this.retrieveOrderWithHttpInfo = this.retrieveOrderWithHttpInfo.bind(this);
     this.retrieveOrders = this.retrieveOrders.bind(this);
-    this.retrieveOrdersWithHttpInfo = this.retrieveOrdersWithHttpInfo.bind(
-      this
-    );
+    this.retrieveOrdersWithHttpInfo =
+      this.retrieveOrdersWithHttpInfo.bind(this);
   }
 
   cancelOrderWithHttpInfo(id) {
