@@ -79,4 +79,18 @@ describe('Estimates Integration', function () {
     expect(estimate.production).to.be.eq(false);
     expect(estimate.order).to.be.eq(null);
   });
+
+  it('supports creating ethereum estimates with a gas value', async function () {
+    const createEstimateResponse = await patch.estimates.createEthereumEstimate(
+      {
+        gas_used: 1000
+      }
+    );
+
+    const estimate = createEstimateResponse.data;
+
+    expect(estimate.type).to.be.eq('ethereum');
+    expect(estimate.mass_g).to.be.above(0);
+    expect(estimate.production).to.be.eq(false);
+  });
 });
