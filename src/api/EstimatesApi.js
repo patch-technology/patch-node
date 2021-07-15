@@ -7,6 +7,7 @@
 
 import ApiClient from '../ApiClient';
 import CreateBitcoinEstimateRequest from '../model/CreateBitcoinEstimateRequest';
+import CreateEthereumEstimateRequest from '../model/CreateEthereumEstimateRequest';
 import CreateFlightEstimateRequest from '../model/CreateFlightEstimateRequest';
 import CreateMassEstimateRequest from '../model/CreateMassEstimateRequest';
 import CreateShippingEstimateRequest from '../model/CreateShippingEstimateRequest';
@@ -21,6 +22,9 @@ export default class EstimatesApi {
     this.createBitcoinEstimate = this.createBitcoinEstimate.bind(this);
     this.createBitcoinEstimateWithHttpInfo =
       this.createBitcoinEstimateWithHttpInfo.bind(this);
+    this.createEthereumEstimate = this.createEthereumEstimate.bind(this);
+    this.createEthereumEstimateWithHttpInfo =
+      this.createEthereumEstimateWithHttpInfo.bind(this);
     this.createFlightEstimate = this.createFlightEstimate.bind(this);
     this.createFlightEstimateWithHttpInfo =
       this.createFlightEstimateWithHttpInfo.bind(this);
@@ -81,6 +85,50 @@ export default class EstimatesApi {
 
   createBitcoinEstimate(createBitcoinEstimateRequest) {
     return this.createBitcoinEstimateWithHttpInfo(createBitcoinEstimateRequest);
+  }
+
+  createEthereumEstimateWithHttpInfo(createEthereumEstimateRequest) {
+    let postBody = createEthereumEstimateRequest;
+
+    // verify the required parameter 'createEthereumEstimateRequest' is set
+    if (
+      createEthereumEstimateRequest === undefined ||
+      createEthereumEstimateRequest === null
+    ) {
+      throw new Error(
+        "Missing the required parameter 'createEthereumEstimateRequest' when calling createEthereumEstimate"
+      );
+    }
+
+    let pathParams = {};
+    let queryParams = {};
+    let headerParams = {};
+    let formParams = {};
+
+    let authNames = ['bearer_auth'];
+    let contentTypes = ['application/json'];
+    let accepts = ['application/json'];
+    let returnType = EstimateResponse;
+
+    return this.apiClient.callApi(
+      '/v1/estimates/crypto/eth',
+      'POST',
+      pathParams,
+      queryParams,
+      headerParams,
+      formParams,
+      postBody,
+      authNames,
+      contentTypes,
+      accepts,
+      returnType
+    );
+  }
+
+  createEthereumEstimate(createEthereumEstimateRequest) {
+    return this.createEthereumEstimateWithHttpInfo(
+      createEthereumEstimateRequest
+    );
   }
 
   createFlightEstimateWithHttpInfo(createFlightEstimateRequest) {
