@@ -67,16 +67,50 @@ describe('Estimates Integration', function () {
     expect(estimate.order).to.be.eq(null);
   });
 
-  it('supports creating bitcoin estimates without an order', async function () {
-    const createEstimateResponse = await patch.estimates.createBitcoinEstimate({
-      create_order: false
+  it('supports creating bitcoin estimates without parameters', async function () {
+    const { data: estimate } = await patch.estimates.createBitcoinEstimate({
+      create_order: false // TODO: this should work without this
     });
-
-    const estimate = createEstimateResponse.data;
 
     expect(estimate.type).to.be.eq('bitcoin');
     expect(estimate.mass_g).to.be.above(0);
     expect(estimate.production).to.be.eq(false);
     expect(estimate.order).to.be.eq(null);
+  });
+
+  it('supports creating bitcoin estimates with a timestamp', async function () {
+    const { data: estimate1 } = await patch.estimates.createBitcoinEstimate({
+      timestamp: '2021-06-01T20:31:18.403Z'
+    });
+    const { data: estimate2 } = await patch.estimates.createBitcoinEstimate({
+      timestamp: '2021-07-01T20:31:18.403Z'
+    });
+
+    expect(estimate1.mass_g).to.be.above(estimate2.mass_g); // BTC emitted less in July than in June
+  });
+
+  it('supports creating bitcoin estimates with a transaction value', async function () {
+    const { data: estimate1 } = await patch.estimates.createBitcoinEstimate({
+      transaction_value_btc_sats: 2000
+    });
+    const { data: estimate2 } = await patch.estimates.createBitcoinEstimate({
+      transaction_value_btc_sats: 1000
+    });
+
+    expect(estimate1.mass_g).to.be.above(estimate2.mass_g);
+  });
+
+  it('supports creating ethereum estimates with a gas value', async function () {
+    const createEstimateResponse = await patch.estimates.createEthereumEstimate(
+      {
+        gas_used: 1000
+      }
+    );
+
+    const estimate = createEstimateResponse.data;
+
+    expect(estimate.type).to.be.eq('ethereum');
+    expect(estimate.mass_g).to.be.above(0);
+    expect(estimate.production).to.be.eq(false);
   });
 });
