@@ -8,20 +8,19 @@
 import ApiClient from '../ApiClient';
 import Error from './Error';
 
-class ErrorResponse {
-  constructor(success, error, data) {
-    ErrorResponse.initialize(this, success, error, data);
+class BulkCreateSuccessResponse {
+  constructor(success, error) {
+    BulkCreateSuccessResponse.initialize(this, success, error);
   }
 
-  static initialize(obj, success, error, data) {
+  static initialize(obj, success, error) {
     obj['success'] = success;
     obj['error'] = error;
-    obj['data'] = data;
   }
 
   static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new ErrorResponse();
+      obj = obj || new BulkCreateSuccessResponse();
 
       if (data.hasOwnProperty('success')) {
         obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
@@ -30,19 +29,13 @@ class ErrorResponse {
       if (data.hasOwnProperty('error')) {
         obj['error'] = Error.constructFromObject(data['error']);
       }
-
-      if (data.hasOwnProperty('data')) {
-        obj['data'] = ApiClient.convertToType(data['data'], Object);
-      }
     }
     return obj;
   }
 }
 
-ErrorResponse.prototype['success'] = undefined;
+BulkCreateSuccessResponse.prototype['success'] = undefined;
 
-ErrorResponse.prototype['error'] = undefined;
+BulkCreateSuccessResponse.prototype['error'] = undefined;
 
-ErrorResponse.prototype['data'] = undefined;
-
-export default ErrorResponse;
+export default BulkCreateSuccessResponse;

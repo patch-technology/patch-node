@@ -196,7 +196,11 @@ export default class OrdersApi {
 
     let pathParams = {};
     let queryParams = {
-      page: opts['page']
+      page: opts['page'],
+
+      'metadata[ext_id]': opts['metadataExtId'],
+
+      'metadata[disregarded]': opts['metadataDisregarded']
     };
     let headerParams = {};
     let formParams = {};
