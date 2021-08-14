@@ -198,6 +198,8 @@ export default class OrdersApi {
     let queryParams = {
       page: opts['page'],
 
+      metadata: opts['metadata'],
+
       'metadata[ext_id]': opts['metadataExtId'],
 
       'metadata[disregarded]': opts['metadataDisregarded']

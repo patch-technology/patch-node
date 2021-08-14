@@ -49,4 +49,21 @@ describe('Orders Integration', function () {
     const placeOrderResponse = await patch.orders.cancelOrder(orderId);
     expect(placeOrderResponse.data.state).to.equal('cancelled');
   });
+
+  it('supports creating and querying orders by metadata', async function () {
+    const createOrderResponse = await patch.orders.createOrder({
+      mass_g: 100,
+      metadata: { external_id: 'order-123' }
+    });
+
+    const retrieveOrdersResponse = await patch.orders.retrieveOrders({
+      page: 1,
+      metadata: { external_id: 'order-' }
+    });
+    expect(retrieveOrdersResponse.data.length).to.be.above(0);
+
+    retrieveOrdersResponse.data.forEach((order) => {
+      expect(order.metadata).to.have.all.keys('external_id');
+    });
+  });
 });
