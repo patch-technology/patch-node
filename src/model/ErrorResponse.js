@@ -6,7 +6,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import Error from './Error';
 
 class ErrorResponse {
   constructor(success, error, data) {
@@ -28,7 +27,7 @@ class ErrorResponse {
       }
 
       if (data.hasOwnProperty('error')) {
-        obj['error'] = Error.constructFromObject(data['error']);
+        obj['error'] = ApiClient.convertToType(data['error'], Object);
       }
 
       if (data.hasOwnProperty('data')) {
