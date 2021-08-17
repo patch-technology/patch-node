@@ -200,9 +200,9 @@ export default class OrdersApi {
 
       metadata: opts['metadata'],
 
-      'metadata[ext_id]': opts['metadataExtId'],
+      'metadata[example1]': opts['metadataExample1'],
 
-      'metadata[disregarded]': opts['metadataDisregarded']
+      'metadata[example2]': opts['metadataExample2']
     };
     let headerParams = {};
     let formParams = {};
