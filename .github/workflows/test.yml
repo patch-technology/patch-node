@@ -8,9 +8,12 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
         node: ['10', '12', '14', '16']
+      max-parallel: 1
+
     name: Node ${{ matrix.node }} Test
     steps:
       - name: Check out code
