@@ -1,6 +1,6 @@
 {
   "name": "@patch-technology/patch",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "JavaScript wrapper for the Patch API",
   "license": "MIT",
   "repository": {
@@ -21,6 +21,7 @@
     "fs": false
   },
   "dependencies": {
+    "query-string": "^7.0.1",
     "superagent": "^5.3.1"
   },
   "devDependencies": {
@@ -49,9 +50,6 @@
     "lint-staged": "^10.5.4",
     "mocha": ">=8.1.0",
     "prettier": "^2.0.5"
-  },
-  "peerDependencies": {
-    "querystring": "^0.2.0"
   },
   "files": [
     "dist"

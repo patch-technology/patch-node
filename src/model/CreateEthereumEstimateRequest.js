@@ -26,6 +26,13 @@ class CreateEthereumEstimateRequest {
         obj['gas_used'] = ApiClient.convertToType(data['gas_used'], 'Number');
       }
 
+      if (data.hasOwnProperty('transaction_value_eth_gwei')) {
+        obj['transaction_value_eth_gwei'] = ApiClient.convertToType(
+          data['transaction_value_eth_gwei'],
+          'Number'
+        );
+      }
+
       if (data.hasOwnProperty('project_id')) {
         obj['project_id'] = ApiClient.convertToType(
           data['project_id'],
@@ -47,6 +54,9 @@ class CreateEthereumEstimateRequest {
 CreateEthereumEstimateRequest.prototype['timestamp'] = undefined;
 
 CreateEthereumEstimateRequest.prototype['gas_used'] = undefined;
+
+CreateEthereumEstimateRequest.prototype['transaction_value_eth_gwei'] =
+  undefined;
 
 CreateEthereumEstimateRequest.prototype['project_id'] = undefined;
 

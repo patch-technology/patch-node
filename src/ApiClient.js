@@ -6,7 +6,7 @@
  */
 
 import superagent from 'superagent';
-import querystring from 'querystring';
+import querystring from 'query-string';
 
 class ApiClient {
   constructor() {
@@ -59,6 +59,9 @@ class ApiClient {
     }
     if (param instanceof Date) {
       return param.toJSON();
+    }
+    if (param instanceof Object) {
+      return param;
     }
 
     return param.toString();
