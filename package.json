@@ -1,5 +1,5 @@
 {
-  "name": "patch-node",
+  "name": "@patch-technology/patch",
   "version": "1.10.0",
   "description": "Node.js wrapper for the Patch API",
   "license": "Unlicense",
@@ -7,7 +7,7 @@
   "scripts": {
     "build": "babel src -d dist",
     "prepare": "npm run build",
-    "test": "mocha --require @babel/register --recursive"
+    "test": "mocha"
   },
   "browser": {
     "fs": false

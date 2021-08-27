@@ -33,7 +33,7 @@ node_modules
 .node_repl_history
 
 # OpenAPI Code gen artifacts
-.openapi-generator
+.openapi-generator/
 .openapi-generator-ignore
 
 # OS artifacts
