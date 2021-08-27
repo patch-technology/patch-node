@@ -2,7 +2,7 @@
   "name": "@patch-technology/patch",
   "version": "1.10.0",
   "description": "Node.js wrapper for the Patch API",
-  "license": "Unlicense",
+  "license": "MIT",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src -d dist",
