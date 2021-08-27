@@ -3,6 +3,10 @@
   "version": "1.10.0",
   "description": "Node.js wrapper for the Patch API",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/patch-technology/patch-node.git"
+  },
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src -d dist",
