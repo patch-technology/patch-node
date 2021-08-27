@@ -14,20 +14,9 @@ import OrderResponse from '../model/OrderResponse';
 export default class OrdersApi {
   constructor(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
-    this.cancelOrder = this.cancelOrder.bind(this);
-    this.cancelOrderWithHttpInfo = this.cancelOrderWithHttpInfo.bind(this);
-    this.createOrder = this.createOrder.bind(this);
-    this.createOrderWithHttpInfo = this.createOrderWithHttpInfo.bind(this);
-    this.placeOrder = this.placeOrder.bind(this);
-    this.placeOrderWithHttpInfo = this.placeOrderWithHttpInfo.bind(this);
-    this.retrieveOrder = this.retrieveOrder.bind(this);
-    this.retrieveOrderWithHttpInfo = this.retrieveOrderWithHttpInfo.bind(this);
-    this.retrieveOrders = this.retrieveOrders.bind(this);
-    this.retrieveOrdersWithHttpInfo =
-      this.retrieveOrdersWithHttpInfo.bind(this);
   }
 
-  cancelOrderWithHttpInfo() {
+  cancelOrderWithHttpInfo(id) {
     let postBody = null;
 
     // verify the required parameter 'id' is set
@@ -64,11 +53,11 @@ export default class OrdersApi {
     );
   }
 
-  cancelOrder() {
-    return this.cancelOrderWithHttpInfo();
+  cancelOrder(id) {
+    return this.cancelOrderWithHttpInfo(id);
   }
 
-  createOrderWithHttpInfo() {
+  createOrderWithHttpInfo(createOrderRequest) {
     let postBody = createOrderRequest;
 
     // verify the required parameter 'createOrderRequest' is set
@@ -103,11 +92,11 @@ export default class OrdersApi {
     );
   }
 
-  createOrder() {
-    return this.createOrderWithHttpInfo();
+  createOrder(createOrderRequest) {
+    return this.createOrderWithHttpInfo(createOrderRequest);
   }
 
-  placeOrderWithHttpInfo() {
+  placeOrderWithHttpInfo(id) {
     let postBody = null;
 
     // verify the required parameter 'id' is set
@@ -144,11 +133,11 @@ export default class OrdersApi {
     );
   }
 
-  placeOrder() {
-    return this.placeOrderWithHttpInfo();
+  placeOrder(id) {
+    return this.placeOrderWithHttpInfo(id);
   }
 
-  retrieveOrderWithHttpInfo() {
+  retrieveOrderWithHttpInfo(id) {
     let postBody = null;
 
     // verify the required parameter 'id' is set
@@ -185,11 +174,13 @@ export default class OrdersApi {
     );
   }
 
-  retrieveOrder() {
-    return this.retrieveOrderWithHttpInfo();
+  retrieveOrder(id) {
+    return this.retrieveOrderWithHttpInfo(id);
   }
 
-  retrieveOrdersWithHttpInfo() {
+  retrieveOrdersWithHttpInfo(opts) {
+    opts = opts || {};
+
     let postBody = null;
 
     let pathParams = {};
@@ -225,7 +216,7 @@ export default class OrdersApi {
     );
   }
 
-  retrieveOrders() {
-    return this.retrieveOrdersWithHttpInfo();
+  retrieveOrders(opts) {
+    return this.retrieveOrdersWithHttpInfo(opts);
   }
 }

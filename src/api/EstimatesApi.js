@@ -19,33 +19,9 @@ import EstimateResponse from '../model/EstimateResponse';
 export default class EstimatesApi {
   constructor(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
-    this.createBitcoinEstimate = this.createBitcoinEstimate.bind(this);
-    this.createBitcoinEstimateWithHttpInfo =
-      this.createBitcoinEstimateWithHttpInfo.bind(this);
-    this.createEthereumEstimate = this.createEthereumEstimate.bind(this);
-    this.createEthereumEstimateWithHttpInfo =
-      this.createEthereumEstimateWithHttpInfo.bind(this);
-    this.createFlightEstimate = this.createFlightEstimate.bind(this);
-    this.createFlightEstimateWithHttpInfo =
-      this.createFlightEstimateWithHttpInfo.bind(this);
-    this.createMassEstimate = this.createMassEstimate.bind(this);
-    this.createMassEstimateWithHttpInfo =
-      this.createMassEstimateWithHttpInfo.bind(this);
-    this.createShippingEstimate = this.createShippingEstimate.bind(this);
-    this.createShippingEstimateWithHttpInfo =
-      this.createShippingEstimateWithHttpInfo.bind(this);
-    this.createVehicleEstimate = this.createVehicleEstimate.bind(this);
-    this.createVehicleEstimateWithHttpInfo =
-      this.createVehicleEstimateWithHttpInfo.bind(this);
-    this.retrieveEstimate = this.retrieveEstimate.bind(this);
-    this.retrieveEstimateWithHttpInfo =
-      this.retrieveEstimateWithHttpInfo.bind(this);
-    this.retrieveEstimates = this.retrieveEstimates.bind(this);
-    this.retrieveEstimatesWithHttpInfo =
-      this.retrieveEstimatesWithHttpInfo.bind(this);
   }
 
-  createBitcoinEstimateWithHttpInfo() {
+  createBitcoinEstimateWithHttpInfo(createBitcoinEstimateRequest) {
     let postBody = createBitcoinEstimateRequest;
 
     // verify the required parameter 'createBitcoinEstimateRequest' is set
@@ -83,11 +59,11 @@ export default class EstimatesApi {
     );
   }
 
-  createBitcoinEstimate() {
-    return this.createBitcoinEstimateWithHttpInfo();
+  createBitcoinEstimate(createBitcoinEstimateRequest) {
+    return this.createBitcoinEstimateWithHttpInfo(createBitcoinEstimateRequest);
   }
 
-  createEthereumEstimateWithHttpInfo() {
+  createEthereumEstimateWithHttpInfo(createEthereumEstimateRequest) {
     let postBody = createEthereumEstimateRequest;
 
     // verify the required parameter 'createEthereumEstimateRequest' is set
@@ -125,11 +101,13 @@ export default class EstimatesApi {
     );
   }
 
-  createEthereumEstimate() {
-    return this.createEthereumEstimateWithHttpInfo();
+  createEthereumEstimate(createEthereumEstimateRequest) {
+    return this.createEthereumEstimateWithHttpInfo(
+      createEthereumEstimateRequest
+    );
   }
 
-  createFlightEstimateWithHttpInfo() {
+  createFlightEstimateWithHttpInfo(createFlightEstimateRequest) {
     let postBody = createFlightEstimateRequest;
 
     // verify the required parameter 'createFlightEstimateRequest' is set
@@ -167,11 +145,11 @@ export default class EstimatesApi {
     );
   }
 
-  createFlightEstimate() {
-    return this.createFlightEstimateWithHttpInfo();
+  createFlightEstimate(createFlightEstimateRequest) {
+    return this.createFlightEstimateWithHttpInfo(createFlightEstimateRequest);
   }
 
-  createMassEstimateWithHttpInfo() {
+  createMassEstimateWithHttpInfo(createMassEstimateRequest) {
     let postBody = createMassEstimateRequest;
 
     // verify the required parameter 'createMassEstimateRequest' is set
@@ -209,11 +187,11 @@ export default class EstimatesApi {
     );
   }
 
-  createMassEstimate() {
-    return this.createMassEstimateWithHttpInfo();
+  createMassEstimate(createMassEstimateRequest) {
+    return this.createMassEstimateWithHttpInfo(createMassEstimateRequest);
   }
 
-  createShippingEstimateWithHttpInfo() {
+  createShippingEstimateWithHttpInfo(createShippingEstimateRequest) {
     let postBody = createShippingEstimateRequest;
 
     // verify the required parameter 'createShippingEstimateRequest' is set
@@ -251,11 +229,13 @@ export default class EstimatesApi {
     );
   }
 
-  createShippingEstimate() {
-    return this.createShippingEstimateWithHttpInfo();
+  createShippingEstimate(createShippingEstimateRequest) {
+    return this.createShippingEstimateWithHttpInfo(
+      createShippingEstimateRequest
+    );
   }
 
-  createVehicleEstimateWithHttpInfo() {
+  createVehicleEstimateWithHttpInfo(createVehicleEstimateRequest) {
     let postBody = createVehicleEstimateRequest;
 
     // verify the required parameter 'createVehicleEstimateRequest' is set
@@ -293,11 +273,11 @@ export default class EstimatesApi {
     );
   }
 
-  createVehicleEstimate() {
-    return this.createVehicleEstimateWithHttpInfo();
+  createVehicleEstimate(createVehicleEstimateRequest) {
+    return this.createVehicleEstimateWithHttpInfo(createVehicleEstimateRequest);
   }
 
-  retrieveEstimateWithHttpInfo() {
+  retrieveEstimateWithHttpInfo(id) {
     let postBody = null;
 
     // verify the required parameter 'id' is set
@@ -334,11 +314,13 @@ export default class EstimatesApi {
     );
   }
 
-  retrieveEstimate() {
-    return this.retrieveEstimateWithHttpInfo();
+  retrieveEstimate(id) {
+    return this.retrieveEstimateWithHttpInfo(id);
   }
 
-  retrieveEstimatesWithHttpInfo() {
+  retrieveEstimatesWithHttpInfo(opts) {
+    opts = opts || {};
+
     let postBody = null;
 
     let pathParams = {};
@@ -368,7 +350,7 @@ export default class EstimatesApi {
     );
   }
 
-  retrieveEstimates() {
-    return this.retrieveEstimatesWithHttpInfo();
+  retrieveEstimates(opts) {
+    return this.retrieveEstimatesWithHttpInfo(opts);
   }
 }

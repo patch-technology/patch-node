@@ -13,15 +13,9 @@ import ProjectResponse from '../model/ProjectResponse';
 export default class ProjectsApi {
   constructor(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
-    this.retrieveProject = this.retrieveProject.bind(this);
-    this.retrieveProjectWithHttpInfo =
-      this.retrieveProjectWithHttpInfo.bind(this);
-    this.retrieveProjects = this.retrieveProjects.bind(this);
-    this.retrieveProjectsWithHttpInfo =
-      this.retrieveProjectsWithHttpInfo.bind(this);
   }
 
-  retrieveProjectWithHttpInfo() {
+  retrieveProjectWithHttpInfo(id) {
     let postBody = null;
 
     // verify the required parameter 'id' is set
@@ -58,11 +52,13 @@ export default class ProjectsApi {
     );
   }
 
-  retrieveProject() {
-    return this.retrieveProjectWithHttpInfo();
+  retrieveProject(id) {
+    return this.retrieveProjectWithHttpInfo(id);
   }
 
-  retrieveProjectsWithHttpInfo() {
+  retrieveProjectsWithHttpInfo(opts) {
+    opts = opts || {};
+
     let postBody = null;
 
     let pathParams = {};
@@ -98,7 +94,7 @@ export default class ProjectsApi {
     );
   }
 
-  retrieveProjects() {
-    return this.retrieveProjectsWithHttpInfo();
+  retrieveProjects(opts) {
+    return this.retrieveProjectsWithHttpInfo(opts);
   }
 }
