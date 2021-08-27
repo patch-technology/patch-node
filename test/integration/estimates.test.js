@@ -37,7 +37,7 @@ describe('Estimates Integration', function () {
   it('supports creating shipping estimates without an order', async function () {
     const createEstimateResponse = await patch.estimates.createShippingEstimate(
       {
-        distance_m: 1000000,
+        distance_m: 100000,
         transportation_method: 'rail',
         package_mass_g: 50000,
         create_order: false
@@ -53,7 +53,7 @@ describe('Estimates Integration', function () {
 
   it('supports creating vehicle estimates without an order', async function () {
     const createEstimateResponse = await patch.estimates.createVehicleEstimate({
-      distance_m: 1000000,
+      distance_m: 100000,
       make: 'Toyota',
       model: 'Corolla',
       year: 2005,
