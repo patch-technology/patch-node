@@ -28,7 +28,7 @@ export default class PreferencesApi {
       this.retrievePreferencesWithHttpInfo.bind(this);
   }
 
-  createPreferenceWithHttpInfo(createPreferenceRequest) {
+  createPreferenceWithHttpInfo() {
     let postBody = createPreferenceRequest;
 
     // verify the required parameter 'createPreferenceRequest' is set
@@ -66,11 +66,11 @@ export default class PreferencesApi {
     );
   }
 
-  createPreference(createPreferenceRequest) {
-    return this.createPreferenceWithHttpInfo(createPreferenceRequest);
+  createPreference() {
+    return this.createPreferenceWithHttpInfo();
   }
 
-  deletePreferenceWithHttpInfo(id) {
+  deletePreferenceWithHttpInfo() {
     let postBody = null;
 
     // verify the required parameter 'id' is set
@@ -107,11 +107,11 @@ export default class PreferencesApi {
     );
   }
 
-  deletePreference(id) {
-    return this.deletePreferenceWithHttpInfo(id);
+  deletePreference() {
+    return this.deletePreferenceWithHttpInfo();
   }
 
-  retrievePreferenceWithHttpInfo(id) {
+  retrievePreferenceWithHttpInfo() {
     let postBody = null;
 
     // verify the required parameter 'id' is set
@@ -148,13 +148,11 @@ export default class PreferencesApi {
     );
   }
 
-  retrievePreference(id) {
-    return this.retrievePreferenceWithHttpInfo(id);
+  retrievePreference() {
+    return this.retrievePreferenceWithHttpInfo();
   }
 
-  retrievePreferencesWithHttpInfo(opts) {
-    opts = opts || {};
-
+  retrievePreferencesWithHttpInfo() {
     let postBody = null;
 
     let pathParams = {};
@@ -184,7 +182,7 @@ export default class PreferencesApi {
     );
   }
 
-  retrievePreferences(opts) {
-    return this.retrievePreferencesWithHttpInfo(opts);
+  retrievePreferences() {
+    return this.retrievePreferencesWithHttpInfo();
   }
 }

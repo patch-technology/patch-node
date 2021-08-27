@@ -27,7 +27,7 @@ export default class OrdersApi {
       this.retrieveOrdersWithHttpInfo.bind(this);
   }
 
-  cancelOrderWithHttpInfo(id) {
+  cancelOrderWithHttpInfo() {
     let postBody = null;
 
     // verify the required parameter 'id' is set
@@ -64,11 +64,11 @@ export default class OrdersApi {
     );
   }
 
-  cancelOrder(id) {
-    return this.cancelOrderWithHttpInfo(id);
+  cancelOrder() {
+    return this.cancelOrderWithHttpInfo();
   }
 
-  createOrderWithHttpInfo(createOrderRequest) {
+  createOrderWithHttpInfo() {
     let postBody = createOrderRequest;
 
     // verify the required parameter 'createOrderRequest' is set
@@ -103,11 +103,11 @@ export default class OrdersApi {
     );
   }
 
-  createOrder(createOrderRequest) {
-    return this.createOrderWithHttpInfo(createOrderRequest);
+  createOrder() {
+    return this.createOrderWithHttpInfo();
   }
 
-  placeOrderWithHttpInfo(id) {
+  placeOrderWithHttpInfo() {
     let postBody = null;
 
     // verify the required parameter 'id' is set
@@ -144,11 +144,11 @@ export default class OrdersApi {
     );
   }
 
-  placeOrder(id) {
-    return this.placeOrderWithHttpInfo(id);
+  placeOrder() {
+    return this.placeOrderWithHttpInfo();
   }
 
-  retrieveOrderWithHttpInfo(id) {
+  retrieveOrderWithHttpInfo() {
     let postBody = null;
 
     // verify the required parameter 'id' is set
@@ -185,13 +185,11 @@ export default class OrdersApi {
     );
   }
 
-  retrieveOrder(id) {
-    return this.retrieveOrderWithHttpInfo(id);
+  retrieveOrder() {
+    return this.retrieveOrderWithHttpInfo();
   }
 
-  retrieveOrdersWithHttpInfo(opts) {
-    opts = opts || {};
-
+  retrieveOrdersWithHttpInfo() {
     let postBody = null;
 
     let pathParams = {};
@@ -227,7 +225,7 @@ export default class OrdersApi {
     );
   }
 
-  retrieveOrders(opts) {
-    return this.retrieveOrdersWithHttpInfo(opts);
+  retrieveOrders() {
+    return this.retrieveOrdersWithHttpInfo();
   }
 }

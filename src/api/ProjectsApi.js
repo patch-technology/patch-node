@@ -21,7 +21,7 @@ export default class ProjectsApi {
       this.retrieveProjectsWithHttpInfo.bind(this);
   }
 
-  retrieveProjectWithHttpInfo(id) {
+  retrieveProjectWithHttpInfo() {
     let postBody = null;
 
     // verify the required parameter 'id' is set
@@ -58,13 +58,11 @@ export default class ProjectsApi {
     );
   }
 
-  retrieveProject(id) {
-    return this.retrieveProjectWithHttpInfo(id);
+  retrieveProject() {
+    return this.retrieveProjectWithHttpInfo();
   }
 
-  retrieveProjectsWithHttpInfo(opts) {
-    opts = opts || {};
-
+  retrieveProjectsWithHttpInfo() {
     let postBody = null;
 
     let pathParams = {};
@@ -100,7 +98,7 @@ export default class ProjectsApi {
     );
   }
 
-  retrieveProjects(opts) {
-    return this.retrieveProjectsWithHttpInfo(opts);
+  retrieveProjects() {
+    return this.retrieveProjectsWithHttpInfo();
   }
 }
