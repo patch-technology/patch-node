@@ -13,12 +13,6 @@ import ProjectResponse from '../model/ProjectResponse';
 export default class ProjectsApi {
   constructor(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
-    this.retrieveProject = this.retrieveProject.bind(this);
-    this.retrieveProjectWithHttpInfo =
-      this.retrieveProjectWithHttpInfo.bind(this);
-    this.retrieveProjects = this.retrieveProjects.bind(this);
-    this.retrieveProjectsWithHttpInfo =
-      this.retrieveProjectsWithHttpInfo.bind(this);
   }
 
   retrieveProjectWithHttpInfo(id) {

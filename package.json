@@ -1,24 +1,29 @@
 {
   "name": "@patch-technology/patch",
-  "version": "1.9.0",
-  "description": "JavaScript wrapper for the Patch API",
+  "version": "1.10.0",
+  "description": "Node.js wrapper for the Patch API",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/patch-technology/patch-node.git"
   },
-  "engines": {
-    "node": ">=10.16.3",
-    "npm": ">=6.9.0"
-  },
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src -d dist",
-    "prepack": "npm run build",
+    "prepare": "npm run build",
     "test": "mocha"
   },
   "browser": {
     "fs": false
+  },
+  "engines": {
+    "node": ">=10.16.3",
+    "npm": ">=6.9.0"
+  },
+  "scripts": {
+    "build": "babel src -d dist",
+    "prepack": "npm run build",
+    "test": "mocha"
   },
   "dependencies": {
     "query-string": "^7.0.1",
@@ -48,7 +53,8 @@
     "chai": "^4.2.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.5.4",
-    "mocha": ">=8.1.0",
+    "mocha": "^8.1.0",
+    "sinon": "^7.2.0",
     "prettier": "^2.0.5"
   },
   "files": [

@@ -8,13 +8,13 @@
 import ApiClient from '../ApiClient';
 
 class Sdg {
-  constructor(title, _number, description, url) {
-    Sdg.initialize(this, title, _number, description, url);
+  constructor(title, number, description, url) {
+    Sdg.initialize(this, title, number, description, url);
   }
 
-  static initialize(obj, title, _number, description, url) {
+  static initialize(obj, title, number, description, url) {
     obj['title'] = title;
-    obj['number'] = _number;
+    obj['number'] = number;
     obj['description'] = description;
     obj['url'] = url;
   }

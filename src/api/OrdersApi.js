@@ -14,17 +14,6 @@ import OrderResponse from '../model/OrderResponse';
 export default class OrdersApi {
   constructor(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
-    this.cancelOrder = this.cancelOrder.bind(this);
-    this.cancelOrderWithHttpInfo = this.cancelOrderWithHttpInfo.bind(this);
-    this.createOrder = this.createOrder.bind(this);
-    this.createOrderWithHttpInfo = this.createOrderWithHttpInfo.bind(this);
-    this.placeOrder = this.placeOrder.bind(this);
-    this.placeOrderWithHttpInfo = this.placeOrderWithHttpInfo.bind(this);
-    this.retrieveOrder = this.retrieveOrder.bind(this);
-    this.retrieveOrderWithHttpInfo = this.retrieveOrderWithHttpInfo.bind(this);
-    this.retrieveOrders = this.retrieveOrders.bind(this);
-    this.retrieveOrdersWithHttpInfo =
-      this.retrieveOrdersWithHttpInfo.bind(this);
   }
 
   cancelOrderWithHttpInfo(id) {

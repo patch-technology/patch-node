@@ -14,18 +14,6 @@ import PreferenceResponse from '../model/PreferenceResponse';
 export default class PreferencesApi {
   constructor(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
-    this.createPreference = this.createPreference.bind(this);
-    this.createPreferenceWithHttpInfo =
-      this.createPreferenceWithHttpInfo.bind(this);
-    this.deletePreference = this.deletePreference.bind(this);
-    this.deletePreferenceWithHttpInfo =
-      this.deletePreferenceWithHttpInfo.bind(this);
-    this.retrievePreference = this.retrievePreference.bind(this);
-    this.retrievePreferenceWithHttpInfo =
-      this.retrievePreferenceWithHttpInfo.bind(this);
-    this.retrievePreferences = this.retrievePreferences.bind(this);
-    this.retrievePreferencesWithHttpInfo =
-      this.retrievePreferencesWithHttpInfo.bind(this);
   }
 
   createPreferenceWithHttpInfo(createPreferenceRequest) {

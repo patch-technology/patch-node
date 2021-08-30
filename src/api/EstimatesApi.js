@@ -19,30 +19,6 @@ import EstimateResponse from '../model/EstimateResponse';
 export default class EstimatesApi {
   constructor(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
-    this.createBitcoinEstimate = this.createBitcoinEstimate.bind(this);
-    this.createBitcoinEstimateWithHttpInfo =
-      this.createBitcoinEstimateWithHttpInfo.bind(this);
-    this.createEthereumEstimate = this.createEthereumEstimate.bind(this);
-    this.createEthereumEstimateWithHttpInfo =
-      this.createEthereumEstimateWithHttpInfo.bind(this);
-    this.createFlightEstimate = this.createFlightEstimate.bind(this);
-    this.createFlightEstimateWithHttpInfo =
-      this.createFlightEstimateWithHttpInfo.bind(this);
-    this.createMassEstimate = this.createMassEstimate.bind(this);
-    this.createMassEstimateWithHttpInfo =
-      this.createMassEstimateWithHttpInfo.bind(this);
-    this.createShippingEstimate = this.createShippingEstimate.bind(this);
-    this.createShippingEstimateWithHttpInfo =
-      this.createShippingEstimateWithHttpInfo.bind(this);
-    this.createVehicleEstimate = this.createVehicleEstimate.bind(this);
-    this.createVehicleEstimateWithHttpInfo =
-      this.createVehicleEstimateWithHttpInfo.bind(this);
-    this.retrieveEstimate = this.retrieveEstimate.bind(this);
-    this.retrieveEstimateWithHttpInfo =
-      this.retrieveEstimateWithHttpInfo.bind(this);
-    this.retrieveEstimates = this.retrieveEstimates.bind(this);
-    this.retrieveEstimatesWithHttpInfo =
-      this.retrieveEstimatesWithHttpInfo.bind(this);
   }
 
   createBitcoinEstimateWithHttpInfo(createBitcoinEstimateRequest) {
