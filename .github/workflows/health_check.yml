@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ['10', '12', '14']
+        node: ['12']
     name: Node ${{ matrix.node }} Test
     steps:
       - name: Check out code
@@ -33,6 +33,7 @@ jobs:
       - name: Notify slack
         uses: kpritam/slack-job-status-action@v1
         with:
+          if: ${{ always() }}
           job-status: ${{ job.status }}
           slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
-          channel: github-actions
+          channel: eng-notifications
