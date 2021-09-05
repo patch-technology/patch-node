@@ -16,7 +16,7 @@ jobs:
         name: Create GitHub deployment
         id: deployment
         with:
-          token: "${{ github.token }}"
+          token: '${{ github.token }}'
           target_url: ${{ env.TARGET_URL }}
           environment: production
 
@@ -45,16 +45,16 @@ jobs:
         if: success()
         uses: chrnorm/deployment-status@releases/v1
         with:
-          token: "${{ github.token }}"
+          token: '${{ github.token }}'
           target_url: ${{ env.TARGET_URL }}
-          state: "success"
+          state: 'success'
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
 
       - name: Update deployment status (failure)
         if: failure()
         uses: chrnorm/deployment-status@releases/v1
         with:
-          token: "${{ github.token }}"
+          token: '${{ github.token }}'
           target_url: ${{ env.TARGET_URL }}
-          state: "failure"
+          state: 'failure'
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
