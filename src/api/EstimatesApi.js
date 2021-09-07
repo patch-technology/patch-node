@@ -22,12 +22,17 @@ export default class EstimatesApi {
   }
 
   createBitcoinEstimateWithHttpInfo(createBitcoinEstimateRequest) {
-    let postBody = createBitcoinEstimateRequest;
+    const _createBitcoinEstimateRequest =
+      CreateBitcoinEstimateRequest.constructFromObject(
+        createBitcoinEstimateRequest,
+        new CreateBitcoinEstimateRequest()
+      );
+    let postBody = _createBitcoinEstimateRequest;
 
     // verify the required parameter 'createBitcoinEstimateRequest' is set
     if (
-      createBitcoinEstimateRequest === undefined ||
-      createBitcoinEstimateRequest === null
+      _createBitcoinEstimateRequest === undefined ||
+      _createBitcoinEstimateRequest === null
     ) {
       throw new Error(
         "Missing the required parameter 'createBitcoinEstimateRequest' when calling createBitcoinEstimate"
@@ -64,12 +69,17 @@ export default class EstimatesApi {
   }
 
   createEthereumEstimateWithHttpInfo(createEthereumEstimateRequest) {
-    let postBody = createEthereumEstimateRequest;
+    const _createEthereumEstimateRequest =
+      CreateEthereumEstimateRequest.constructFromObject(
+        createEthereumEstimateRequest,
+        new CreateEthereumEstimateRequest()
+      );
+    let postBody = _createEthereumEstimateRequest;
 
     // verify the required parameter 'createEthereumEstimateRequest' is set
     if (
-      createEthereumEstimateRequest === undefined ||
-      createEthereumEstimateRequest === null
+      _createEthereumEstimateRequest === undefined ||
+      _createEthereumEstimateRequest === null
     ) {
       throw new Error(
         "Missing the required parameter 'createEthereumEstimateRequest' when calling createEthereumEstimate"
@@ -108,12 +118,17 @@ export default class EstimatesApi {
   }
 
   createFlightEstimateWithHttpInfo(createFlightEstimateRequest) {
-    let postBody = createFlightEstimateRequest;
+    const _createFlightEstimateRequest =
+      CreateFlightEstimateRequest.constructFromObject(
+        createFlightEstimateRequest,
+        new CreateFlightEstimateRequest()
+      );
+    let postBody = _createFlightEstimateRequest;
 
     // verify the required parameter 'createFlightEstimateRequest' is set
     if (
-      createFlightEstimateRequest === undefined ||
-      createFlightEstimateRequest === null
+      _createFlightEstimateRequest === undefined ||
+      _createFlightEstimateRequest === null
     ) {
       throw new Error(
         "Missing the required parameter 'createFlightEstimateRequest' when calling createFlightEstimate"
@@ -150,12 +165,17 @@ export default class EstimatesApi {
   }
 
   createMassEstimateWithHttpInfo(createMassEstimateRequest) {
-    let postBody = createMassEstimateRequest;
+    const _createMassEstimateRequest =
+      CreateMassEstimateRequest.constructFromObject(
+        createMassEstimateRequest,
+        new CreateMassEstimateRequest()
+      );
+    let postBody = _createMassEstimateRequest;
 
     // verify the required parameter 'createMassEstimateRequest' is set
     if (
-      createMassEstimateRequest === undefined ||
-      createMassEstimateRequest === null
+      _createMassEstimateRequest === undefined ||
+      _createMassEstimateRequest === null
     ) {
       throw new Error(
         "Missing the required parameter 'createMassEstimateRequest' when calling createMassEstimate"
@@ -192,12 +212,17 @@ export default class EstimatesApi {
   }
 
   createShippingEstimateWithHttpInfo(createShippingEstimateRequest) {
-    let postBody = createShippingEstimateRequest;
+    const _createShippingEstimateRequest =
+      CreateShippingEstimateRequest.constructFromObject(
+        createShippingEstimateRequest,
+        new CreateShippingEstimateRequest()
+      );
+    let postBody = _createShippingEstimateRequest;
 
     // verify the required parameter 'createShippingEstimateRequest' is set
     if (
-      createShippingEstimateRequest === undefined ||
-      createShippingEstimateRequest === null
+      _createShippingEstimateRequest === undefined ||
+      _createShippingEstimateRequest === null
     ) {
       throw new Error(
         "Missing the required parameter 'createShippingEstimateRequest' when calling createShippingEstimate"
@@ -236,12 +261,17 @@ export default class EstimatesApi {
   }
 
   createVehicleEstimateWithHttpInfo(createVehicleEstimateRequest) {
-    let postBody = createVehicleEstimateRequest;
+    const _createVehicleEstimateRequest =
+      CreateVehicleEstimateRequest.constructFromObject(
+        createVehicleEstimateRequest,
+        new CreateVehicleEstimateRequest()
+      );
+    let postBody = _createVehicleEstimateRequest;
 
     // verify the required parameter 'createVehicleEstimateRequest' is set
     if (
-      createVehicleEstimateRequest === undefined ||
-      createVehicleEstimateRequest === null
+      _createVehicleEstimateRequest === undefined ||
+      _createVehicleEstimateRequest === null
     ) {
       throw new Error(
         "Missing the required parameter 'createVehicleEstimateRequest' when calling createVehicleEstimate"

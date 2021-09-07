@@ -58,10 +58,14 @@ export default class OrdersApi {
   }
 
   createOrderWithHttpInfo(createOrderRequest) {
-    let postBody = createOrderRequest;
+    const _createOrderRequest = CreateOrderRequest.constructFromObject(
+      createOrderRequest,
+      new CreateOrderRequest()
+    );
+    let postBody = _createOrderRequest;
 
     // verify the required parameter 'createOrderRequest' is set
-    if (createOrderRequest === undefined || createOrderRequest === null) {
+    if (_createOrderRequest === undefined || _createOrderRequest === null) {
       throw new Error(
         "Missing the required parameter 'createOrderRequest' when calling createOrder"
       );
