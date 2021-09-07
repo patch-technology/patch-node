@@ -8,13 +8,11 @@
 import ApiClient from '../ApiClient';
 
 class CreateFlightEstimateRequest {
-  constructor(distanceM) {
-    CreateFlightEstimateRequest.initialize(this, distanceM);
+  constructor() {
+    CreateFlightEstimateRequest.initialize(this);
   }
 
-  static initialize(obj, distanceM) {
-    obj['distance_m'] = distanceM;
-  }
+  static initialize(obj) {}
 
   static constructFromObject(data, obj) {
     if (data) {
@@ -23,6 +21,41 @@ class CreateFlightEstimateRequest {
       if (data.hasOwnProperty('distance_m')) {
         obj['distance_m'] = ApiClient.convertToType(
           data['distance_m'],
+          'Number'
+        );
+      }
+
+      if (data.hasOwnProperty('origin_airport')) {
+        obj['origin_airport'] = ApiClient.convertToType(
+          data['origin_airport'],
+          'String'
+        );
+      }
+
+      if (data.hasOwnProperty('destination_airport')) {
+        obj['destination_airport'] = ApiClient.convertToType(
+          data['destination_airport'],
+          'String'
+        );
+      }
+
+      if (data.hasOwnProperty('aircraft_code')) {
+        obj['aircraft_code'] = ApiClient.convertToType(
+          data['aircraft_code'],
+          'String'
+        );
+      }
+
+      if (data.hasOwnProperty('cabin_class')) {
+        obj['cabin_class'] = ApiClient.convertToType(
+          data['cabin_class'],
+          'String'
+        );
+      }
+
+      if (data.hasOwnProperty('passenger_count')) {
+        obj['passenger_count'] = ApiClient.convertToType(
+          data['passenger_count'],
           'Number'
         );
       }
@@ -46,6 +79,16 @@ class CreateFlightEstimateRequest {
 }
 
 CreateFlightEstimateRequest.prototype['distance_m'] = undefined;
+
+CreateFlightEstimateRequest.prototype['origin_airport'] = undefined;
+
+CreateFlightEstimateRequest.prototype['destination_airport'] = undefined;
+
+CreateFlightEstimateRequest.prototype['aircraft_code'] = undefined;
+
+CreateFlightEstimateRequest.prototype['cabin_class'] = undefined;
+
+CreateFlightEstimateRequest.prototype['passenger_count'] = undefined;
 
 CreateFlightEstimateRequest.prototype['project_id'] = undefined;
 

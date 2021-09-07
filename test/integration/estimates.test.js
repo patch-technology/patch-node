@@ -21,10 +21,9 @@ describe('Estimates Integration', function () {
     expect(retrieveEstimatesResponse.data.length).to.be.above(0);
   });
 
-  it('supports creating flight estimates with an order', async function () {
+  it('supports creating flight estimates with distance', async function () {
     const createEstimateResponse = await patch.estimates.createFlightEstimate({
-      distance_m: 1000,
-      create_order: true
+      distance_m: 1000
     });
     const estimate = createEstimateResponse.data;
 
@@ -32,6 +31,19 @@ describe('Estimates Integration', function () {
     expect(estimate.mass_g).to.be.above(0);
     expect(estimate.production).to.be.eq(false);
     expect(estimate.order.state).to.be.eq('draft');
+  });
+
+  it('supports creating flight estimates with airports', async function () {
+    const { data: estimate1 } = await patch.estimates.createFlightEstimate({
+      origin_airport: 'SFO',
+      destination_airport: 'LAX'
+    });
+    const { data: estimate2 } = await patch.estimates.createFlightEstimate({
+      origin_airport: 'SFO',
+      destination_airport: 'JFK'
+    });
+
+    expect(estimate2.mass_g).to.be.greaterThan(estimate1.mass_g);
   });
 
   it('supports creating shipping estimates without an order', async function () {
