@@ -17,12 +17,17 @@ export default class PreferencesApi {
   }
 
   createPreferenceWithHttpInfo(createPreferenceRequest) {
-    let postBody = createPreferenceRequest;
+    const _createPreferenceRequest =
+      CreatePreferenceRequest.constructFromObject(
+        createPreferenceRequest,
+        new CreatePreferenceRequest()
+      );
+    let postBody = _createPreferenceRequest;
 
     // verify the required parameter 'createPreferenceRequest' is set
     if (
-      createPreferenceRequest === undefined ||
-      createPreferenceRequest === null
+      _createPreferenceRequest === undefined ||
+      _createPreferenceRequest === null
     ) {
       throw new Error(
         "Missing the required parameter 'createPreferenceRequest' when calling createPreference"

@@ -80,14 +80,11 @@ describe('Estimates Integration', function () {
   });
 
   it('supports creating bitcoin estimates without parameters', async function () {
-    const { data: estimate } = await patch.estimates.createBitcoinEstimate({
-      create_order: false // TODO: this should work without this
-    });
+    const { data: estimate } = await patch.estimates.createBitcoinEstimate();
 
     expect(estimate.type).to.be.eq('bitcoin');
     expect(estimate.mass_g).to.be.above(0);
     expect(estimate.production).to.be.eq(false);
-    expect(estimate.order).to.be.eq(null);
   });
 
   it('supports creating bitcoin estimates with a timestamp', async function () {
