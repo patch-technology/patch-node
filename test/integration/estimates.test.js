@@ -80,9 +80,6 @@ describe('Estimates Integration', function () {
   });
 
   it('supports creating bitcoin estimates without parameters', async function () {
-    // const { data: estimate } = await patch.estimates.createBitcoinEstimate({
-    //   create_order: false // TODO: this should work without this
-    // });
     const { data: estimate } = await patch.estimates.createBitcoinEstimate();
 
     expect(estimate.type).to.be.eq('bitcoin');
