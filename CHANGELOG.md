@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.11.0] - 2021-09-07
+
+### Added
+
+- Adds support for airports, aircracts, cabin class and passenger count in flight estimates
+
 ## [1.10.0] - 2021-08-27
 
 ### Added
