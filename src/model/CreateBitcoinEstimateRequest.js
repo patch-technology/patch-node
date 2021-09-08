@@ -19,7 +19,7 @@ class CreateBitcoinEstimateRequest {
       obj = obj || new CreateBitcoinEstimateRequest();
 
       if (data.hasOwnProperty('timestamp')) {
-        obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'String');
+        obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'Date');
       }
 
       if (data.hasOwnProperty('transaction_value_btc_sats')) {

@@ -34,7 +34,7 @@ describe('Orders Integration', function () {
     expect(estimateResponse.data.order.state).to.equal('draft');
 
     const placeOrderResponse = await patch.orders.placeOrder(orderId);
-    expect(placeOrderResponse.data.state).to.equal('placed');
+    expect(placeOrderResponse.data.created_at).to.be.an.instanceOf(Date);
     expect(placeOrderResponse.data.production).to.equal(false);
     expect(placeOrderResponse.data.mass_g).to.equal(100);
   });
