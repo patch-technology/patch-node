@@ -65,6 +65,10 @@ class Order {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
 
+      if (data.hasOwnProperty('created_at')) {
+        obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+      }
+
       if (data.hasOwnProperty('mass_g')) {
         obj['mass_g'] = ApiClient.convertToType(data['mass_g'], 'Number');
       }
@@ -123,6 +127,8 @@ class Order {
 }
 
 Order.prototype['id'] = undefined;
+
+Order.prototype['created_at'] = undefined;
 
 Order.prototype['mass_g'] = undefined;
 
