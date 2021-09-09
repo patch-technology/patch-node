@@ -5,7 +5,8 @@ const patch = Patch(process.env.SANDBOX_API_KEY);
 describe('Estimates Integration', function () {
   it('supports create, retrieve and list', async function () {
     const createEstimateResponse = await patch.estimates.createMassEstimate({
-      mass_g: 100
+      mass_g: 100,
+      create_order: true
     });
     const estimateId = createEstimateResponse.data.id;
 
@@ -23,7 +24,8 @@ describe('Estimates Integration', function () {
 
   it('supports creating flight estimates with distance', async function () {
     const createEstimateResponse = await patch.estimates.createFlightEstimate({
-      distance_m: 1000
+      distance_m: 1000,
+      create_order: true
     });
     const estimate = createEstimateResponse.data;
 
@@ -46,7 +48,7 @@ describe('Estimates Integration', function () {
     expect(estimate2.mass_g).to.be.greaterThan(estimate1.mass_g);
   });
 
-  it('supports creating shipping estimates without an order', async function () {
+  it('supports creating shipping estimates', async function () {
     const createEstimateResponse = await patch.estimates.createShippingEstimate(
       {
         distance_m: 100000,
