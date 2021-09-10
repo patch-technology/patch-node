@@ -44,7 +44,7 @@ class CreateMassEstimateRequest {
 
 CreateMassEstimateRequest.prototype['mass_g'] = undefined;
 
-CreateMassEstimateRequest.prototype['create_order'] = undefined;
+CreateMassEstimateRequest.prototype['create_order'] = false;
 
 CreateMassEstimateRequest.prototype['project_id'] = undefined;
 

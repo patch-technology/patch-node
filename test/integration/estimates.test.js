@@ -111,6 +111,17 @@ describe('Estimates Integration', function () {
     expect(estimate1.mass_g).to.be.above(estimate2.mass_g);
   });
 
+  it('supports creating bitcoin estimates with a daily balance', async function () {
+    const { data: estimate1 } = await patch.estimates.createBitcoinEstimate({
+      average_daily_balance_btc_sats: 1000000
+    });
+    const { data: estimate2 } = await patch.estimates.createBitcoinEstimate({
+      average_daily_balance_btc_sats: 10000000
+    });
+
+    expect(estimate1.mass_g).to.be.below(estimate2.mass_g);
+  });
+
   it('supports creating ethereum estimates with a gas value', async function () {
     const createEstimateResponse = await patch.estimates.createEthereumEstimate(
       {

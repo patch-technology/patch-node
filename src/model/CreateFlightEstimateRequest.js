@@ -92,6 +92,6 @@ CreateFlightEstimateRequest.prototype['passenger_count'] = undefined;
 
 CreateFlightEstimateRequest.prototype['project_id'] = undefined;
 
-CreateFlightEstimateRequest.prototype['create_order'] = undefined;
+CreateFlightEstimateRequest.prototype['create_order'] = false;
 
 export default CreateFlightEstimateRequest;

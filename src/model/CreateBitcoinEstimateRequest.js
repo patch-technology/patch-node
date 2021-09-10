@@ -29,6 +29,13 @@ class CreateBitcoinEstimateRequest {
         );
       }
 
+      if (data.hasOwnProperty('average_daily_balance_btc_sats')) {
+        obj['average_daily_balance_btc_sats'] = ApiClient.convertToType(
+          data['average_daily_balance_btc_sats'],
+          'Number'
+        );
+      }
+
       if (data.hasOwnProperty('project_id')) {
         obj['project_id'] = ApiClient.convertToType(
           data['project_id'],
@@ -52,8 +59,11 @@ CreateBitcoinEstimateRequest.prototype['timestamp'] = undefined;
 CreateBitcoinEstimateRequest.prototype['transaction_value_btc_sats'] =
   undefined;
 
+CreateBitcoinEstimateRequest.prototype['average_daily_balance_btc_sats'] =
+  undefined;
+
 CreateBitcoinEstimateRequest.prototype['project_id'] = undefined;
 
-CreateBitcoinEstimateRequest.prototype['create_order'] = undefined;
+CreateBitcoinEstimateRequest.prototype['create_order'] = false;
 
 export default CreateBitcoinEstimateRequest;
