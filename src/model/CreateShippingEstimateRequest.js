@@ -74,6 +74,6 @@ CreateShippingEstimateRequest.prototype['transportation_method'] = undefined;
 
 CreateShippingEstimateRequest.prototype['project_id'] = undefined;
 
-CreateShippingEstimateRequest.prototype['create_order'] = undefined;
+CreateShippingEstimateRequest.prototype['create_order'] = false;
 
 export default CreateShippingEstimateRequest;

@@ -33,6 +33,13 @@ class CreateEthereumEstimateRequest {
         );
       }
 
+      if (data.hasOwnProperty('average_daily_balance_eth_gwei')) {
+        obj['average_daily_balance_eth_gwei'] = ApiClient.convertToType(
+          data['average_daily_balance_eth_gwei'],
+          'Number'
+        );
+      }
+
       if (data.hasOwnProperty('project_id')) {
         obj['project_id'] = ApiClient.convertToType(
           data['project_id'],
@@ -58,8 +65,11 @@ CreateEthereumEstimateRequest.prototype['gas_used'] = undefined;
 CreateEthereumEstimateRequest.prototype['transaction_value_eth_gwei'] =
   undefined;
 
+CreateEthereumEstimateRequest.prototype['average_daily_balance_eth_gwei'] =
+  undefined;
+
 CreateEthereumEstimateRequest.prototype['project_id'] = undefined;
 
-CreateEthereumEstimateRequest.prototype['create_order'] = undefined;
+CreateEthereumEstimateRequest.prototype['create_order'] = false;
 
 export default CreateEthereumEstimateRequest;

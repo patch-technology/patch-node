@@ -67,6 +67,6 @@ CreateVehicleEstimateRequest.prototype['year'] = undefined;
 
 CreateVehicleEstimateRequest.prototype['project_id'] = undefined;
 
-CreateVehicleEstimateRequest.prototype['create_order'] = undefined;
+CreateVehicleEstimateRequest.prototype['create_order'] = false;
 
 export default CreateVehicleEstimateRequest;
