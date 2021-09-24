@@ -37,7 +37,7 @@ After installing the package, you'll have to configure it with your API key whic
 ```javascript
 // ES6+
 import Patch from '@patch-technology/patch';
-const patch = Patch('key_test_1234');
+const patch = Patch.default('key_test_1234');
 
 // ES5
 var patch = require('@patch-technology/patch').default('key_test_1234');
