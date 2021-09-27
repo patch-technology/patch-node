@@ -9,6 +9,7 @@ import ApiClient from '../ApiClient';
 import Photo from './Photo';
 import Sdg from './Sdg';
 import Standard from './Standard';
+import TechnologyType from './TechnologyType';
 
 class Project {
   constructor(
@@ -85,8 +86,24 @@ class Project {
         obj['type'] = ApiClient.convertToType(data['type'], 'String');
       }
 
+      if (data.hasOwnProperty('mechanism')) {
+        obj['mechanism'] = ApiClient.convertToType(data['mechanism'], 'String');
+      }
+
       if (data.hasOwnProperty('country')) {
         obj['country'] = ApiClient.convertToType(data['country'], 'String');
+      }
+
+      if (data.hasOwnProperty('state')) {
+        obj['state'] = ApiClient.convertToType(data['state'], 'String');
+      }
+
+      if (data.hasOwnProperty('latitude')) {
+        obj['latitude'] = ApiClient.convertToType(data['latitude'], 'Number');
+      }
+
+      if (data.hasOwnProperty('longitude')) {
+        obj['longitude'] = ApiClient.convertToType(data['longitude'], 'Number');
       }
 
       if (data.hasOwnProperty('developer')) {
@@ -118,6 +135,16 @@ class Project {
       if (data.hasOwnProperty('sdgs')) {
         obj['sdgs'] = ApiClient.convertToType(data['sdgs'], [Sdg]);
       }
+
+      if (data.hasOwnProperty('technology_type')) {
+        obj['technology_type'] = TechnologyType.constructFromObject(
+          data['technology_type']
+        );
+      }
+
+      if (data.hasOwnProperty('tagline')) {
+        obj['tagline'] = ApiClient.convertToType(data['tagline'], 'String');
+      }
     }
     return obj;
   }
@@ -133,7 +160,15 @@ Project.prototype['description'] = undefined;
 
 Project.prototype['type'] = undefined;
 
+Project.prototype['mechanism'] = undefined;
+
 Project.prototype['country'] = undefined;
+
+Project.prototype['state'] = undefined;
+
+Project.prototype['latitude'] = undefined;
+
+Project.prototype['longitude'] = undefined;
 
 Project.prototype['developer'] = undefined;
 
@@ -146,5 +181,9 @@ Project.prototype['remaining_mass_g'] = undefined;
 Project.prototype['standard'] = undefined;
 
 Project.prototype['sdgs'] = undefined;
+
+Project.prototype['technology_type'] = undefined;
+
+Project.prototype['tagline'] = undefined;
 
 export default Project;
