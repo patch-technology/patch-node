@@ -13,6 +13,22 @@ describe('Project Integration', function () {
     const projectId = data[0].id;
     const projectResponse = await patch.projects.retrieveProject(projectId);
     expect(projectResponse.data.id).to.equal(projectId);
+
+    // tagline can be null but should always be present in the payload
+    expect(projectResponse.data).to.be.have.property('tagline');
+
+    expect(projectResponse.data.mechanism).to.be.a('string');
+    expect(projectResponse.data.state).to.be.a('string');
+    expect(projectResponse.data.latitude).to.be.a('number');
+    expect(projectResponse.data.longitude).to.be.a('number');
+
+    const technology_type = projectResponse.data.technology_type;
+    expect(technology_type.slug).to.be.a('string');
+    expect(technology_type.name).to.be.a('string');
+
+    const parent_technology_type = technology_type.parent_technology_type;
+    expect(parent_technology_type.slug).to.be.a('string');
+    expect(parent_technology_type.name).to.be.a('string');
   });
 
   it('supports fetching all projects from the United States', async function () {
