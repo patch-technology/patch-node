@@ -10,6 +10,7 @@ import EstimatesApi from './api/EstimatesApi';
 import OrdersApi from './api/OrdersApi';
 import PreferencesApi from './api/PreferencesApi';
 import ProjectsApi from './api/ProjectsApi';
+import TechnologyTypesApi from './api/TechnologyTypesApi';
 
 export default function Patch(accessToken) {
   if (!(this instanceof Patch)) return new Patch(accessToken);
@@ -24,4 +25,6 @@ export default function Patch(accessToken) {
   this.preferences = new PreferencesApi(this.client);
 
   this.projects = new ProjectsApi(this.client);
+
+  this.technologytypes = new TechnologyTypesApi(this.client);
 }

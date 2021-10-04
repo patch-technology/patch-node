@@ -1,6 +1,6 @@
 {
   "name": "@patch-technology/patch",
-  "version": "1.14.0",
+  "version": "1.15.0",
   "description": "Node.js wrapper for the Patch API",
   "license": "MIT",
   "repository": {
