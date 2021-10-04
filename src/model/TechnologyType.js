@@ -9,11 +9,14 @@ import ApiClient from '../ApiClient';
 import ParentTechnologyType from './ParentTechnologyType';
 
 class TechnologyType {
-  constructor() {
-    TechnologyType.initialize(this);
+  constructor(slug, name) {
+    TechnologyType.initialize(this, slug, name);
   }
 
-  static initialize(obj) {}
+  static initialize(obj, slug, name) {
+    obj['slug'] = slug;
+    obj['name'] = name;
+  }
 
   static constructFromObject(data, obj) {
     if (data) {

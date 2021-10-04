@@ -20,7 +20,8 @@ class Project {
     country,
     developer,
     averagePricePerTonneCentsUsd,
-    remainingMassG
+    remainingMassG,
+    technologyType
   ) {
     Project.initialize(
       this,
@@ -31,7 +32,8 @@ class Project {
       country,
       developer,
       averagePricePerTonneCentsUsd,
-      remainingMassG
+      remainingMassG,
+      technologyType
     );
   }
 
@@ -44,7 +46,8 @@ class Project {
     country,
     developer,
     averagePricePerTonneCentsUsd,
-    remainingMassG
+    remainingMassG,
+    technologyType
   ) {
     obj['id'] = id;
     obj['production'] = production;
@@ -54,6 +57,7 @@ class Project {
     obj['developer'] = developer;
     obj['average_price_per_tonne_cents_usd'] = averagePricePerTonneCentsUsd;
     obj['remaining_mass_g'] = remainingMassG;
+    obj['technology_type'] = technologyType;
   }
 
   static constructFromObject(data, obj) {
@@ -136,14 +140,14 @@ class Project {
         obj['sdgs'] = ApiClient.convertToType(data['sdgs'], [Sdg]);
       }
 
+      if (data.hasOwnProperty('tagline')) {
+        obj['tagline'] = ApiClient.convertToType(data['tagline'], 'String');
+      }
+
       if (data.hasOwnProperty('technology_type')) {
         obj['technology_type'] = TechnologyType.constructFromObject(
           data['technology_type']
         );
-      }
-
-      if (data.hasOwnProperty('tagline')) {
-        obj['tagline'] = ApiClient.convertToType(data['tagline'], 'String');
       }
     }
     return obj;
@@ -182,8 +186,8 @@ Project.prototype['standard'] = undefined;
 
 Project.prototype['sdgs'] = undefined;
 
-Project.prototype['technology_type'] = undefined;
-
 Project.prototype['tagline'] = undefined;
+
+Project.prototype['technology_type'] = undefined;
 
 export default Project;
