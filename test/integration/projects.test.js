@@ -18,6 +18,7 @@ describe('Project Integration', function () {
     expect(projectResponse.data).to.be.have.property('tagline');
 
     expect(projectResponse.data.mechanism).to.be.a('string');
+    expect(projectResponse.data.verifier).to.be.a('string');
     expect(projectResponse.data.state).to.be.a('string');
     expect(projectResponse.data.latitude).to.be.a('number');
     expect(projectResponse.data.longitude).to.be.a('number');
