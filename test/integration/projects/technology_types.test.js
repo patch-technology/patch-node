@@ -3,7 +3,7 @@ import Patch from '../../../dist/index';
 const patch = Patch(process.env.SANDBOX_API_KEY);
 
 describe('Projects TechnologyTypes Integration', function () {
-  it.only('supports fetching the available technology_types', async function () {
+  it('supports fetching the available technology_types', async function () {
     const { data } = await patch.technologytypes.retrieveTechnologyTypes();
     expect(data.length).to.be.above(0);
     expect(data[0].name).to.be.a('string');

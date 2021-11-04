@@ -132,6 +132,10 @@ class Project {
         );
       }
 
+      if (data.hasOwnProperty('verifier')) {
+        obj['verifier'] = ApiClient.convertToType(data['verifier'], 'String');
+      }
+
       if (data.hasOwnProperty('standard')) {
         obj['standard'] = ApiClient.convertToType(data['standard'], Standard);
       }
@@ -181,6 +185,8 @@ Project.prototype['photos'] = undefined;
 Project.prototype['average_price_per_tonne_cents_usd'] = undefined;
 
 Project.prototype['remaining_mass_g'] = undefined;
+
+Project.prototype['verifier'] = undefined;
 
 Project.prototype['standard'] = undefined;
 

@@ -28,7 +28,8 @@ describe('Orders Integration', function () {
 
   it('supports placing orders in a `draft` state', async function () {
     const estimateResponse = await patch.estimates.createMassEstimate({
-      mass_g: 100
+      mass_g: 100,
+      create_order: true
     });
     const orderId = estimateResponse.data.order.id;
     expect(estimateResponse.data.order.state).to.equal('draft');
@@ -41,7 +42,8 @@ describe('Orders Integration', function () {
 
   it('supports cancelling orders in a `draft` state', async function () {
     const estimateResponse = await patch.estimates.createMassEstimate({
-      mass_g: 100
+      mass_g: 100,
+      create_order: true
     });
     const orderId = estimateResponse.data.order.id;
     expect(estimateResponse.data.order.state).to.equal('draft');

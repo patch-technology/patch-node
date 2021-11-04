@@ -1,3 +1,5 @@
 require: '@babel/register'
-recursive: true
 timeout: '10000'
+recursive: true
+spec:
+  - 'test/**/*.test.js'
