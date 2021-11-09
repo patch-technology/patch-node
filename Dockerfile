@@ -10,5 +10,6 @@ ENTRYPOINT [ "npm", "install"]
 FROM base AS lint
 
 WORKDIR /data
+
 ENTRYPOINT [ "npx", "prettier", "--write" ]
 
