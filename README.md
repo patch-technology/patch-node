@@ -205,7 +205,11 @@ const page = 1; // Pass in which page of preferences you'd like
 patch.preferences.retrievePreferences({ page });
 ```
 
-## Development
+## Contributing
+
+While we value open-source contributions to this SDK, the core of this library is generated programatically. Complex additions made directly to the library would have to be moved over to our generation code. Feel free to open a PR for proof of concept, but know that we will not be able to merge as is. We suggest opening an issue first to discuss with us!
+
+On the other hand, contributions to the README, as well as new test cases are always very welcome!
 
 ### Build and manually test
 
