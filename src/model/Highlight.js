@@ -8,13 +8,14 @@
 import ApiClient from '../ApiClient';
 
 class Highlight {
-  constructor(slug, title) {
-    Highlight.initialize(this, slug, title);
+  constructor(slug, title, iconUrl) {
+    Highlight.initialize(this, slug, title, iconUrl);
   }
 
-  static initialize(obj, slug, title) {
+  static initialize(obj, slug, title, iconUrl) {
     obj['slug'] = slug;
     obj['title'] = title;
+    obj['icon_url'] = iconUrl;
   }
 
   static constructFromObject(data, obj) {
@@ -28,6 +29,10 @@ class Highlight {
       if (data.hasOwnProperty('title')) {
         obj['title'] = ApiClient.convertToType(data['title'], 'String');
       }
+
+      if (data.hasOwnProperty('icon_url')) {
+        obj['icon_url'] = ApiClient.convertToType(data['icon_url'], 'String');
+      }
     }
     return obj;
   }
@@ -36,5 +41,7 @@ class Highlight {
 Highlight.prototype['slug'] = undefined;
 
 Highlight.prototype['title'] = undefined;
+
+Highlight.prototype['icon_url'] = undefined;
 
 export default Highlight;
