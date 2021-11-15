@@ -20,6 +20,7 @@ describe('Project Integration', function () {
     expect(projectResponse.data.mechanism).to.be.a('string');
     expect(projectResponse.data.latitude).to.be.a('number');
     expect(projectResponse.data.longitude).to.be.a('number');
+    expect(projectResponse.data.highlights).to.be.an('array');
 
     const technology_type = projectResponse.data.technology_type;
     expect(technology_type.slug).to.be.a('string');

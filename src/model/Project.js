@@ -6,6 +6,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import Highlight from './Highlight';
 import Photo from './Photo';
 import Sdg from './Sdg';
 import Standard from './Standard';
@@ -21,7 +22,8 @@ class Project {
     developer,
     averagePricePerTonneCentsUsd,
     remainingMassG,
-    technologyType
+    technologyType,
+    highlights
   ) {
     Project.initialize(
       this,
@@ -33,7 +35,8 @@ class Project {
       developer,
       averagePricePerTonneCentsUsd,
       remainingMassG,
-      technologyType
+      technologyType,
+      highlights
     );
   }
 
@@ -47,7 +50,8 @@ class Project {
     developer,
     averagePricePerTonneCentsUsd,
     remainingMassG,
-    technologyType
+    technologyType,
+    highlights
   ) {
     obj['id'] = id;
     obj['production'] = production;
@@ -58,6 +62,7 @@ class Project {
     obj['average_price_per_tonne_cents_usd'] = averagePricePerTonneCentsUsd;
     obj['remaining_mass_g'] = remainingMassG;
     obj['technology_type'] = technologyType;
+    obj['highlights'] = highlights;
   }
 
   static constructFromObject(data, obj) {
@@ -153,6 +158,12 @@ class Project {
           data['technology_type']
         );
       }
+
+      if (data.hasOwnProperty('highlights')) {
+        obj['highlights'] = ApiClient.convertToType(data['highlights'], [
+          Highlight
+        ]);
+      }
     }
     return obj;
   }
@@ -195,5 +206,7 @@ Project.prototype['sdgs'] = undefined;
 Project.prototype['tagline'] = undefined;
 
 Project.prototype['technology_type'] = undefined;
+
+Project.prototype['highlights'] = undefined;
 
 export default Project;
