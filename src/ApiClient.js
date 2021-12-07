@@ -2,7 +2,7 @@
  * Patch API V1
  * The core API used to integrate with Patch's service
  *
- * Contact: developers@usepatch.com
+ * Contact: engineering@usepatch.com
  */
 
 import superagent from 'superagent';
@@ -16,7 +16,7 @@ class ApiClient {
     };
 
     this.defaultHeaders = {
-      'User-Agent': 'patch-node/1.15.2'
+      'User-Agent': 'patch-node/1.16.0'
     };
 
     /**
@@ -457,13 +457,13 @@ class ApiClient {
   hostSettings() {
     return [
       {
-        url: 'https://{defaultHost}',
+        url: '{defaultUrl}',
         description: 'No description provided',
 
         variables: {
-          defaultHost: {
+          defaultUrl: {
             description: 'No description provided',
-            default_value: 'api.patch.io',
+            default_value: 'https://api.patch.io',
             enum_values: []
           }
         }

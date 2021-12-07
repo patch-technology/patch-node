@@ -2,7 +2,7 @@
  * Patch API V1
  * The core API used to integrate with Patch's service
  *
- * Contact: developers@usepatch.com
+ * Contact: engineering@usepatch.com
  */
 
 import ApiClient from '../ApiClient';
