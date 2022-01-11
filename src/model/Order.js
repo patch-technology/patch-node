@@ -17,7 +17,6 @@ class Order {
     allocationState,
     priceCentsUsd,
     patchFeeCentsUsd,
-    allocations,
     metadata
   ) {
     Order.initialize(
@@ -29,7 +28,6 @@ class Order {
       allocationState,
       priceCentsUsd,
       patchFeeCentsUsd,
-      allocations,
       metadata
     );
   }
@@ -43,7 +41,6 @@ class Order {
     allocationState,
     priceCentsUsd,
     patchFeeCentsUsd,
-    allocations,
     metadata
   ) {
     obj['id'] = id;
@@ -53,7 +50,6 @@ class Order {
     obj['allocation_state'] = allocationState;
     obj['price_cents_usd'] = priceCentsUsd;
     obj['patch_fee_cents_usd'] = patchFeeCentsUsd;
-    obj['allocations'] = allocations;
     obj['metadata'] = metadata;
   }
 

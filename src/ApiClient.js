@@ -9,14 +9,14 @@ import superagent from 'superagent';
 import querystring from 'query-string';
 
 class ApiClient {
-  constructor(basePath = 'https://api.patch.io') {
-    this.basePath = basePath.replace(/\/+$/, '');
+  constructor() {
+    this.basePath = 'https://api.patch.io'.replace(/\/+$/, '');
     this.authentications = {
       bearer_auth: { type: 'bearer' }
     };
 
     this.defaultHeaders = {
-      'User-Agent': 'patch-node/1.16.1'
+      'User-Agent': 'patch-node/1.17.0'
     };
 
     /**
