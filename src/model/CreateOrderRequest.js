@@ -39,6 +39,10 @@ class CreateOrderRequest {
       if (data.hasOwnProperty('metadata')) {
         obj['metadata'] = ApiClient.convertToType(data['metadata'], Object);
       }
+
+      if (data.hasOwnProperty('state')) {
+        obj['state'] = ApiClient.convertToType(data['state'], 'String');
+      }
     }
     return obj;
   }
@@ -51,5 +55,7 @@ CreateOrderRequest.prototype['total_price_cents_usd'] = undefined;
 CreateOrderRequest.prototype['project_id'] = undefined;
 
 CreateOrderRequest.prototype['metadata'] = undefined;
+
+CreateOrderRequest.prototype['state'] = undefined;
 
 export default CreateOrderRequest;
