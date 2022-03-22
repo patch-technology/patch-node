@@ -27,6 +27,21 @@ describe('Orders Integration', function () {
   });
 
   it('supports placing orders in a `draft` state', async function () {
+    const estimateResponse = await patch.orders.createOrder({
+      mass_g: 100,
+      state: 'draft'
+    });
+
+    const orderId = estimateResponse.data.id;
+    expect(estimateResponse.data.state).to.equal('draft');
+
+    const placeOrderResponse = await patch.orders.placeOrder(orderId);
+    expect(placeOrderResponse.data.created_at).to.be.an.instanceOf(Date);
+    expect(placeOrderResponse.data.production).to.equal(false);
+    expect(placeOrderResponse.data.mass_g).to.equal(100);
+  });
+
+  it('supports placing orders in a `draft` state using an estimate', async function () {
     const estimateResponse = await patch.estimates.createMassEstimate({
       mass_g: 100,
       create_order: true
@@ -40,7 +55,7 @@ describe('Orders Integration', function () {
     expect(placeOrderResponse.data.mass_g).to.equal(100);
   });
 
-  it('supports cancelling orders in a `draft` state', async function () {
+  xit('supports cancelling orders in a `draft` state', async function () {
     const estimateResponse = await patch.estimates.createMassEstimate({
       mass_g: 100,
       create_order: true
