@@ -148,7 +148,7 @@ patch.estimates.createHotelEstimate({
   star_rating,
   number_of_nights,
   number_of_rooms
-})
+});
 
 // Retrieve an estimate
 const estimateId = 'est_test_1234';
@@ -246,6 +246,7 @@ patch.projects.retrieveProjects().then((response) => console.log(response));
 ### Run the specs
 
 Before running the tests, make sure you set the test API key! Please use test API keys and not production ones, they usually start with `key_test_`.
+Additionally, make sure you navigate back to the `patch-node` file.
 
 ```sh
 $ export SANDBOX_API_KEY=<PATCH_TEST_API_KEY>
