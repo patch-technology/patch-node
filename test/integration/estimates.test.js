@@ -148,7 +148,7 @@ describe('Estimates Integration', function () {
     const estimate = createEstimateResponse.data;
 
     expect(estimate.type).to.be.eq('hotel');
-    expect(estimate.mass_g).to.be.above(0);
+    expect(estimate.mass_g).to.be.above(150_000);
     expect(estimate.production).to.be.eq(false);
   });
 });
