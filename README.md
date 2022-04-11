@@ -246,7 +246,7 @@ patch.projects.retrieveProjects().then((response) => console.log(response));
 ### Run the specs
 
 Before running the tests, make sure you set the test API key! Please use test API keys and not production ones, they usually start with `key_test_`.
-Additionally, make sure you navigate back to the `patch-node` file.
+Be sure you navigate back to the root `patch-node` directory to run the tests.
 
 ```sh
 $ export SANDBOX_API_KEY=<PATCH_TEST_API_KEY>
