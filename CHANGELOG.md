@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Adds `patch.estimates.create_hotel_estimate()` method
+- Adds `patch.estimates.createHotelEstimate()` method
 
 ## [1.18.0] - 2022-03-22
 
