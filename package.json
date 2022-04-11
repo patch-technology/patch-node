@@ -1,6 +1,6 @@
 {
   "name": "@patch-technology/patch",
-  "version": "1.19.0",
+  "version": "1.18.0",
   "description": "Node.js wrapper for the Patch API",
   "license": "MIT",
   "repository": {
@@ -15,6 +15,7 @@
     "node": ">=10.16.3",
     "npm": ">=6.9.0"
   },
+
   "scripts": {
     "build": "babel src -d dist",
     "prepack": "npm run build",

@@ -7,46 +7,48 @@
 
 import ApiClient from '../ApiClient';
 
+
 class CreateOrderRequest {
-  constructor() {
-    CreateOrderRequest.initialize(this);
-  }
-
-  static initialize(obj) {}
-
-  static constructFromObject(data, obj) {
-    if (data) {
-      obj = obj || new CreateOrderRequest();
-
-      if (data.hasOwnProperty('mass_g')) {
-        obj['mass_g'] = ApiClient.convertToType(data['mass_g'], 'Number');
-      }
-
-      if (data.hasOwnProperty('total_price_cents_usd')) {
-        obj['total_price_cents_usd'] = ApiClient.convertToType(
-          data['total_price_cents_usd'],
-          'Number'
-        );
-      }
-
-      if (data.hasOwnProperty('project_id')) {
-        obj['project_id'] = ApiClient.convertToType(
-          data['project_id'],
-          'String'
-        );
-      }
-
-      if (data.hasOwnProperty('metadata')) {
-        obj['metadata'] = ApiClient.convertToType(data['metadata'], Object);
-      }
-
-      if (data.hasOwnProperty('state')) {
-        obj['state'] = ApiClient.convertToType(data['state'], 'String');
-      }
+    constructor() { 
+        
+        CreateOrderRequest.initialize(this);
     }
-    return obj;
-  }
+
+    static initialize(obj) { 
+    }
+
+    static constructFromObject(data, obj) {
+        if (data) {
+            obj = obj || new CreateOrderRequest();
+
+            
+            if (data.hasOwnProperty('mass_g')) {
+                obj['mass_g'] = ApiClient.convertToType(data['mass_g'], 'Number');
+            }
+            
+            if (data.hasOwnProperty('total_price_cents_usd')) {
+                obj['total_price_cents_usd'] = ApiClient.convertToType(data['total_price_cents_usd'], 'Number');
+            }
+            
+            if (data.hasOwnProperty('project_id')) {
+                obj['project_id'] = ApiClient.convertToType(data['project_id'], 'String');
+            }
+            
+            if (data.hasOwnProperty('metadata')) {
+                obj['metadata'] = ApiClient.convertToType(data['metadata'], Object);
+            }
+            
+            if (data.hasOwnProperty('state')) {
+                obj['state'] = ApiClient.convertToType(data['state'], 'String');
+            }
+            
+        }
+        return obj;
+    }
+
+
 }
+
 
 CreateOrderRequest.prototype['mass_g'] = undefined;
 
@@ -58,4 +60,9 @@ CreateOrderRequest.prototype['metadata'] = undefined;
 
 CreateOrderRequest.prototype['state'] = undefined;
 
+
+
+
 export default CreateOrderRequest;
+
+
