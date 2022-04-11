@@ -126,12 +126,28 @@ patch.estimates.createBitcoinEstimate({
 
 // Create a vehicle estimate
 const distance_m = 9000000;
-// Pass in the shipping distance in meters and the model/make/year of the vehicle
+// Pass in the driving distance in meters and the model/make/year of the vehicle
 patch.estimates.createVehicleEstimate({
   distance_m,
   make: 'Toyota',
   model: 'Corolla',
   year: 1995
+});
+
+// Create a hotel estimate
+const country_code = 'US'; // ISO3166 alpha-2 country code
+const city = 'New York'; // [Optional]
+const region = 'New York'; // [Optional]
+const star_rating = 4; // [Optional] Star rating of the hotel from 2 to 5
+const number_of_nights = 2; // [Optional] Default value is 1
+const number_of_rooms = 2; // [Optional] Default value is 1
+patch.estimates.createHotelEstimate({
+  country_code,
+  city,
+  region,
+  star_rating,
+  number_of_nights,
+  number_of_rooms
 });
 
 // Retrieve an estimate
@@ -230,6 +246,7 @@ patch.projects.retrieveProjects().then((response) => console.log(response));
 ### Run the specs
 
 Before running the tests, make sure you set the test API key! Please use test API keys and not production ones, they usually start with `key_test_`.
+Be sure you navigate back to the root `patch-node` directory to run the tests.
 
 ```sh
 $ export SANDBOX_API_KEY=<PATCH_TEST_API_KEY>

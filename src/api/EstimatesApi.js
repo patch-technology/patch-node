@@ -9,6 +9,7 @@ import ApiClient from '../ApiClient';
 import CreateBitcoinEstimateRequest from '../model/CreateBitcoinEstimateRequest';
 import CreateEthereumEstimateRequest from '../model/CreateEthereumEstimateRequest';
 import CreateFlightEstimateRequest from '../model/CreateFlightEstimateRequest';
+import CreateHotelEstimateRequest from '../model/CreateHotelEstimateRequest';
 import CreateMassEstimateRequest from '../model/CreateMassEstimateRequest';
 import CreateShippingEstimateRequest from '../model/CreateShippingEstimateRequest';
 import CreateVehicleEstimateRequest from '../model/CreateVehicleEstimateRequest';
@@ -162,6 +163,53 @@ export default class EstimatesApi {
 
   createFlightEstimate(createFlightEstimateRequest) {
     return this.createFlightEstimateWithHttpInfo(createFlightEstimateRequest);
+  }
+
+  createHotelEstimateWithHttpInfo(createHotelEstimateRequest) {
+    const _createHotelEstimateRequest =
+      CreateHotelEstimateRequest.constructFromObject(
+        createHotelEstimateRequest,
+        new CreateHotelEstimateRequest()
+      );
+    let postBody = _createHotelEstimateRequest;
+
+    // verify the required parameter 'createHotelEstimateRequest' is set
+    if (
+      _createHotelEstimateRequest === undefined ||
+      _createHotelEstimateRequest === null
+    ) {
+      throw new Error(
+        "Missing the required parameter 'createHotelEstimateRequest' when calling createHotelEstimate"
+      );
+    }
+
+    let pathParams = {};
+    let queryParams = {};
+    let headerParams = {};
+    let formParams = {};
+
+    let authNames = ['bearer_auth'];
+    let contentTypes = ['application/json'];
+    let accepts = ['application/json'];
+    let returnType = EstimateResponse;
+
+    return this.apiClient.callApi(
+      '/v1/estimates/hotel',
+      'POST',
+      pathParams,
+      queryParams,
+      headerParams,
+      formParams,
+      postBody,
+      authNames,
+      contentTypes,
+      accepts,
+      returnType
+    );
+  }
+
+  createHotelEstimate(createHotelEstimateRequest) {
+    return this.createHotelEstimateWithHttpInfo(createHotelEstimateRequest);
   }
 
   createMassEstimateWithHttpInfo(createMassEstimateRequest) {
