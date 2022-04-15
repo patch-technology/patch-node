@@ -55,7 +55,7 @@ describe('Orders Integration', function () {
     expect(placeOrderResponse.data.mass_g).to.equal(100);
   });
 
-  xit('supports cancelling orders in a `draft` state', async function () {
+  it('supports cancelling orders in a `draft` state', async function () {
     const estimateResponse = await patch.estimates.createMassEstimate({
       mass_g: 100,
       create_order: true
