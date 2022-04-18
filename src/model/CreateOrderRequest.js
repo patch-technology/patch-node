@@ -43,6 +43,13 @@ class CreateOrderRequest {
       if (data.hasOwnProperty('state')) {
         obj['state'] = ApiClient.convertToType(data['state'], 'String');
       }
+
+      if (data.hasOwnProperty('vintage_year')) {
+        obj['vintage_year'] = ApiClient.convertToType(
+          data['vintage_year'],
+          'Number'
+        );
+      }
     }
     return obj;
   }
@@ -57,5 +64,7 @@ CreateOrderRequest.prototype['project_id'] = undefined;
 CreateOrderRequest.prototype['metadata'] = undefined;
 
 CreateOrderRequest.prototype['state'] = undefined;
+
+CreateOrderRequest.prototype['vintage_year'] = undefined;
 
 export default CreateOrderRequest;

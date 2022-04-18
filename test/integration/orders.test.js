@@ -83,4 +83,13 @@ describe('Orders Integration', function () {
       expect(order.metadata).to.have.all.keys('external_id');
     });
   });
+
+  it('supports create orders with a vintage year', async function () {
+    const createOrderResponse = await patch.orders.createOrder({
+      mass_g: 100,
+      vintage_year: 2022
+    });
+
+    expect(createOrderResponse.success).to.equal(true);
+  });
 });
