@@ -7,6 +7,7 @@
 
 import ApiClient from '../ApiClient';
 import Highlight from './Highlight';
+import Inventory from './Inventory';
 import Photo from './Photo';
 import Sdg from './Sdg';
 import Standard from './Standard';
@@ -23,7 +24,8 @@ class Project {
     averagePricePerTonneCentsUsd,
     remainingMassG,
     technologyType,
-    highlights
+    highlights,
+    inventory
   ) {
     Project.initialize(
       this,
@@ -36,7 +38,8 @@ class Project {
       averagePricePerTonneCentsUsd,
       remainingMassG,
       technologyType,
-      highlights
+      highlights,
+      inventory
     );
   }
 
@@ -51,7 +54,8 @@ class Project {
     averagePricePerTonneCentsUsd,
     remainingMassG,
     technologyType,
-    highlights
+    highlights,
+    inventory
   ) {
     obj['id'] = id;
     obj['production'] = production;
@@ -63,6 +67,7 @@ class Project {
     obj['remaining_mass_g'] = remainingMassG;
     obj['technology_type'] = technologyType;
     obj['highlights'] = highlights;
+    obj['inventory'] = inventory;
   }
 
   static constructFromObject(data, obj) {
@@ -164,6 +169,12 @@ class Project {
           Highlight
         ]);
       }
+
+      if (data.hasOwnProperty('inventory')) {
+        obj['inventory'] = ApiClient.convertToType(data['inventory'], [
+          Inventory
+        ]);
+      }
     }
     return obj;
   }
@@ -208,5 +219,7 @@ Project.prototype['tagline'] = undefined;
 Project.prototype['technology_type'] = undefined;
 
 Project.prototype['highlights'] = undefined;
+
+Project.prototype['inventory'] = undefined;
 
 export default Project;

@@ -29,6 +29,14 @@ describe('Project Integration', function () {
     const parent_technology_type = technology_type.parent_technology_type;
     expect(parent_technology_type.slug).to.be.a('string');
     expect(parent_technology_type.name).to.be.a('string');
+
+    const inventory = projectResponse.data.inventory;
+    expect(inventory).to.be.a('array');
+    expect(inventory[0].vintage_year).to.be.a('number');
+    expect(inventory[0].amount_available).to.be.a('number');
+    expect(inventory[0].price).to.be.a('number');
+    expect(inventory[0].currency).to.be.a('string');
+    expect(inventory[0].unit).to.be.a('string');
   });
 
   it('supports fetching all projects from the United States', async function () {

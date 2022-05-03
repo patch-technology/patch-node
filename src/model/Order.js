@@ -7,6 +7,7 @@
 
 import ApiClient from '../ApiClient';
 import Allocation from './Allocation';
+import OrderInventory from './OrderInventory';
 
 class Order {
   constructor(
@@ -14,6 +15,11 @@ class Order {
     massG,
     production,
     state,
+    amount,
+    unit,
+    price,
+    patchFee,
+    currency,
     allocationState,
     priceCentsUsd,
     patchFeeCentsUsd,
@@ -25,6 +31,11 @@ class Order {
       massG,
       production,
       state,
+      amount,
+      unit,
+      price,
+      patchFee,
+      currency,
       allocationState,
       priceCentsUsd,
       patchFeeCentsUsd,
@@ -38,6 +49,11 @@ class Order {
     massG,
     production,
     state,
+    amount,
+    unit,
+    price,
+    patchFee,
+    currency,
     allocationState,
     priceCentsUsd,
     patchFeeCentsUsd,
@@ -47,6 +63,11 @@ class Order {
     obj['mass_g'] = massG;
     obj['production'] = production;
     obj['state'] = state;
+    obj['amount'] = amount;
+    obj['unit'] = unit;
+    obj['price'] = price;
+    obj['patch_fee'] = patchFee;
+    obj['currency'] = currency;
     obj['allocation_state'] = allocationState;
     obj['price_cents_usd'] = priceCentsUsd;
     obj['patch_fee_cents_usd'] = patchFeeCentsUsd;
@@ -78,6 +99,26 @@ class Order {
 
       if (data.hasOwnProperty('state')) {
         obj['state'] = ApiClient.convertToType(data['state'], 'String');
+      }
+
+      if (data.hasOwnProperty('amount')) {
+        obj['amount'] = ApiClient.convertToType(data['amount'], 'Number');
+      }
+
+      if (data.hasOwnProperty('unit')) {
+        obj['unit'] = ApiClient.convertToType(data['unit'], 'String');
+      }
+
+      if (data.hasOwnProperty('price')) {
+        obj['price'] = ApiClient.convertToType(data['price'], 'Number');
+      }
+
+      if (data.hasOwnProperty('patch_fee')) {
+        obj['patch_fee'] = ApiClient.convertToType(data['patch_fee'], 'Number');
+      }
+
+      if (data.hasOwnProperty('currency')) {
+        obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
       }
 
       if (data.hasOwnProperty('allocation_state')) {
@@ -117,6 +158,12 @@ class Order {
       if (data.hasOwnProperty('metadata')) {
         obj['metadata'] = ApiClient.convertToType(data['metadata'], Object);
       }
+
+      if (data.hasOwnProperty('inventory')) {
+        obj['inventory'] = ApiClient.convertToType(data['inventory'], [
+          OrderInventory
+        ]);
+      }
     }
     return obj;
   }
@@ -132,6 +179,16 @@ Order.prototype['production'] = undefined;
 
 Order.prototype['state'] = undefined;
 
+Order.prototype['amount'] = undefined;
+
+Order.prototype['unit'] = undefined;
+
+Order.prototype['price'] = undefined;
+
+Order.prototype['patch_fee'] = undefined;
+
+Order.prototype['currency'] = undefined;
+
 Order.prototype['allocation_state'] = undefined;
 
 Order.prototype['price_cents_usd'] = undefined;
@@ -143,5 +200,7 @@ Order.prototype['allocations'] = undefined;
 Order.prototype['registry_url'] = undefined;
 
 Order.prototype['metadata'] = undefined;
+
+Order.prototype['inventory'] = undefined;
 
 export default Order;
