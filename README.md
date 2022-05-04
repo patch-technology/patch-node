@@ -65,15 +65,17 @@ fulfill the order for you.
 
 ```javascript
 // Create an order - you can create an order
-// providing either mass_g or total_price_cents_usd, but not both
+// providing either amount (and unit) or total_price (and currency), but not both
 
-// Create order with mass
-const mass = 1000000; // Pass in the mass in grams (i.e. 1 metric tonne)
-patch.orders.createOrder({ mass_g: mass });
+// Create order with amount
+const amount = 1_000_000; // Pass in the amount in unit specified
+const unit = 'g';
+patch.orders.createOrder({ amount: amount, unit: unit });
 
-// Create an order with a maximum total price
-const totalPriceCentsUSD = 500; // Pass in the total price in cents (i.e. 5 dollars)
-patch.orders.createOrder({ total_price_cents_usd: totalPriceCentsUSD });
+// Create an order with total price
+const totalPrice = 500; // Pass in the total price in smallest currency unit (ie cents for USD).
+const currency = 'USD';
+patch.orders.createOrder({ total_price: totalPrice, currency: currency });
 
 // Retrieve an order
 orderId = 'ord_test_1234'; // Pass in the order's id
