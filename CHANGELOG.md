@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.21.0] - 2022-05-03
+
+### Added
+
+- Adds optional `total_price` and `currency` field to `order` creation
+- Adds optional `amount` and `unit` field to `order` creation
+- Adds inventory to `project` responses
+- Adds inventory to `order` responses
+
+### Changed
+
+- Deprecates `mass_g` and `total_price_cents_usd` fields for create `order` requests
+- Deprecates `average_price_per_tonne_cents_usd` and `remaining_mass_g` from `project` responses
+- Deprecates `price_cents_usd`, `patch_fee_cents_usd`, and `mass_g` from `order` responses
+
 ## [1.20.0] - 2022-04-18
 
 ### Added

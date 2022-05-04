@@ -50,6 +50,25 @@ class CreateOrderRequest {
           'Number'
         );
       }
+
+      if (data.hasOwnProperty('total_price')) {
+        obj['total_price'] = ApiClient.convertToType(
+          data['total_price'],
+          'Number'
+        );
+      }
+
+      if (data.hasOwnProperty('currency')) {
+        obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
+      }
+
+      if (data.hasOwnProperty('amount')) {
+        obj['amount'] = ApiClient.convertToType(data['amount'], 'Number');
+      }
+
+      if (data.hasOwnProperty('unit')) {
+        obj['unit'] = ApiClient.convertToType(data['unit'], 'String');
+      }
     }
     return obj;
   }
@@ -66,5 +85,13 @@ CreateOrderRequest.prototype['metadata'] = undefined;
 CreateOrderRequest.prototype['state'] = undefined;
 
 CreateOrderRequest.prototype['vintage_year'] = undefined;
+
+CreateOrderRequest.prototype['total_price'] = undefined;
+
+CreateOrderRequest.prototype['currency'] = undefined;
+
+CreateOrderRequest.prototype['amount'] = undefined;
+
+CreateOrderRequest.prototype['unit'] = undefined;
 
 export default CreateOrderRequest;

@@ -92,4 +92,29 @@ describe('Orders Integration', function () {
 
     expect(createOrderResponse.success).to.equal(true);
   });
+
+  it('supports create orders with an amount and unit', async function () {
+    const createOrderResponse = await patch.orders.createOrder({
+      amount: 100,
+      unit: 'g'
+    });
+
+    expect(createOrderResponse.success).to.equal(true);
+    expect(createOrderResponse.data.amount).to.equal(100);
+    expect(createOrderResponse.data.unit).to.equal('g');
+    expect(createOrderResponse.data.inventory[0].unit).to.equal('g');
+  });
+
+  it('supports create orders with a total price and currency', async function () {
+    const createOrderResponse = await patch.orders.createOrder({
+      total_price: 100,
+      currency: 'EUR'
+    });
+
+    expect(createOrderResponse.success).to.equal(true);
+    expect(
+      createOrderResponse.data.price + createOrderResponse.data.patch_fee
+    ).to.be.within(99, 101);
+    expect(createOrderResponse.data.currency).to.equal('EUR');
+  });
 });
