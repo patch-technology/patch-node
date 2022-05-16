@@ -8,6 +8,14 @@ describe('Project Integration', function () {
     expect(data.length).to.be.above(0);
   });
 
+  it('supports fetching the available projects in the given language', async function () {
+    const { data } = await patch.projects.retrieveProjects({
+      acceptLanguage: 'fr'
+    });
+    expect(data.length).to.be.above(0);
+    expect(data[0].name).to.include('Projet'); // French
+  });
+
   it('supports fetching a single project', async function () {
     const { data } = await patch.projects.retrieveProjects();
     const projectId = data[0].id;
@@ -37,6 +45,16 @@ describe('Project Integration', function () {
     expect(inventory[0].price).to.be.a('number');
     expect(inventory[0].currency).to.be.a('string');
     expect(inventory[0].unit).to.be.a('string');
+  });
+
+  it('supports fetching a single project in a different language', async function () {
+    const { data } = await patch.projects.retrieveProjects();
+    const projectId = data[0].id;
+    const projectResponse = await patch.projects.retrieveProject(projectId, {
+      acceptLanguage: 'fr'
+    });
+
+    expect(projectResponse.data.name).to.include('Projet'); // French
   });
 
   it('supports fetching all projects from the United States', async function () {

@@ -15,7 +15,9 @@ export default class ProjectsApi {
     this.apiClient = apiClient || ApiClient.instance;
   }
 
-  retrieveProjectWithHttpInfo(id) {
+  retrieveProjectWithHttpInfo(id, opts) {
+    opts = opts || {};
+
     let postBody = null;
 
     // verify the required parameter 'id' is set
@@ -29,7 +31,9 @@ export default class ProjectsApi {
       id: id
     };
     let queryParams = {};
-    let headerParams = {};
+    let headerParams = {
+      'Accept-Language': opts['acceptLanguage']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];
@@ -52,8 +56,8 @@ export default class ProjectsApi {
     );
   }
 
-  retrieveProject(id) {
-    return this.retrieveProjectWithHttpInfo(id);
+  retrieveProject(id, opts) {
+    return this.retrieveProjectWithHttpInfo(id, opts);
   }
 
   retrieveProjectsWithHttpInfo(opts) {
@@ -71,7 +75,9 @@ export default class ProjectsApi {
 
       minimum_available_mass: opts['minimumAvailableMass']
     };
-    let headerParams = {};
+    let headerParams = {
+      'Accept-Language': opts['acceptLanguage']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];
