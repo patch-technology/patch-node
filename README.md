@@ -171,6 +171,8 @@ When fetching Projects, you can add filters to the query to narrow the result. C
 - `type`
 - `minimumAvailableMass`
 
+You can also set the `acceptLanguage` option to retrieve projects in a different language.
+
 [API Reference](https://docs.patch.io/#/?id=projects)
 
 #### Examples
@@ -195,6 +197,11 @@ patch.projects.retrieveProjects({ type });
 // Retrieve a filtered list of projects
 const minimumAvailableMass = 100; // Pass in the minimum available inventory the projects should have
 patch.projects.retrieveProjects({ minimumAvailableMass });
+
+// Retrieve a project in another language
+// See http://docs.patch.test:3000/#/internationalization for more information and support languages
+const projectId = 'pro_test_1234';
+patch.projects.retrieveProject(projectId, { acceptLanguage: 'fr' });
 ```
 
 ## Contributing
