@@ -7,6 +7,7 @@
 
 import ApiClient from '../ApiClient';
 import Allocation from './Allocation';
+import IssuedTo from './IssuedTo';
 import OrderInventory from './OrderInventory';
 
 class Order {
@@ -164,6 +165,10 @@ class Order {
           OrderInventory
         ]);
       }
+
+      if (data.hasOwnProperty('issued_to')) {
+        obj['issued_to'] = IssuedTo.constructFromObject(data['issued_to']);
+      }
     }
     return obj;
   }
@@ -202,5 +207,7 @@ Order.prototype['registry_url'] = undefined;
 Order.prototype['metadata'] = undefined;
 
 Order.prototype['inventory'] = undefined;
+
+Order.prototype['issued_to'] = undefined;
 
 export default Order;
