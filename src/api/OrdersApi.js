@@ -10,6 +10,7 @@ import CreateOrderRequest from '../model/CreateOrderRequest';
 import ErrorResponse from '../model/ErrorResponse';
 import OrderListResponse from '../model/OrderListResponse';
 import OrderResponse from '../model/OrderResponse';
+import PlaceOrderRequest from '../model/PlaceOrderRequest';
 
 export default class OrdersApi {
   constructor(apiClient) {
@@ -100,8 +101,14 @@ export default class OrdersApi {
     return this.createOrderWithHttpInfo(createOrderRequest);
   }
 
-  placeOrderWithHttpInfo(id) {
-    let postBody = null;
+  placeOrderWithHttpInfo(id, opts) {
+    opts = opts || {};
+
+    const _placeOrderRequest = PlaceOrderRequest.constructFromObject(
+      opts,
+      new CreateOrderRequest()
+    );
+    let postBody = _placeOrderRequest;
 
     // verify the required parameter 'id' is set
     if (id === undefined || id === null) {
@@ -118,7 +125,7 @@ export default class OrdersApi {
     let formParams = {};
 
     let authNames = ['bearer_auth'];
-    let contentTypes = [];
+    let contentTypes = ['application/json'];
     let accepts = ['application/json'];
     let returnType = OrderResponse;
 
@@ -137,8 +144,8 @@ export default class OrdersApi {
     );
   }
 
-  placeOrder(id) {
-    return this.placeOrderWithHttpInfo(id);
+  placeOrder(id, opts) {
+    return this.placeOrderWithHttpInfo(id, opts);
   }
 
   retrieveOrderWithHttpInfo(id) {

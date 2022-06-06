@@ -6,6 +6,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import V1OrdersIssuedTo from './V1OrdersIssuedTo';
 
 class CreateOrderRequest {
   constructor() {
@@ -69,6 +70,12 @@ class CreateOrderRequest {
       if (data.hasOwnProperty('unit')) {
         obj['unit'] = ApiClient.convertToType(data['unit'], 'String');
       }
+
+      if (data.hasOwnProperty('issuedTo')) {
+        obj['issued_to'] = V1OrdersIssuedTo.constructFromObject(
+          data['issuedTo']
+        );
+      }
     }
     return obj;
   }
@@ -93,5 +100,7 @@ CreateOrderRequest.prototype['currency'] = undefined;
 CreateOrderRequest.prototype['amount'] = undefined;
 
 CreateOrderRequest.prototype['unit'] = undefined;
+
+CreateOrderRequest.prototype['issued_to'] = undefined;
 
 export default CreateOrderRequest;
