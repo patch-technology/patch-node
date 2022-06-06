@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Adds support for the `issued_to` parameter on `orders`, to add support for creating and placing orders on behalf of another party.
+- Adds support for the `issuedTo` parameter on `orders`, to add support for creating and placing orders on behalf of another party.
 
 ## [1.22.0] - 2022-05-16
 

@@ -19,9 +19,9 @@ class PlaceOrderRequest {
     if (data) {
       obj = obj || new PlaceOrderRequest();
 
-      if (data.hasOwnProperty('issued_to')) {
+      if (data.hasOwnProperty('issuedTo')) {
         obj['issued_to'] = V1OrdersIssuedTo.constructFromObject(
-          data['issued_to']
+          data['issuedTo']
         );
       }
     }

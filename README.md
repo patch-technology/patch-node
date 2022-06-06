@@ -77,11 +77,11 @@ const totalPrice = 500; // Pass in the total price in smallest currency unit (ie
 const currency = 'USD';
 patch.orders.createOrder({ total_price: totalPrice, currency: currency });
 
-// Create order with the issued_to field (optional)
+// Create order with the issuedTo field (optional)
 const amount = 1_000_000; // Pass in the amount in unit specified
 const unit = 'g';
-const issued_to = { email: 'issuee@companya.com', name: 'Olivia Jones' };
-patch.orders.createOrder({ amount: amount, unit: unit, issued_to: issued_to });
+const issuedTo = { email: 'issuee@companya.com', name: 'Olivia Jones' };
+patch.orders.createOrder({ amount: amount, unit: unit, issuedTo: issuedTo });
 
 // Retrieve an order
 orderId = 'ord_test_1234'; // Pass in the order's id
@@ -91,10 +91,10 @@ patch.orders.retrieveOrder(orderId);
 const orderId = 'ord_test_1234'; // Pass in the order's id
 patch.orders.placeOrder(orderId);
 
-// Place an order with the issued_to field (optional)
+// Place an order with the issuedTo field (optional)
 const orderId = 'ord_test_1234'; // Pass in the order's id
-const issued_to = { email: 'issuee@companya.com', name: 'Olivia Jones' };
-patch.orders.placeOrder(orderId, { issued_to: issued_to });
+const issuedTo = { email: 'issuee@companya.com', name: 'Olivia Jones' };
+patch.orders.placeOrder(orderId, { issuedTo: issuedTo });
 
 // Cancel an order
 const orderId = 'ord_test_1234'; // Pass in the order's id
