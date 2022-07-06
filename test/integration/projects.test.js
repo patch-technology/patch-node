@@ -13,7 +13,7 @@ describe('Project Integration', function () {
       acceptLanguage: 'fr'
     });
     expect(data.length).to.be.above(0);
-    expect(data[0].name).to.include('Projet'); // French
+    expect(data[0].name).to.include('Démo'); // French
   });
 
   it('supports fetching a single project', async function () {
@@ -54,7 +54,7 @@ describe('Project Integration', function () {
       acceptLanguage: 'fr'
     });
 
-    expect(projectResponse.data.name).to.include('Projet'); // French
+    expect(projectResponse.data.name).to.include('Démo'); // French
   });
 
   it('supports fetching all projects from the United States', async function () {
