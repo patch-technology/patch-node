@@ -151,4 +151,233 @@ describe('Estimates Integration', function () {
     expect(estimate.mass_g).to.be.above(150_000);
     expect(estimate.production).to.be.eq(false);
   });
+
+  it('supports creating air shipping estimates from distance', async function () {
+    const createEstimateResponse =
+      await patch.estimates.createAirShippingEstimate({
+        distance_m: 292_630,
+        freight_mass_g: 24_091
+      });
+    const estimate = createEstimateResponse.data;
+
+    expect(estimate.order).to.be.eq(null);
+    expect(estimate.mass_g).to.be.above(5_000);
+    expect(estimate.production).to.be.eq(false);
+    expect(estimate.type).to.be.eq('shipping');
+  });
+
+  it('supports creating air shipping estimates from airport iatas', async function () {
+    const createEstimateResponse =
+      await patch.estimates.createAirShippingEstimate({
+        destination_iata: 'JFK',
+        freight_mass_g: 19_158,
+        origin_iata: 'ATL'
+      });
+    const estimate = createEstimateResponse.data;
+
+    expect(estimate.order).to.be.eq(null);
+    expect(estimate.mass_g).to.be.above(5_000);
+    expect(estimate.production).to.be.eq(false);
+    expect(estimate.type).to.be.eq('shipping');
+  });
+
+  it('supports creating air shipping estimates with an order', async function () {
+    const createEstimateResponse =
+      await patch.estimates.createAirShippingEstimate({
+        create_order: true,
+        distance_m: 292_630,
+        freight_mass_g: 24_091
+      });
+    const estimate = createEstimateResponse.data;
+
+    expect(estimate.order.amount).to.be.above(500);
+    expect(estimate.mass_g).to.be.above(5_000);
+    expect(estimate.production).to.be.eq(false);
+    expect(estimate.type).to.be.eq('shipping');
+  });
+
+  it('supports creating rail shipping estimates from distance', async function () {
+    const createEstimateResponse =
+      await patch.estimates.createRailShippingEstimate({
+        distance_m: 1_531_994,
+        freight_mass_g: 23_845
+      });
+    const estimate = createEstimateResponse.data;
+
+    expect(estimate.order).to.be.eq(null);
+    expect(estimate.mass_g).to.be.above(400);
+    expect(estimate.production).to.be.eq(false);
+    expect(estimate.type).to.be.eq('shipping');
+  });
+
+  it('supports creating rail shipping estimates from addresses', async function () {
+    const createEstimateResponse =
+      await patch.estimates.createRailShippingEstimate({
+        destination_country_code: 'US',
+        destination_postal_code: '90210',
+        freight_mass_g: 18_092,
+        origin_country_code: 'US',
+        origin_postal_code: '97209'
+      });
+    const estimate = createEstimateResponse.data;
+
+    expect(estimate.order).to.be.eq(null);
+    expect(estimate.mass_g).to.be.above(300);
+    expect(estimate.production).to.be.eq(false);
+    expect(estimate.type).to.be.eq('shipping');
+  });
+
+  it('supports creating rail shipping estimates from locodes', async function () {
+    const createEstimateResponse =
+      await patch.estimates.createRailShippingEstimate({
+        destination_locode: 'USSD2',
+        freight_mass_g: 18_092,
+        origin_locode: 'USSEA'
+      });
+    const estimate = createEstimateResponse.data;
+
+    expect(estimate.order).to.be.eq(null);
+    expect(estimate.mass_g).to.be.above(800);
+    expect(estimate.production).to.be.eq(false);
+    expect(estimate.type).to.be.eq('shipping');
+  });
+
+  it('supports creating rail shipping estimates with an order', async function () {
+    const createEstimateResponse =
+      await patch.estimates.createRailShippingEstimate({
+        create_order: true,
+        distance_m: 3_920_298,
+        freight_mass_g: 19_217
+      });
+    const estimate = createEstimateResponse.data;
+
+    expect(estimate.order.amount).to.be.above(200);
+    expect(estimate.mass_g).to.be.above(1_000);
+    expect(estimate.production).to.be.eq(false);
+    expect(estimate.type).to.be.eq('shipping');
+  });
+
+  it('supports creating road shipping estimates from distance', async function () {
+    const createEstimateResponse =
+      await patch.estimates.createRoadShippingEstimate({
+        distance_m: 2_300_167,
+        freight_mass_g: 20_738
+      });
+    const estimate = createEstimateResponse.data;
+
+    expect(estimate.order).to.be.eq(null);
+    expect(estimate.mass_g).to.be.above(5_000);
+    expect(estimate.production).to.be.eq(false);
+    expect(estimate.type).to.be.eq('shipping');
+  });
+
+  it('supports creating road shipping estimates from addresses', async function () {
+    const createEstimateResponse =
+      await patch.estimates.createRoadShippingEstimate({
+        destination_country_code: 'US',
+        destination_postal_code: '90210',
+        freight_mass_g: 19_166,
+        origin_country_code: 'US',
+        origin_postal_code: '97209'
+      });
+    const estimate = createEstimateResponse.data;
+
+    expect(estimate.order).to.be.eq(null);
+    expect(estimate.mass_g).to.be.above(500);
+    expect(estimate.production).to.be.eq(false);
+    expect(estimate.type).to.be.eq('shipping');
+  });
+
+  it('supports creating road shipping estimates from locodes', async function () {
+    const createEstimateResponse =
+      await patch.estimates.createRoadShippingEstimate({
+        destination_locode: 'USSD2',
+        freight_mass_g: 16_907,
+        origin_locode: 'USSEA'
+      });
+    const estimate = createEstimateResponse.data;
+
+    expect(estimate.order).to.be.eq(null);
+    expect(estimate.mass_g).to.be.above(5_000);
+    expect(estimate.production).to.be.eq(false);
+    expect(estimate.type).to.be.eq('shipping');
+  });
+
+  it('supports creating road shipping estimates with an order', async function () {
+    const createEstimateResponse =
+      await patch.estimates.createRoadShippingEstimate({
+        create_order: true,
+        destination_locode: 'USSD2',
+        freight_mass_g: 21_933,
+        origin_locode: 'USSEA'
+      });
+    const estimate = createEstimateResponse.data;
+
+    expect(estimate.order.amount).to.be.above(500);
+    expect(estimate.mass_g).to.be.above(5_000);
+    expect(estimate.production).to.be.eq(false);
+    expect(estimate.type).to.be.eq('shipping');
+  });
+
+  it('supports creating sea shipping estimates from distance', async function () {
+    const createEstimateResponse =
+      await patch.estimates.createSeaShippingEstimate({
+        distance_m: 4_309_118,
+        freight_mass_g: 20_197
+      });
+    const estimate = createEstimateResponse.data;
+
+    expect(estimate.order).to.be.eq(null);
+    expect(estimate.mass_g).to.be.above(2_000);
+    expect(estimate.production).to.be.eq(false);
+    expect(estimate.type).to.be.eq('shipping');
+  });
+
+  it('supports creating sea shipping estimates from addresses', async function () {
+    const createEstimateResponse =
+      await patch.estimates.createRoadShippingEstimate({
+        destination_country_code: 'US',
+        destination_postal_code: '90210',
+        freight_mass_g: 26_906,
+        origin_country_code: 'US',
+        origin_postal_code: '97209'
+      });
+    const estimate = createEstimateResponse.data;
+
+    expect(estimate.order).to.be.eq(null);
+    expect(estimate.mass_g).to.be.above(500);
+    expect(estimate.production).to.be.eq(false);
+    expect(estimate.type).to.be.eq('shipping');
+  });
+
+  it('supports creating sea shipping estimates from locodes', async function () {
+    const createEstimateResponse =
+      await patch.estimates.createSeaShippingEstimate({
+        destination_locode: 'USSEA',
+        freight_mass_g: 17_311,
+        origin_locode: 'HKHKG'
+      });
+    const estimate = createEstimateResponse.data;
+
+    expect(estimate.order).to.be.eq(null);
+    expect(estimate.mass_g).to.be.above(1_000);
+    expect(estimate.production).to.be.eq(false);
+    expect(estimate.type).to.be.eq('shipping');
+  });
+
+  it('supports creating sea shipping estimates with an order', async function () {
+    const createEstimateResponse =
+      await patch.estimates.createSeaShippingEstimate({
+        create_order: true,
+        destination_locode: 'USSEA',
+        freight_mass_g: 26_210,
+        origin_locode: 'HKHKG'
+      });
+    const estimate = createEstimateResponse.data;
+
+    expect(estimate.order.amount).to.be.above(500);
+    expect(estimate.mass_g).to.be.above(1_500);
+    expect(estimate.production).to.be.eq(false);
+    expect(estimate.type).to.be.eq('shipping');
+  });
 });

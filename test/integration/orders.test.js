@@ -26,16 +26,16 @@ describe('Orders Integration', function () {
     expect(data.price_cents_usd + data.patch_fee_cents_usd).to.eq(100);
   });
 
-  it('supports creating an order with issuedTo', async function () {
-    const issuedTo = { email: 'issuee@companyc.com', name: 'Bob Dylan' };
+  it('supports creating an order with issued_to', async function () {
+    const issued_to = { email: 'issuee@companyc.com', name: 'Bob Dylan' };
     const { data } = await patch.orders.createOrder({
       total_price_cents_usd: 100,
-      issuedTo: issuedTo
+      issued_to: issued_to
     });
 
     expect(data.price_cents_usd + data.patch_fee_cents_usd).to.eq(100);
-    expect(data.issued_to.email).to.equal(issuedTo.email);
-    expect(data.issued_to.name).to.equal(issuedTo.name);
+    expect(data.issued_to.email).to.equal(issued_to.email);
+    expect(data.issued_to.name).to.equal(issued_to.name);
   });
 
   it('supports placing orders in a `draft` state', async function () {
@@ -53,7 +53,7 @@ describe('Orders Integration', function () {
     expect(placeOrderResponse.data.mass_g).to.equal(100);
   });
 
-  it('supports placing orders in a `draft` state with issuedTo', async function () {
+  it('supports placing orders in a `draft` state with issued_to', async function () {
     const estimateResponse = await patch.estimates.createMassEstimate({
       mass_g: 100,
       create_order: true
@@ -61,16 +61,17 @@ describe('Orders Integration', function () {
     const orderId = estimateResponse.data.order.id;
     expect(estimateResponse.data.order.state).to.equal('draft');
 
-    const issuedTo = { email: 'issuee@companyc.com', name: 'Bob Dylan' };
+    const issued_to = { email: 'issuee@companyc.com', name: 'Bob Dylan' };
 
     const placeOrderResponse = await patch.orders.placeOrder(orderId, {
-      issuedTo: issuedTo
+      issued_to: issued_to
     });
     expect(placeOrderResponse.data.created_at).to.be.an.instanceOf(Date);
     expect(placeOrderResponse.data.production).to.equal(false);
     expect(placeOrderResponse.data.mass_g).to.equal(100);
-    expect(placeOrderResponse.data.issued_to.email).to.equal(issuedTo.email);
-    expect(placeOrderResponse.data.issued_to.name).to.equal(issuedTo.name);
+    expect(placeOrderResponse.data.issued_to).to.not.be.null;
+    expect(placeOrderResponse.data.issued_to.email).to.equal(issued_to.email);
+    expect(placeOrderResponse.data.issued_to.name).to.equal(issued_to.name);
   });
 
   it('supports placing orders in a `draft` state using an estimate', async function () {

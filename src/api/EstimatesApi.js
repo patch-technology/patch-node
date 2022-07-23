@@ -6,11 +6,15 @@
  */
 
 import ApiClient from '../ApiClient';
+import CreateAirShippingEstimateRequest from '../model/CreateAirShippingEstimateRequest';
 import CreateBitcoinEstimateRequest from '../model/CreateBitcoinEstimateRequest';
 import CreateEthereumEstimateRequest from '../model/CreateEthereumEstimateRequest';
 import CreateFlightEstimateRequest from '../model/CreateFlightEstimateRequest';
 import CreateHotelEstimateRequest from '../model/CreateHotelEstimateRequest';
 import CreateMassEstimateRequest from '../model/CreateMassEstimateRequest';
+import CreateRailShippingEstimateRequest from '../model/CreateRailShippingEstimateRequest';
+import CreateRoadShippingEstimateRequest from '../model/CreateRoadShippingEstimateRequest';
+import CreateSeaShippingEstimateRequest from '../model/CreateSeaShippingEstimateRequest';
 import CreateShippingEstimateRequest from '../model/CreateShippingEstimateRequest';
 import CreateVehicleEstimateRequest from '../model/CreateVehicleEstimateRequest';
 import ErrorResponse from '../model/ErrorResponse';
@@ -20,6 +24,55 @@ import EstimateResponse from '../model/EstimateResponse';
 export default class EstimatesApi {
   constructor(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
+  }
+
+  createAirShippingEstimateWithHttpInfo(createAirShippingEstimateRequest) {
+    const _createAirShippingEstimateRequest =
+      CreateAirShippingEstimateRequest.constructFromObject(
+        createAirShippingEstimateRequest,
+        new CreateAirShippingEstimateRequest()
+      );
+    let postBody = _createAirShippingEstimateRequest;
+
+    // verify the required parameter 'createAirShippingEstimateRequest' is set
+    if (
+      _createAirShippingEstimateRequest === undefined ||
+      _createAirShippingEstimateRequest === null
+    ) {
+      throw new Error(
+        "Missing the required parameter 'createAirShippingEstimateRequest' when calling createAirShippingEstimate"
+      );
+    }
+
+    let pathParams = {};
+    let queryParams = {};
+    let headerParams = {};
+    let formParams = {};
+
+    let authNames = ['bearer_auth'];
+    let contentTypes = ['application/json'];
+    let accepts = ['application/json'];
+    let returnType = EstimateResponse;
+
+    return this.apiClient.callApi(
+      '/v1/estimates/shipping/air',
+      'POST',
+      pathParams,
+      queryParams,
+      headerParams,
+      formParams,
+      postBody,
+      authNames,
+      contentTypes,
+      accepts,
+      returnType
+    );
+  }
+
+  createAirShippingEstimate(createAirShippingEstimateRequest) {
+    return this.createAirShippingEstimateWithHttpInfo(
+      createAirShippingEstimateRequest
+    );
   }
 
   createBitcoinEstimateWithHttpInfo(createBitcoinEstimateRequest) {
@@ -257,6 +310,153 @@ export default class EstimatesApi {
 
   createMassEstimate(createMassEstimateRequest) {
     return this.createMassEstimateWithHttpInfo(createMassEstimateRequest);
+  }
+
+  createRailShippingEstimateWithHttpInfo(createRailShippingEstimateRequest) {
+    const _createRailShippingEstimateRequest =
+      CreateRailShippingEstimateRequest.constructFromObject(
+        createRailShippingEstimateRequest,
+        new CreateRailShippingEstimateRequest()
+      );
+    let postBody = _createRailShippingEstimateRequest;
+
+    // verify the required parameter 'createRailShippingEstimateRequest' is set
+    if (
+      _createRailShippingEstimateRequest === undefined ||
+      _createRailShippingEstimateRequest === null
+    ) {
+      throw new Error(
+        "Missing the required parameter 'createRailShippingEstimateRequest' when calling createRailShippingEstimate"
+      );
+    }
+
+    let pathParams = {};
+    let queryParams = {};
+    let headerParams = {};
+    let formParams = {};
+
+    let authNames = ['bearer_auth'];
+    let contentTypes = ['application/json'];
+    let accepts = ['application/json'];
+    let returnType = EstimateResponse;
+
+    return this.apiClient.callApi(
+      '/v1/estimates/shipping/rail',
+      'POST',
+      pathParams,
+      queryParams,
+      headerParams,
+      formParams,
+      postBody,
+      authNames,
+      contentTypes,
+      accepts,
+      returnType
+    );
+  }
+
+  createRailShippingEstimate(createRailShippingEstimateRequest) {
+    return this.createRailShippingEstimateWithHttpInfo(
+      createRailShippingEstimateRequest
+    );
+  }
+
+  createRoadShippingEstimateWithHttpInfo(createRoadShippingEstimateRequest) {
+    const _createRoadShippingEstimateRequest =
+      CreateRoadShippingEstimateRequest.constructFromObject(
+        createRoadShippingEstimateRequest,
+        new CreateRoadShippingEstimateRequest()
+      );
+    let postBody = _createRoadShippingEstimateRequest;
+
+    // verify the required parameter 'createRoadShippingEstimateRequest' is set
+    if (
+      _createRoadShippingEstimateRequest === undefined ||
+      _createRoadShippingEstimateRequest === null
+    ) {
+      throw new Error(
+        "Missing the required parameter 'createRoadShippingEstimateRequest' when calling createRoadShippingEstimate"
+      );
+    }
+
+    let pathParams = {};
+    let queryParams = {};
+    let headerParams = {};
+    let formParams = {};
+
+    let authNames = ['bearer_auth'];
+    let contentTypes = ['application/json'];
+    let accepts = ['application/json'];
+    let returnType = EstimateResponse;
+
+    return this.apiClient.callApi(
+      '/v1/estimates/shipping/road',
+      'POST',
+      pathParams,
+      queryParams,
+      headerParams,
+      formParams,
+      postBody,
+      authNames,
+      contentTypes,
+      accepts,
+      returnType
+    );
+  }
+
+  createRoadShippingEstimate(createRoadShippingEstimateRequest) {
+    return this.createRoadShippingEstimateWithHttpInfo(
+      createRoadShippingEstimateRequest
+    );
+  }
+
+  createSeaShippingEstimateWithHttpInfo(createSeaShippingEstimateRequest) {
+    const _createSeaShippingEstimateRequest =
+      CreateSeaShippingEstimateRequest.constructFromObject(
+        createSeaShippingEstimateRequest,
+        new CreateSeaShippingEstimateRequest()
+      );
+    let postBody = _createSeaShippingEstimateRequest;
+
+    // verify the required parameter 'createSeaShippingEstimateRequest' is set
+    if (
+      _createSeaShippingEstimateRequest === undefined ||
+      _createSeaShippingEstimateRequest === null
+    ) {
+      throw new Error(
+        "Missing the required parameter 'createSeaShippingEstimateRequest' when calling createSeaShippingEstimate"
+      );
+    }
+
+    let pathParams = {};
+    let queryParams = {};
+    let headerParams = {};
+    let formParams = {};
+
+    let authNames = ['bearer_auth'];
+    let contentTypes = ['application/json'];
+    let accepts = ['application/json'];
+    let returnType = EstimateResponse;
+
+    return this.apiClient.callApi(
+      '/v1/estimates/shipping/sea',
+      'POST',
+      pathParams,
+      queryParams,
+      headerParams,
+      formParams,
+      postBody,
+      authNames,
+      contentTypes,
+      accepts,
+      returnType
+    );
+  }
+
+  createSeaShippingEstimate(createSeaShippingEstimateRequest) {
+    return this.createSeaShippingEstimateWithHttpInfo(
+      createSeaShippingEstimateRequest
+    );
   }
 
   createShippingEstimateWithHttpInfo(createShippingEstimateRequest) {

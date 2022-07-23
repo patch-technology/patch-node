@@ -71,9 +71,9 @@ class CreateOrderRequest {
         obj['unit'] = ApiClient.convertToType(data['unit'], 'String');
       }
 
-      if (data.hasOwnProperty('issuedTo')) {
+      if (data.hasOwnProperty('issued_to')) {
         obj['issued_to'] = V1OrdersIssuedTo.constructFromObject(
-          data['issuedTo']
+          data['issued_to']
         );
       }
     }
