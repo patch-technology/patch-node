@@ -103,7 +103,12 @@ export default class OrdersApi {
 
   placeOrderWithHttpInfo(id, opts) {
     opts = opts || {};
-    let postBody = PlaceOrderRequest.constructFromObject(opts);
+
+    const _placeOrderRequest = PlaceOrderRequest.constructFromObject(
+      opts,
+      new CreateOrderRequest()
+    );
+    let postBody = _placeOrderRequest;
 
     // verify the required parameter 'id' is set
     if (id === undefined || id === null) {
