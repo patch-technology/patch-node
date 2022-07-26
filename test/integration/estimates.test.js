@@ -163,22 +163,22 @@ describe('Estimates Integration', function () {
     expect(estimate.order).to.be.eq(null);
     expect(estimate.mass_g).to.be.above(5_000);
     expect(estimate.production).to.be.eq(false);
-    expect(estimate.type).to.be.eq('shipping');
+    expect(estimate.type).to.be.eq('shipping_air');
   });
 
-  it('supports creating air shipping estimates from airport iatas', async function () {
+  it('supports creating air shipping estimates from airports', async function () {
     const createEstimateResponse =
       await patch.estimates.createAirShippingEstimate({
-        destination_iata: 'JFK',
+        destination_airport: 'JFK',
         freight_mass_g: 19_158,
-        origin_iata: 'ATL'
+        origin_airport: 'ATL'
       });
     const estimate = createEstimateResponse.data;
 
     expect(estimate.order).to.be.eq(null);
     expect(estimate.mass_g).to.be.above(5_000);
     expect(estimate.production).to.be.eq(false);
-    expect(estimate.type).to.be.eq('shipping');
+    expect(estimate.type).to.be.eq('shipping_air');
   });
 
   it('supports creating air shipping estimates with an order', async function () {
@@ -193,7 +193,7 @@ describe('Estimates Integration', function () {
     expect(estimate.order.amount).to.be.above(500);
     expect(estimate.mass_g).to.be.above(5_000);
     expect(estimate.production).to.be.eq(false);
-    expect(estimate.type).to.be.eq('shipping');
+    expect(estimate.type).to.be.eq('shipping_air');
   });
 
   it('supports creating rail shipping estimates from distance', async function () {
@@ -207,7 +207,7 @@ describe('Estimates Integration', function () {
     expect(estimate.order).to.be.eq(null);
     expect(estimate.mass_g).to.be.above(400);
     expect(estimate.production).to.be.eq(false);
-    expect(estimate.type).to.be.eq('shipping');
+    expect(estimate.type).to.be.eq('shipping_rail');
   });
 
   it('supports creating rail shipping estimates from addresses', async function () {
@@ -224,7 +224,7 @@ describe('Estimates Integration', function () {
     expect(estimate.order).to.be.eq(null);
     expect(estimate.mass_g).to.be.above(300);
     expect(estimate.production).to.be.eq(false);
-    expect(estimate.type).to.be.eq('shipping');
+    expect(estimate.type).to.be.eq('shipping_rail');
   });
 
   it('supports creating rail shipping estimates from locodes', async function () {
@@ -239,7 +239,7 @@ describe('Estimates Integration', function () {
     expect(estimate.order).to.be.eq(null);
     expect(estimate.mass_g).to.be.above(800);
     expect(estimate.production).to.be.eq(false);
-    expect(estimate.type).to.be.eq('shipping');
+    expect(estimate.type).to.be.eq('shipping_rail');
   });
 
   it('supports creating rail shipping estimates with an order', async function () {
@@ -254,7 +254,7 @@ describe('Estimates Integration', function () {
     expect(estimate.order.amount).to.be.above(200);
     expect(estimate.mass_g).to.be.above(1_000);
     expect(estimate.production).to.be.eq(false);
-    expect(estimate.type).to.be.eq('shipping');
+    expect(estimate.type).to.be.eq('shipping_rail');
   });
 
   it('supports creating road shipping estimates from distance', async function () {
@@ -268,7 +268,7 @@ describe('Estimates Integration', function () {
     expect(estimate.order).to.be.eq(null);
     expect(estimate.mass_g).to.be.above(5_000);
     expect(estimate.production).to.be.eq(false);
-    expect(estimate.type).to.be.eq('shipping');
+    expect(estimate.type).to.be.eq('shipping_road');
   });
 
   it('supports creating road shipping estimates from addresses', async function () {
@@ -285,7 +285,7 @@ describe('Estimates Integration', function () {
     expect(estimate.order).to.be.eq(null);
     expect(estimate.mass_g).to.be.above(500);
     expect(estimate.production).to.be.eq(false);
-    expect(estimate.type).to.be.eq('shipping');
+    expect(estimate.type).to.be.eq('shipping_road');
   });
 
   it('supports creating road shipping estimates from locodes', async function () {
@@ -300,7 +300,7 @@ describe('Estimates Integration', function () {
     expect(estimate.order).to.be.eq(null);
     expect(estimate.mass_g).to.be.above(5_000);
     expect(estimate.production).to.be.eq(false);
-    expect(estimate.type).to.be.eq('shipping');
+    expect(estimate.type).to.be.eq('shipping_road');
   });
 
   it('supports creating road shipping estimates with an order', async function () {
@@ -316,7 +316,7 @@ describe('Estimates Integration', function () {
     expect(estimate.order.amount).to.be.above(500);
     expect(estimate.mass_g).to.be.above(5_000);
     expect(estimate.production).to.be.eq(false);
-    expect(estimate.type).to.be.eq('shipping');
+    expect(estimate.type).to.be.eq('shipping_road');
   });
 
   it('supports creating sea shipping estimates from distance', async function () {
@@ -330,12 +330,12 @@ describe('Estimates Integration', function () {
     expect(estimate.order).to.be.eq(null);
     expect(estimate.mass_g).to.be.above(2_000);
     expect(estimate.production).to.be.eq(false);
-    expect(estimate.type).to.be.eq('shipping');
+    expect(estimate.type).to.be.eq('shipping_sea');
   });
 
   it('supports creating sea shipping estimates from addresses', async function () {
     const createEstimateResponse =
-      await patch.estimates.createRoadShippingEstimate({
+      await patch.estimates.createSeaShippingEstimate({
         destination_country_code: 'US',
         destination_postal_code: '90210',
         freight_mass_g: 26_906,
@@ -347,7 +347,7 @@ describe('Estimates Integration', function () {
     expect(estimate.order).to.be.eq(null);
     expect(estimate.mass_g).to.be.above(500);
     expect(estimate.production).to.be.eq(false);
-    expect(estimate.type).to.be.eq('shipping');
+    expect(estimate.type).to.be.eq('shipping_sea');
   });
 
   it('supports creating sea shipping estimates from locodes', async function () {
@@ -362,7 +362,7 @@ describe('Estimates Integration', function () {
     expect(estimate.order).to.be.eq(null);
     expect(estimate.mass_g).to.be.above(1_000);
     expect(estimate.production).to.be.eq(false);
-    expect(estimate.type).to.be.eq('shipping');
+    expect(estimate.type).to.be.eq('shipping_sea');
   });
 
   it('supports creating sea shipping estimates with an order', async function () {
@@ -378,6 +378,6 @@ describe('Estimates Integration', function () {
     expect(estimate.order.amount).to.be.above(500);
     expect(estimate.mass_g).to.be.above(1_500);
     expect(estimate.production).to.be.eq(false);
-    expect(estimate.type).to.be.eq('shipping');
+    expect(estimate.type).to.be.eq('shipping_sea');
   });
 });

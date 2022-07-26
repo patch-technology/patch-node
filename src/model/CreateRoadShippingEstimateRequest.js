@@ -145,7 +145,7 @@ CreateRoadShippingEstimateRequest.prototype['origin_locode'] = undefined;
 
 CreateRoadShippingEstimateRequest.prototype['origin_postal_code'] = undefined;
 
-CreateRoadShippingEstimateRequest.prototype['cargo_type'] = 'AVERAGE_MIXED';
+CreateRoadShippingEstimateRequest.prototype['cargo_type'] = 'average_mixed';
 
 CreateRoadShippingEstimateRequest.prototype['container_size_code'] = undefined;
 
@@ -155,7 +155,7 @@ CreateRoadShippingEstimateRequest.prototype['emissions_scope'] = 'wtw';
 
 CreateRoadShippingEstimateRequest.prototype['freight_mass_g'] = undefined;
 
-CreateRoadShippingEstimateRequest.prototype['fuel_type'] = 'DIESEL';
+CreateRoadShippingEstimateRequest.prototype['fuel_type'] = 'diesel';
 
 CreateRoadShippingEstimateRequest.prototype['number_of_containers'] = undefined;
 

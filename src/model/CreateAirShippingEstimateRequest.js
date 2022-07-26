@@ -18,23 +18,23 @@ class CreateAirShippingEstimateRequest {
     if (data) {
       obj = obj || new CreateAirShippingEstimateRequest();
 
-      if (data.hasOwnProperty('destination_iata')) {
-        obj['destination_iata'] = ApiClient.convertToType(
-          data['destination_iata'],
+      if (data.hasOwnProperty('destination_airport')) {
+        obj['destination_airport'] = ApiClient.convertToType(
+          data['destination_airport'],
           'String'
         );
       }
 
-      if (data.hasOwnProperty('origin_iata')) {
-        obj['origin_iata'] = ApiClient.convertToType(
-          data['origin_iata'],
+      if (data.hasOwnProperty('origin_airport')) {
+        obj['origin_airport'] = ApiClient.convertToType(
+          data['origin_airport'],
           'String'
         );
       }
 
-      if (data.hasOwnProperty('aircraft_iata')) {
-        obj['aircraft_iata'] = ApiClient.convertToType(
-          data['aircraft_iata'],
+      if (data.hasOwnProperty('aircraft_code')) {
+        obj['aircraft_code'] = ApiClient.convertToType(
+          data['aircraft_code'],
           'String'
         );
       }
@@ -85,13 +85,13 @@ class CreateAirShippingEstimateRequest {
   }
 }
 
-CreateAirShippingEstimateRequest.prototype['destination_iata'] = undefined;
+CreateAirShippingEstimateRequest.prototype['destination_airport'] = undefined;
 
-CreateAirShippingEstimateRequest.prototype['origin_iata'] = undefined;
+CreateAirShippingEstimateRequest.prototype['origin_airport'] = undefined;
 
-CreateAirShippingEstimateRequest.prototype['aircraft_iata'] = undefined;
+CreateAirShippingEstimateRequest.prototype['aircraft_code'] = undefined;
 
-CreateAirShippingEstimateRequest.prototype['aircraft_type'] = 'UNKNOWN';
+CreateAirShippingEstimateRequest.prototype['aircraft_type'] = 'unknown';
 
 CreateAirShippingEstimateRequest.prototype['freight_mass_g'] = undefined;
 

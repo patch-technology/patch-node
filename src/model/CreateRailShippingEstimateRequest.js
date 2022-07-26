@@ -117,7 +117,7 @@ CreateRailShippingEstimateRequest.prototype['origin_locode'] = undefined;
 
 CreateRailShippingEstimateRequest.prototype['origin_postal_code'] = undefined;
 
-CreateRailShippingEstimateRequest.prototype['fuel_type'] = 'DEFAULT';
+CreateRailShippingEstimateRequest.prototype['fuel_type'] = 'default';
 
 CreateRailShippingEstimateRequest.prototype['freight_mass_g'] = undefined;
 
