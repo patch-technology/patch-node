@@ -71,13 +71,6 @@ class CreateRailShippingEstimateRequest {
         );
       }
 
-      if (data.hasOwnProperty('distance_m')) {
-        obj['distance_m'] = ApiClient.convertToType(
-          data['distance_m'],
-          'Number'
-        );
-      }
-
       if (data.hasOwnProperty('emissions_scope')) {
         obj['emissions_scope'] = ApiClient.convertToType(
           data['emissions_scope'],
@@ -120,8 +113,6 @@ CreateRailShippingEstimateRequest.prototype['origin_postal_code'] = undefined;
 CreateRailShippingEstimateRequest.prototype['fuel_type'] = 'default';
 
 CreateRailShippingEstimateRequest.prototype['freight_mass_g'] = undefined;
-
-CreateRailShippingEstimateRequest.prototype['distance_m'] = undefined;
 
 CreateRailShippingEstimateRequest.prototype['emissions_scope'] = 'wtw';
 

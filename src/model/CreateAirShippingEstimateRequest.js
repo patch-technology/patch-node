@@ -53,13 +53,6 @@ class CreateAirShippingEstimateRequest {
         );
       }
 
-      if (data.hasOwnProperty('distance_m')) {
-        obj['distance_m'] = ApiClient.convertToType(
-          data['distance_m'],
-          'Number'
-        );
-      }
-
       if (data.hasOwnProperty('emissions_scope')) {
         obj['emissions_scope'] = ApiClient.convertToType(
           data['emissions_scope'],
@@ -94,8 +87,6 @@ CreateAirShippingEstimateRequest.prototype['aircraft_code'] = undefined;
 CreateAirShippingEstimateRequest.prototype['aircraft_type'] = 'unknown';
 
 CreateAirShippingEstimateRequest.prototype['freight_mass_g'] = undefined;
-
-CreateAirShippingEstimateRequest.prototype['distance_m'] = undefined;
 
 CreateAirShippingEstimateRequest.prototype['emissions_scope'] = 'wtw';
 

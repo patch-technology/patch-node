@@ -22,19 +22,6 @@ describe('Estimates Integration', function () {
     expect(retrieveEstimatesResponse.data.length).to.be.above(0);
   });
 
-  it('supports creating flight estimates with distance', async function () {
-    const createEstimateResponse = await patch.estimates.createFlightEstimate({
-      distance_m: 1000,
-      create_order: true
-    });
-    const estimate = createEstimateResponse.data;
-
-    expect(estimate.type).to.be.eq('flight');
-    expect(estimate.mass_g).to.be.above(0);
-    expect(estimate.production).to.be.eq(false);
-    expect(estimate.order.state).to.be.eq('draft');
-  });
-
   it('supports creating flight estimates with airports', async function () {
     const { data: estimate1 } = await patch.estimates.createFlightEstimate({
       origin_airport: 'SFO',
@@ -152,20 +139,6 @@ describe('Estimates Integration', function () {
     expect(estimate.production).to.be.eq(false);
   });
 
-  it('supports creating air shipping estimates from distance', async function () {
-    const createEstimateResponse =
-      await patch.estimates.createAirShippingEstimate({
-        distance_m: 292_630,
-        freight_mass_g: 24_091
-      });
-    const estimate = createEstimateResponse.data;
-
-    expect(estimate.order).to.be.eq(null);
-    expect(estimate.mass_g).to.be.above(5_000);
-    expect(estimate.production).to.be.eq(false);
-    expect(estimate.type).to.be.eq('shipping_air');
-  });
-
   it('supports creating air shipping estimates from airports', async function () {
     const createEstimateResponse =
       await patch.estimates.createAirShippingEstimate({
@@ -185,8 +158,10 @@ describe('Estimates Integration', function () {
     const createEstimateResponse =
       await patch.estimates.createAirShippingEstimate({
         create_order: true,
+        destination_airport: 'BOS',
         distance_m: 292_630,
-        freight_mass_g: 24_091
+        freight_mass_g: 24_091,
+        origin_airport: 'MIA'
       });
     const estimate = createEstimateResponse.data;
 
@@ -194,20 +169,6 @@ describe('Estimates Integration', function () {
     expect(estimate.mass_g).to.be.above(5_000);
     expect(estimate.production).to.be.eq(false);
     expect(estimate.type).to.be.eq('shipping_air');
-  });
-
-  it('supports creating rail shipping estimates from distance', async function () {
-    const createEstimateResponse =
-      await patch.estimates.createRailShippingEstimate({
-        distance_m: 1_531_994,
-        freight_mass_g: 23_845
-      });
-    const estimate = createEstimateResponse.data;
-
-    expect(estimate.order).to.be.eq(null);
-    expect(estimate.mass_g).to.be.above(400);
-    expect(estimate.production).to.be.eq(false);
-    expect(estimate.type).to.be.eq('shipping_rail');
   });
 
   it('supports creating rail shipping estimates from addresses', async function () {
@@ -246,8 +207,9 @@ describe('Estimates Integration', function () {
     const createEstimateResponse =
       await patch.estimates.createRailShippingEstimate({
         create_order: true,
-        distance_m: 3_920_298,
-        freight_mass_g: 19_217
+        destination_locode: 'USSD2',
+        freight_mass_g: 19_217,
+        origin_locode: 'USSEA'
       });
     const estimate = createEstimateResponse.data;
 
@@ -255,20 +217,6 @@ describe('Estimates Integration', function () {
     expect(estimate.mass_g).to.be.above(1_000);
     expect(estimate.production).to.be.eq(false);
     expect(estimate.type).to.be.eq('shipping_rail');
-  });
-
-  it('supports creating road shipping estimates from distance', async function () {
-    const createEstimateResponse =
-      await patch.estimates.createRoadShippingEstimate({
-        distance_m: 2_300_167,
-        freight_mass_g: 20_738
-      });
-    const estimate = createEstimateResponse.data;
-
-    expect(estimate.order).to.be.eq(null);
-    expect(estimate.mass_g).to.be.above(5_000);
-    expect(estimate.production).to.be.eq(false);
-    expect(estimate.type).to.be.eq('shipping_road');
   });
 
   it('supports creating road shipping estimates from addresses', async function () {
@@ -317,20 +265,6 @@ describe('Estimates Integration', function () {
     expect(estimate.mass_g).to.be.above(5_000);
     expect(estimate.production).to.be.eq(false);
     expect(estimate.type).to.be.eq('shipping_road');
-  });
-
-  it('supports creating sea shipping estimates from distance', async function () {
-    const createEstimateResponse =
-      await patch.estimates.createSeaShippingEstimate({
-        distance_m: 4_309_118,
-        freight_mass_g: 20_197
-      });
-    const estimate = createEstimateResponse.data;
-
-    expect(estimate.order).to.be.eq(null);
-    expect(estimate.mass_g).to.be.above(2_000);
-    expect(estimate.production).to.be.eq(false);
-    expect(estimate.type).to.be.eq('shipping_sea');
   });
 
   it('supports creating sea shipping estimates from addresses', async function () {

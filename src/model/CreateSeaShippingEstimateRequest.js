@@ -67,13 +67,6 @@ class CreateSeaShippingEstimateRequest {
         );
       }
 
-      if (data.hasOwnProperty('distance_m')) {
-        obj['distance_m'] = ApiClient.convertToType(
-          data['distance_m'],
-          'Number'
-        );
-      }
-
       if (data.hasOwnProperty('emissions_scope')) {
         obj['emissions_scope'] = ApiClient.convertToType(
           data['emissions_scope'],
@@ -142,8 +135,6 @@ CreateSeaShippingEstimateRequest.prototype['origin_locode'] = undefined;
 CreateSeaShippingEstimateRequest.prototype['origin_postal_code'] = undefined;
 
 CreateSeaShippingEstimateRequest.prototype['container_size_code'] = undefined;
-
-CreateSeaShippingEstimateRequest.prototype['distance_m'] = undefined;
 
 CreateSeaShippingEstimateRequest.prototype['emissions_scope'] = 'wtw';
 
