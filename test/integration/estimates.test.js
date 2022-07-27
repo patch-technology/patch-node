@@ -214,7 +214,7 @@ describe('Estimates Integration', function () {
     const estimate = createEstimateResponse.data;
 
     expect(estimate.order.amount).to.be.above(200);
-    expect(estimate.mass_g).to.be.above(1_000);
+    expect(estimate.mass_g).to.be.above(900);
     expect(estimate.production).to.be.eq(false);
     expect(estimate.type).to.be.eq('shipping_rail');
   });
