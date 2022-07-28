@@ -7,8 +7,8 @@
 
 import ApiClient from '../ApiClient';
 import Allocation from './Allocation';
-import IssuedTo from './IssuedTo';
 import OrderInventory from './OrderInventory';
+import OrderIssuedTo from './OrderIssuedTo';
 
 class Order {
   constructor(
@@ -167,7 +167,7 @@ class Order {
       }
 
       if (data.hasOwnProperty('issued_to')) {
-        obj['issued_to'] = IssuedTo.constructFromObject(data['issued_to']);
+        obj['issued_to'] = OrderIssuedTo.constructFromObject(data['issued_to']);
       }
     }
     return obj;

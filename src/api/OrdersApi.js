@@ -104,14 +104,10 @@ export default class OrdersApi {
   placeOrderWithHttpInfo(id, opts) {
     opts = opts || {};
 
-    const _placeOrderRequest = PlaceOrderRequest.constructFromObject(
-      opts,
-      new CreateOrderRequest()
-    );
-    let postBody = _placeOrderRequest;
+    let postBody = opts['placeOrderRequest'];
 
     // verify the required parameter 'id' is set
-    if (id === undefined || id === null) {
+    if (_id === undefined || _id === null) {
       throw new Error(
         "Missing the required parameter 'id' when calling placeOrder"
       );
