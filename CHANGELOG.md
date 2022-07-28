@@ -9,16 +9,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Adds `patch.estimates.create_air_shipping_estimate` method
-- Adds `patch.estimates.create_rail_shipping_estimate` method
-- Adds `patch.estimates.create_road_shipping_estimate` method
-- Adds `patch.estimates.create_sea_shipping_estimate` method
+- Adds `patch.estimates.createAirShippingEstimate` method
+- Adds `patch.estimates.createRailShippingEstimate` method
+- Adds `patch.estimates.createRoadShippingEstimate` method
+- Adds `patch.estimates.createSeaShippingEstimate` method
+
+### Breaking
+
+- Renames the `issuedTo` parameter for `orders` to `issued_to`.
 
 ## [1.23.0] - 2022-06-03
 
 ### Added
 
-- Adds support for the `issued_to` parameter on `orders`, to add support for creating and placing orders on behalf of another party.
+- Adds support for the `issuedTo` parameter on `orders`, to add support for creating and placing orders on behalf of another party.
 
 ## [1.22.0] - 2022-05-16
 
