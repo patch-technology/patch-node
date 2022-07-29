@@ -7,16 +7,16 @@
 
 import ApiClient from '../ApiClient';
 
-class IssuedTo {
+class OrderIssuedTo {
   constructor() {
-    IssuedTo.initialize(this);
+    OrderIssuedTo.initialize(this);
   }
 
   static initialize(obj) {}
 
   static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new IssuedTo();
+      obj = obj || new OrderIssuedTo();
 
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
@@ -30,8 +30,8 @@ class IssuedTo {
   }
 }
 
-IssuedTo.prototype['name'] = undefined;
+OrderIssuedTo.prototype['name'] = undefined;
 
-IssuedTo.prototype['email'] = undefined;
+OrderIssuedTo.prototype['email'] = undefined;
 
-export default IssuedTo;
+export default OrderIssuedTo;

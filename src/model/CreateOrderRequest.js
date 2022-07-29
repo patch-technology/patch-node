@@ -6,7 +6,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import V1OrdersIssuedTo from './V1OrdersIssuedTo';
+import OrderIssuedTo from './OrderIssuedTo';
 
 class CreateOrderRequest {
   constructor() {
@@ -71,10 +71,8 @@ class CreateOrderRequest {
         obj['unit'] = ApiClient.convertToType(data['unit'], 'String');
       }
 
-      if (data.hasOwnProperty('issuedTo')) {
-        obj['issued_to'] = V1OrdersIssuedTo.constructFromObject(
-          data['issuedTo']
-        );
+      if (data.hasOwnProperty('issued_to')) {
+        obj['issued_to'] = OrderIssuedTo.constructFromObject(data['issued_to']);
       }
     }
     return obj;
