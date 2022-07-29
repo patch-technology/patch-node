@@ -6,7 +6,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import IssuedTo from './IssuedTo';
+import OrderIssuedTo from './OrderIssuedTo';
 
 class CreateOrderRequest {
   constructor() {
@@ -72,7 +72,7 @@ class CreateOrderRequest {
       }
 
       if (data.hasOwnProperty('issued_to')) {
-        obj['issued_to'] = IssuedTo.constructFromObject(data['issued_to']);
+        obj['issued_to'] = OrderIssuedTo.constructFromObject(data['issued_to']);
       }
     }
     return obj;
