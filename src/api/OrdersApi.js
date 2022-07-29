@@ -18,8 +18,6 @@ export default class OrdersApi {
   }
 
   cancelOrderWithHttpInfo(id) {
-    let postBody = null;
-
     // verify the required parameter 'id' is set
     if (id === undefined || id === null) {
       throw new Error(
@@ -27,6 +25,7 @@ export default class OrdersApi {
       );
     }
 
+    let postBody = null;
     let pathParams = {
       id: id
     };
@@ -63,7 +62,6 @@ export default class OrdersApi {
       createOrderRequest,
       new CreateOrderRequest()
     );
-    let postBody = _createOrderRequest;
 
     // verify the required parameter 'createOrderRequest' is set
     if (_createOrderRequest === undefined || _createOrderRequest === null) {
@@ -72,6 +70,7 @@ export default class OrdersApi {
       );
     }
 
+    let postBody = _createOrderRequest;
     let pathParams = {};
     let queryParams = {};
     let headerParams = {};
@@ -104,12 +103,6 @@ export default class OrdersApi {
   placeOrderWithHttpInfo(id, opts) {
     opts = opts || {};
 
-    const _placeOrderRequest = PlaceOrderRequest.constructFromObject(
-      opts,
-      new CreateOrderRequest()
-    );
-    let postBody = _placeOrderRequest;
-
     // verify the required parameter 'id' is set
     if (id === undefined || id === null) {
       throw new Error(
@@ -117,6 +110,7 @@ export default class OrdersApi {
       );
     }
 
+    let postBody = opts;
     let pathParams = {
       id: id
     };
@@ -149,8 +143,6 @@ export default class OrdersApi {
   }
 
   retrieveOrderWithHttpInfo(id) {
-    let postBody = null;
-
     // verify the required parameter 'id' is set
     if (id === undefined || id === null) {
       throw new Error(
@@ -158,6 +150,7 @@ export default class OrdersApi {
       );
     }
 
+    let postBody = null;
     let pathParams = {
       id: id
     };
@@ -193,7 +186,6 @@ export default class OrdersApi {
     opts = opts || {};
 
     let postBody = null;
-
     let pathParams = {};
     let queryParams = {
       page: opts['page'],

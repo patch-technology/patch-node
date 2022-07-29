@@ -15,7 +15,6 @@ export default class TechnologyTypesApi {
 
   retrieveTechnologyTypesWithHttpInfo() {
     let postBody = null;
-
     let pathParams = {};
     let queryParams = {};
     let headerParams = {};

@@ -32,7 +32,6 @@ export default class EstimatesApi {
         createAirShippingEstimateRequest,
         new CreateAirShippingEstimateRequest()
       );
-    let postBody = _createAirShippingEstimateRequest;
 
     // verify the required parameter 'createAirShippingEstimateRequest' is set
     if (
@@ -44,6 +43,7 @@ export default class EstimatesApi {
       );
     }
 
+    let postBody = _createAirShippingEstimateRequest;
     let pathParams = {};
     let queryParams = {};
     let headerParams = {};
@@ -81,7 +81,6 @@ export default class EstimatesApi {
         createBitcoinEstimateRequest,
         new CreateBitcoinEstimateRequest()
       );
-    let postBody = _createBitcoinEstimateRequest;
 
     // verify the required parameter 'createBitcoinEstimateRequest' is set
     if (
@@ -93,6 +92,7 @@ export default class EstimatesApi {
       );
     }
 
+    let postBody = _createBitcoinEstimateRequest;
     let pathParams = {};
     let queryParams = {};
     let headerParams = {};
@@ -128,7 +128,6 @@ export default class EstimatesApi {
         createEthereumEstimateRequest,
         new CreateEthereumEstimateRequest()
       );
-    let postBody = _createEthereumEstimateRequest;
 
     // verify the required parameter 'createEthereumEstimateRequest' is set
     if (
@@ -140,6 +139,7 @@ export default class EstimatesApi {
       );
     }
 
+    let postBody = _createEthereumEstimateRequest;
     let pathParams = {};
     let queryParams = {};
     let headerParams = {};
@@ -177,7 +177,6 @@ export default class EstimatesApi {
         createFlightEstimateRequest,
         new CreateFlightEstimateRequest()
       );
-    let postBody = _createFlightEstimateRequest;
 
     // verify the required parameter 'createFlightEstimateRequest' is set
     if (
@@ -189,6 +188,7 @@ export default class EstimatesApi {
       );
     }
 
+    let postBody = _createFlightEstimateRequest;
     let pathParams = {};
     let queryParams = {};
     let headerParams = {};
@@ -224,7 +224,6 @@ export default class EstimatesApi {
         createHotelEstimateRequest,
         new CreateHotelEstimateRequest()
       );
-    let postBody = _createHotelEstimateRequest;
 
     // verify the required parameter 'createHotelEstimateRequest' is set
     if (
@@ -236,6 +235,7 @@ export default class EstimatesApi {
       );
     }
 
+    let postBody = _createHotelEstimateRequest;
     let pathParams = {};
     let queryParams = {};
     let headerParams = {};
@@ -271,7 +271,6 @@ export default class EstimatesApi {
         createMassEstimateRequest,
         new CreateMassEstimateRequest()
       );
-    let postBody = _createMassEstimateRequest;
 
     // verify the required parameter 'createMassEstimateRequest' is set
     if (
@@ -283,6 +282,7 @@ export default class EstimatesApi {
       );
     }
 
+    let postBody = _createMassEstimateRequest;
     let pathParams = {};
     let queryParams = {};
     let headerParams = {};
@@ -318,7 +318,6 @@ export default class EstimatesApi {
         createRailShippingEstimateRequest,
         new CreateRailShippingEstimateRequest()
       );
-    let postBody = _createRailShippingEstimateRequest;
 
     // verify the required parameter 'createRailShippingEstimateRequest' is set
     if (
@@ -330,6 +329,7 @@ export default class EstimatesApi {
       );
     }
 
+    let postBody = _createRailShippingEstimateRequest;
     let pathParams = {};
     let queryParams = {};
     let headerParams = {};
@@ -367,7 +367,6 @@ export default class EstimatesApi {
         createRoadShippingEstimateRequest,
         new CreateRoadShippingEstimateRequest()
       );
-    let postBody = _createRoadShippingEstimateRequest;
 
     // verify the required parameter 'createRoadShippingEstimateRequest' is set
     if (
@@ -379,6 +378,7 @@ export default class EstimatesApi {
       );
     }
 
+    let postBody = _createRoadShippingEstimateRequest;
     let pathParams = {};
     let queryParams = {};
     let headerParams = {};
@@ -416,7 +416,6 @@ export default class EstimatesApi {
         createSeaShippingEstimateRequest,
         new CreateSeaShippingEstimateRequest()
       );
-    let postBody = _createSeaShippingEstimateRequest;
 
     // verify the required parameter 'createSeaShippingEstimateRequest' is set
     if (
@@ -428,6 +427,7 @@ export default class EstimatesApi {
       );
     }
 
+    let postBody = _createSeaShippingEstimateRequest;
     let pathParams = {};
     let queryParams = {};
     let headerParams = {};
@@ -465,7 +465,6 @@ export default class EstimatesApi {
         createShippingEstimateRequest,
         new CreateShippingEstimateRequest()
       );
-    let postBody = _createShippingEstimateRequest;
 
     // verify the required parameter 'createShippingEstimateRequest' is set
     if (
@@ -477,6 +476,7 @@ export default class EstimatesApi {
       );
     }
 
+    let postBody = _createShippingEstimateRequest;
     let pathParams = {};
     let queryParams = {};
     let headerParams = {};
@@ -514,7 +514,6 @@ export default class EstimatesApi {
         createVehicleEstimateRequest,
         new CreateVehicleEstimateRequest()
       );
-    let postBody = _createVehicleEstimateRequest;
 
     // verify the required parameter 'createVehicleEstimateRequest' is set
     if (
@@ -526,6 +525,7 @@ export default class EstimatesApi {
       );
     }
 
+    let postBody = _createVehicleEstimateRequest;
     let pathParams = {};
     let queryParams = {};
     let headerParams = {};
@@ -556,8 +556,6 @@ export default class EstimatesApi {
   }
 
   retrieveEstimateWithHttpInfo(id) {
-    let postBody = null;
-
     // verify the required parameter 'id' is set
     if (id === undefined || id === null) {
       throw new Error(
@@ -565,6 +563,7 @@ export default class EstimatesApi {
       );
     }
 
+    let postBody = null;
     let pathParams = {
       id: id
     };
@@ -600,7 +599,6 @@ export default class EstimatesApi {
     opts = opts || {};
 
     let postBody = null;
-
     let pathParams = {};
     let queryParams = {
       page: opts['page']

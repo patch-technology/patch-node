@@ -167,7 +167,10 @@ class Order {
       }
 
       if (data.hasOwnProperty('issued_to')) {
-        obj['issued_to'] = OrderIssuedTo.constructFromObject(data['issued_to']);
+        obj['issued_to'] = ApiClient.convertToType(
+          data['issued_to'],
+          OrderIssuedTo
+        );
       }
     }
     return obj;
