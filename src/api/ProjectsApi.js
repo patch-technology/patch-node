@@ -18,8 +18,6 @@ export default class ProjectsApi {
   retrieveProjectWithHttpInfo(id, opts) {
     opts = opts || {};
 
-    let postBody = null;
-
     // verify the required parameter 'id' is set
     if (id === undefined || id === null) {
       throw new Error(
@@ -27,6 +25,7 @@ export default class ProjectsApi {
       );
     }
 
+    let postBody = null;
     let pathParams = {
       id: id
     };
@@ -64,7 +63,6 @@ export default class ProjectsApi {
     opts = opts || {};
 
     let postBody = null;
-
     let pathParams = {};
     let queryParams = {
       page: opts['page'],
