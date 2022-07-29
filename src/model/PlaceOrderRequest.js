@@ -6,7 +6,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import OrderIssuedTo from './OrderIssuedTo';
+import IssuedTo from './IssuedTo';
 
 class PlaceOrderRequest {
   constructor() {
@@ -20,10 +20,7 @@ class PlaceOrderRequest {
       obj = obj || new PlaceOrderRequest();
 
       if (data.hasOwnProperty('issued_to')) {
-        obj['issued_to'] = ApiClient.convertToType(
-          data['issued_to'],
-          OrderIssuedTo
-        );
+        obj['issued_to'] = IssuedTo.constructFromObject(data['issued_to']);
       }
     }
     return obj;
