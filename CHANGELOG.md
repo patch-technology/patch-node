@@ -9,10 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Adds `patch.estimates.create_air_shipping_estimate` method
-- Adds `patch.estimates.create_rail_shipping_estimate` method
-- Adds `patch.estimates.create_road_shipping_estimate` method
-- Adds `patch.estimates.create_sea_shipping_estimate` method
+- Adds `patch.estimates.createAirShippingEstimate` method
+- Adds `patch.estimates.createRailShippingEstimate` method
+- Adds `patch.estimates.createRoadShippingEstimate` method
+- Adds `patch.estimates.createSeaShippingEstimate` method
 
 ## [1.23.0] - 2022-06-03
 
