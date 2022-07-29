@@ -26,7 +26,7 @@ describe('Orders Integration', function () {
     expect(data.price_cents_usd + data.patch_fee_cents_usd).to.eq(100);
   });
 
-  it('supports creating an order with issuedTo', async function () {
+  it('supports creating an order with issued_to', async function () {
     const issuedTo = { email: 'issuee@companyc.com', name: 'Bob Dylan' };
     const { data } = await patch.orders.createOrder({
       total_price_cents_usd: 100,
@@ -53,7 +53,7 @@ describe('Orders Integration', function () {
     expect(placeOrderResponse.data.mass_g).to.equal(100);
   });
 
-  it('supports placing orders in a `draft` state with issuedTo', async function () {
+  it('supports placing orders in a `draft` state with issued_to', async function () {
     const estimateResponse = await patch.estimates.createMassEstimate({
       mass_g: 100,
       create_order: true
