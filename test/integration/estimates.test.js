@@ -149,7 +149,7 @@ describe('Estimates Integration', function () {
     const estimate = createEstimateResponse.data;
 
     expect(estimate.order).to.be.eq(null);
-    expect(estimate.mass_g).to.be.above(5_000);
+    expect(estimate.mass_g).to.be.above(0);
     expect(estimate.production).to.be.eq(false);
     expect(estimate.type).to.be.eq('shipping_air');
   });
@@ -165,8 +165,8 @@ describe('Estimates Integration', function () {
       });
     const estimate = createEstimateResponse.data;
 
-    expect(estimate.order.amount).to.be.above(500);
-    expect(estimate.mass_g).to.be.above(5_000);
+    expect(estimate.order.amount).to.be.above(0);
+    expect(estimate.mass_g).to.be.above(0);
     expect(estimate.production).to.be.eq(false);
     expect(estimate.type).to.be.eq('shipping_air');
   });
@@ -183,7 +183,7 @@ describe('Estimates Integration', function () {
     const estimate = createEstimateResponse.data;
 
     expect(estimate.order).to.be.eq(null);
-    expect(estimate.mass_g).to.be.above(300);
+    expect(estimate.mass_g).to.be.above(0);
     expect(estimate.production).to.be.eq(false);
     expect(estimate.type).to.be.eq('shipping_rail');
   });
@@ -198,7 +198,7 @@ describe('Estimates Integration', function () {
     const estimate = createEstimateResponse.data;
 
     expect(estimate.order).to.be.eq(null);
-    expect(estimate.mass_g).to.be.above(800);
+    expect(estimate.mass_g).to.be.above(0);
     expect(estimate.production).to.be.eq(false);
     expect(estimate.type).to.be.eq('shipping_rail');
   });
@@ -213,8 +213,8 @@ describe('Estimates Integration', function () {
       });
     const estimate = createEstimateResponse.data;
 
-    expect(estimate.order.amount).to.be.above(200);
-    expect(estimate.mass_g).to.be.above(900);
+    expect(estimate.order.amount).to.be.above(0);
+    expect(estimate.mass_g).to.be.above(0);
     expect(estimate.production).to.be.eq(false);
     expect(estimate.type).to.be.eq('shipping_rail');
   });
@@ -231,7 +231,7 @@ describe('Estimates Integration', function () {
     const estimate = createEstimateResponse.data;
 
     expect(estimate.order).to.be.eq(null);
-    expect(estimate.mass_g).to.be.above(500);
+    expect(estimate.mass_g).to.be.above(0);
     expect(estimate.production).to.be.eq(false);
     expect(estimate.type).to.be.eq('shipping_road');
   });
@@ -246,7 +246,7 @@ describe('Estimates Integration', function () {
     const estimate = createEstimateResponse.data;
 
     expect(estimate.order).to.be.eq(null);
-    expect(estimate.mass_g).to.be.above(5_000);
+    expect(estimate.mass_g).to.be.above(0);
     expect(estimate.production).to.be.eq(false);
     expect(estimate.type).to.be.eq('shipping_road');
   });
@@ -261,8 +261,8 @@ describe('Estimates Integration', function () {
       });
     const estimate = createEstimateResponse.data;
 
-    expect(estimate.order.amount).to.be.above(500);
-    expect(estimate.mass_g).to.be.above(5_000);
+    expect(estimate.order.amount).to.be.above(0);
+    expect(estimate.mass_g).to.be.above(0);
     expect(estimate.production).to.be.eq(false);
     expect(estimate.type).to.be.eq('shipping_road');
   });
@@ -279,7 +279,7 @@ describe('Estimates Integration', function () {
     const estimate = createEstimateResponse.data;
 
     expect(estimate.order).to.be.eq(null);
-    expect(estimate.mass_g).to.be.above(500);
+    expect(estimate.mass_g).to.be.above(0);
     expect(estimate.production).to.be.eq(false);
     expect(estimate.type).to.be.eq('shipping_sea');
   });
@@ -294,7 +294,7 @@ describe('Estimates Integration', function () {
     const estimate = createEstimateResponse.data;
 
     expect(estimate.order).to.be.eq(null);
-    expect(estimate.mass_g).to.be.above(1_000);
+    expect(estimate.mass_g).to.be.above(0);
     expect(estimate.production).to.be.eq(false);
     expect(estimate.type).to.be.eq('shipping_sea');
   });
@@ -309,8 +309,8 @@ describe('Estimates Integration', function () {
       });
     const estimate = createEstimateResponse.data;
 
-    expect(estimate.order.amount).to.be.above(500);
-    expect(estimate.mass_g).to.be.above(1_500);
+    expect(estimate.order.amount).to.be.above(0);
+    expect(estimate.mass_g).to.be.above(0);
     expect(estimate.production).to.be.eq(false);
     expect(estimate.type).to.be.eq('shipping_sea');
   });
