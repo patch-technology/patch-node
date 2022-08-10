@@ -122,13 +122,13 @@ patch.estimates.createMassEstimate({ mass_g });
 const distance_m = 9000000; // Pass in the distance traveled in meters
 patch.estimates.createFlightEstimate({ distance_m });
 
-// Create a shipping estimate
+// Create an ecommerce estimate
 const distance_m = 9000000;
 // Pass in the shipping distance in meters, the transportation method, and the package mass
-patch.estimates.createShippingEstimate({
+patch.estimates.createEcommerceEstimate({
   distance_m,
-  transportation_method: 'air',
-  package_mass_g: 1000
+  package_mass_g: 1000,
+  transportation_method: 'air'
 });
 
 // Create a bitcoin estimate

@@ -88,7 +88,7 @@ CreateAirShippingEstimateRequest.prototype['aircraft_type'] = 'unknown';
 
 CreateAirShippingEstimateRequest.prototype['freight_mass_g'] = undefined;
 
-CreateAirShippingEstimateRequest.prototype['emissions_scope'] = 'wtw';
+CreateAirShippingEstimateRequest.prototype['emissions_scope'] = 'ttw';
 
 CreateAirShippingEstimateRequest.prototype['project_id'] = undefined;
 
