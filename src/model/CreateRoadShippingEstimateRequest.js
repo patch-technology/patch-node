@@ -142,7 +142,7 @@ CreateRoadShippingEstimateRequest.prototype['cargo_type'] = 'average_mixed';
 
 CreateRoadShippingEstimateRequest.prototype['container_size_code'] = undefined;
 
-CreateRoadShippingEstimateRequest.prototype['emissions_scope'] = 'wtw';
+CreateRoadShippingEstimateRequest.prototype['emissions_scope'] = 'ttw';
 
 CreateRoadShippingEstimateRequest.prototype['freight_mass_g'] = undefined;
 

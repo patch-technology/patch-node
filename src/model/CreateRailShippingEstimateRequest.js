@@ -114,7 +114,7 @@ CreateRailShippingEstimateRequest.prototype['fuel_type'] = 'default';
 
 CreateRailShippingEstimateRequest.prototype['freight_mass_g'] = undefined;
 
-CreateRailShippingEstimateRequest.prototype['emissions_scope'] = 'wtw';
+CreateRailShippingEstimateRequest.prototype['emissions_scope'] = 'ttw';
 
 CreateRailShippingEstimateRequest.prototype['project_id'] = undefined;
 

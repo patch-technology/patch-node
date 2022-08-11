@@ -136,7 +136,7 @@ CreateSeaShippingEstimateRequest.prototype['origin_postal_code'] = undefined;
 
 CreateSeaShippingEstimateRequest.prototype['container_size_code'] = undefined;
 
-CreateSeaShippingEstimateRequest.prototype['emissions_scope'] = 'wtw';
+CreateSeaShippingEstimateRequest.prototype['emissions_scope'] = 'ttw';
 
 CreateSeaShippingEstimateRequest.prototype['freight_mass_g'] = undefined;
 
