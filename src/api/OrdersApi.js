@@ -1,5 +1,5 @@
 /**
- * Patch API V1
+ * Patch API V2
  * The core API used to integrate with Patch's service
  *
  * Contact: engineering@usepatch.com
@@ -7,6 +7,7 @@
 
 import ApiClient from '../ApiClient';
 import CreateOrderRequest from '../model/CreateOrderRequest';
+import DeleteOrderResponse from '../model/DeleteOrderResponse';
 import ErrorResponse from '../model/ErrorResponse';
 import OrderListResponse from '../model/OrderListResponse';
 import OrderResponse from '../model/OrderResponse';
@@ -17,7 +18,9 @@ export default class OrdersApi {
     this.apiClient = apiClient || ApiClient.instance;
   }
 
-  cancelOrderWithHttpInfo(id) {
+  cancelOrderWithHttpInfo(id, opts) {
+    opts = opts || {};
+
     // verify the required parameter 'id' is set
     if (id === undefined || id === null) {
       throw new Error(
@@ -30,7 +33,9 @@ export default class OrdersApi {
       id: id
     };
     let queryParams = {};
-    let headerParams = {};
+    let headerParams = {
+      'Patch-Version': opts['patchVersion']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];
@@ -53,11 +58,13 @@ export default class OrdersApi {
     );
   }
 
-  cancelOrder(id) {
-    return this.cancelOrderWithHttpInfo(id);
+  cancelOrder(id, opts) {
+    return this.cancelOrderWithHttpInfo(id, opts);
   }
 
-  createOrderWithHttpInfo(createOrderRequest) {
+  createOrderWithHttpInfo(createOrderRequest, opts) {
+    opts = opts || {};
+
     const _createOrderRequest = CreateOrderRequest.constructFromObject(
       createOrderRequest,
       new CreateOrderRequest()
@@ -73,7 +80,9 @@ export default class OrdersApi {
     let postBody = _createOrderRequest;
     let pathParams = {};
     let queryParams = {};
-    let headerParams = {};
+    let headerParams = {
+      'Patch-Version': opts['patchVersion']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];
@@ -96,8 +105,52 @@ export default class OrdersApi {
     );
   }
 
-  createOrder(createOrderRequest) {
-    return this.createOrderWithHttpInfo(createOrderRequest);
+  createOrder(createOrderRequest, opts) {
+    return this.createOrderWithHttpInfo(createOrderRequest, opts);
+  }
+
+  deleteOrderWithHttpInfo(uid, opts) {
+    opts = opts || {};
+
+    // verify the required parameter 'uid' is set
+    if (uid === undefined || uid === null) {
+      throw new Error(
+        "Missing the required parameter 'uid' when calling deleteOrder"
+      );
+    }
+
+    let postBody = null;
+    let pathParams = {
+      uid: uid
+    };
+    let queryParams = {};
+    let headerParams = {
+      'Patch-Version': opts['patchVersion']
+    };
+    let formParams = {};
+
+    let authNames = ['bearer_auth'];
+    let contentTypes = [];
+    let accepts = ['application/json'];
+    let returnType = DeleteOrderResponse;
+
+    return this.apiClient.callApi(
+      '/v1/orders/{uid}',
+      'DELETE',
+      pathParams,
+      queryParams,
+      headerParams,
+      formParams,
+      postBody,
+      authNames,
+      contentTypes,
+      accepts,
+      returnType
+    );
+  }
+
+  deleteOrder(uid, opts) {
+    return this.deleteOrderWithHttpInfo(uid, opts);
   }
 
   placeOrderWithHttpInfo(id, opts) {
@@ -115,7 +168,9 @@ export default class OrdersApi {
       id: id
     };
     let queryParams = {};
-    let headerParams = {};
+    let headerParams = {
+      'Patch-Version': opts['patchVersion']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];
@@ -142,7 +197,9 @@ export default class OrdersApi {
     return this.placeOrderWithHttpInfo(id, opts);
   }
 
-  retrieveOrderWithHttpInfo(id) {
+  retrieveOrderWithHttpInfo(id, opts) {
+    opts = opts || {};
+
     // verify the required parameter 'id' is set
     if (id === undefined || id === null) {
       throw new Error(
@@ -155,7 +212,9 @@ export default class OrdersApi {
       id: id
     };
     let queryParams = {};
-    let headerParams = {};
+    let headerParams = {
+      'Patch-Version': opts['patchVersion']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];
@@ -178,8 +237,8 @@ export default class OrdersApi {
     );
   }
 
-  retrieveOrder(id) {
-    return this.retrieveOrderWithHttpInfo(id);
+  retrieveOrder(id, opts) {
+    return this.retrieveOrderWithHttpInfo(id, opts);
   }
 
   retrieveOrdersWithHttpInfo(opts) {
@@ -196,7 +255,9 @@ export default class OrdersApi {
 
       'metadata[example2]': opts['metadataExample2']
     };
-    let headerParams = {};
+    let headerParams = {
+      'Patch-Version': opts['patchVersion']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];

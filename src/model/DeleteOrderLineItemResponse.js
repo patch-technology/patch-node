@@ -7,9 +7,9 @@
 
 import ApiClient from '../ApiClient';
 
-class ErrorResponse {
+class DeleteOrderLineItemResponse {
   constructor(success, error, data) {
-    ErrorResponse.initialize(this, success, error, data);
+    DeleteOrderLineItemResponse.initialize(this, success, error, data);
   }
 
   static initialize(obj, success, error, data) {
@@ -20,7 +20,7 @@ class ErrorResponse {
 
   static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new ErrorResponse();
+      obj = obj || new DeleteOrderLineItemResponse();
 
       if (data.hasOwnProperty('success')) {
         obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
@@ -31,17 +31,17 @@ class ErrorResponse {
       }
 
       if (data.hasOwnProperty('data')) {
-        obj['data'] = ApiClient.convertToType(data['data'], Object);
+        obj['data'] = ApiClient.convertToType(data['data'], 'String');
       }
     }
     return obj;
   }
 }
 
-ErrorResponse.prototype['success'] = undefined;
+DeleteOrderLineItemResponse.prototype['success'] = undefined;
 
-ErrorResponse.prototype['error'] = undefined;
+DeleteOrderLineItemResponse.prototype['error'] = undefined;
 
-ErrorResponse.prototype['data'] = undefined;
+DeleteOrderLineItemResponse.prototype['data'] = undefined;
 
-export default ErrorResponse;
+export default DeleteOrderLineItemResponse;

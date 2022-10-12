@@ -79,7 +79,11 @@ describe('Project Integration', function () {
       minimumAvailableMass
     });
     data.map((project) => {
-      expect(project.remaining_mass_g >= minimumAvailableMass).to.be.true;
+      const remainingMass = project.inventory.reduce(
+        (acc, inv) => acc + inv.amount_available,
+        0
+      );
+      expect(remainingMass >= minimumAvailableMass).to.be.true;
     });
   });
 });

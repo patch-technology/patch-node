@@ -1,5 +1,5 @@
 /**
- * Patch API V1
+ * Patch API V2
  * The core API used to integrate with Patch's service
  *
  * Contact: engineering@usepatch.com
@@ -7,6 +7,7 @@
 
 import ApiClient from './ApiClient';
 import EstimatesApi from './api/EstimatesApi';
+import OrderLineItemsApi from './api/OrderLineItemsApi';
 import OrdersApi from './api/OrdersApi';
 import ProjectsApi from './api/ProjectsApi';
 import TechnologyTypesApi from './api/TechnologyTypesApi';
@@ -18,6 +19,8 @@ export default function Patch(accessToken) {
   this.client.authentications['bearer_auth'].accessToken = accessToken;
 
   this.estimates = new EstimatesApi(this.client);
+
+  this.orderlineitems = new OrderLineItemsApi(this.client);
 
   this.orders = new OrdersApi(this.client);
 

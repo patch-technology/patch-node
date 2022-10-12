@@ -6,10 +6,11 @@
  */
 
 import ApiClient from '../ApiClient';
+import OrderLineItem from './OrderLineItem';
 
-class ErrorResponse {
+class OrderLineItemResponse {
   constructor(success, error, data) {
-    ErrorResponse.initialize(this, success, error, data);
+    OrderLineItemResponse.initialize(this, success, error, data);
   }
 
   static initialize(obj, success, error, data) {
@@ -20,7 +21,7 @@ class ErrorResponse {
 
   static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new ErrorResponse();
+      obj = obj || new OrderLineItemResponse();
 
       if (data.hasOwnProperty('success')) {
         obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
@@ -31,17 +32,17 @@ class ErrorResponse {
       }
 
       if (data.hasOwnProperty('data')) {
-        obj['data'] = ApiClient.convertToType(data['data'], Object);
+        obj['data'] = OrderLineItem.constructFromObject(data['data']);
       }
     }
     return obj;
   }
 }
 
-ErrorResponse.prototype['success'] = undefined;
+OrderLineItemResponse.prototype['success'] = undefined;
 
-ErrorResponse.prototype['error'] = undefined;
+OrderLineItemResponse.prototype['error'] = undefined;
 
-ErrorResponse.prototype['data'] = undefined;
+OrderLineItemResponse.prototype['data'] = undefined;
 
-export default ErrorResponse;
+export default OrderLineItemResponse;

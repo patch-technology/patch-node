@@ -1,5 +1,5 @@
 /**
- * Patch API V1
+ * Patch API V2
  * The core API used to integrate with Patch's service
  *
  * Contact: engineering@usepatch.com
@@ -16,7 +16,8 @@ class ApiClient {
     };
 
     this.defaultHeaders = {
-      'User-Agent': 'patch-node/1.24.2'
+      'User-Agent': 'patch-node/2.0.0',
+      'Patch-Version': 2
     };
 
     /**

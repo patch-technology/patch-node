@@ -1,5 +1,5 @@
 /**
- * Patch API V1
+ * Patch API V2
  * The core API used to integrate with Patch's service
  *
  * Contact: engineering@usepatch.com
@@ -7,9 +7,9 @@
 
 import ApiClient from '../ApiClient';
 
-class OrderInventoryProject {
+class OrderLineItemProject {
   constructor(id, name) {
-    OrderInventoryProject.initialize(this, id, name);
+    OrderLineItemProject.initialize(this, id, name);
   }
 
   static initialize(obj, id, name) {
@@ -19,7 +19,7 @@ class OrderInventoryProject {
 
   static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new OrderInventoryProject();
+      obj = obj || new OrderLineItemProject();
 
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
@@ -33,8 +33,8 @@ class OrderInventoryProject {
   }
 }
 
-OrderInventoryProject.prototype['id'] = undefined;
+OrderLineItemProject.prototype['id'] = undefined;
 
-OrderInventoryProject.prototype['name'] = undefined;
+OrderLineItemProject.prototype['name'] = undefined;
 
-export default OrderInventoryProject;
+export default OrderLineItemProject;
