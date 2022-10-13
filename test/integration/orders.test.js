@@ -5,7 +5,10 @@ const biomass_test_project_id = 'pro_test_c3a9feba769fc7a8806377266ca9ff6a';
 
 describe('Orders Integration', function () {
   it('supports create, place, cancel, retrieve and list', async function () {
-    const createOrderResponse = await patch.orders.createOrder({ mass_g: 100 });
+    const createOrderResponse = await patch.orders.createOrder({
+      amount: 100,
+      unit: 'g'
+    });
     const orderId = createOrderResponse.data.id;
 
     const retrieveOrderResponse = await patch.orders.retrieveOrder(orderId);
@@ -19,28 +22,31 @@ describe('Orders Integration', function () {
 
   it('supports creating an order with a project_id', async function () {
     const { data } = await patch.orders.createOrder({
-      total_price_cents_usd: 100,
+      total_price: 100,
+      currency: 'USD',
       project_id: biomass_test_project_id
     });
 
-    expect(data.price_cents_usd + data.patch_fee_cents_usd).to.eq(100);
+    expect(data.price + data.patch_fee).to.eq(100);
   });
 
   it('supports creating an order with issued_to', async function () {
     const issuedTo = { email: 'issuee@companyc.com', name: 'Bob Dylan' };
     const { data } = await patch.orders.createOrder({
-      total_price_cents_usd: 100,
+      total_price: 100,
+      currency: 'USD',
       issued_to: issuedTo
     });
 
-    expect(data.price_cents_usd + data.patch_fee_cents_usd).to.eq(100);
+    expect(data.price + data.patch_fee).to.eq(100);
     expect(data.issued_to.email).to.equal(issuedTo.email);
     expect(data.issued_to.name).to.equal(issuedTo.name);
   });
 
   it('supports placing orders in a `draft` state', async function () {
     const estimateResponse = await patch.orders.createOrder({
-      mass_g: 100,
+      amount: 100,
+      unit: 'g',
       state: 'draft'
     });
 
@@ -50,16 +56,16 @@ describe('Orders Integration', function () {
     const placeOrderResponse = await patch.orders.placeOrder(orderId);
     expect(placeOrderResponse.data.created_at).to.be.an.instanceOf(Date);
     expect(placeOrderResponse.data.production).to.equal(false);
-    expect(placeOrderResponse.data.mass_g).to.equal(100);
+    expect(placeOrderResponse.data.amount).to.equal(100);
   });
 
-  it('supports placing orders in a `draft` state with issued_to', async function () {
+  it('supports placing orders in a `reserved` state with issued_to', async function () {
     const estimateResponse = await patch.estimates.createMassEstimate({
       mass_g: 100,
       create_order: true
     });
     const orderId = estimateResponse.data.order.id;
-    expect(estimateResponse.data.order.state).to.equal('draft');
+    expect(estimateResponse.data.order.state).to.equal('reserved');
 
     const issuedTo = { email: 'issuee@companyc.com', name: 'Bob Dylan' };
 
@@ -68,32 +74,32 @@ describe('Orders Integration', function () {
     });
     expect(placeOrderResponse.data.created_at).to.be.an.instanceOf(Date);
     expect(placeOrderResponse.data.production).to.equal(false);
-    expect(placeOrderResponse.data.mass_g).to.equal(100);
+    expect(placeOrderResponse.data.amount).to.equal(100);
     expect(placeOrderResponse.data.issued_to.email).to.equal(issuedTo.email);
     expect(placeOrderResponse.data.issued_to.name).to.equal(issuedTo.name);
   });
 
-  it('supports placing orders in a `draft` state using an estimate', async function () {
+  it('supports placing orders in a `reserved` state using an estimate', async function () {
     const estimateResponse = await patch.estimates.createMassEstimate({
       mass_g: 100,
       create_order: true
     });
     const orderId = estimateResponse.data.order.id;
-    expect(estimateResponse.data.order.state).to.equal('draft');
+    expect(estimateResponse.data.order.state).to.equal('reserved');
 
     const placeOrderResponse = await patch.orders.placeOrder(orderId);
     expect(placeOrderResponse.data.created_at).to.be.an.instanceOf(Date);
     expect(placeOrderResponse.data.production).to.equal(false);
-    expect(placeOrderResponse.data.mass_g).to.equal(100);
+    expect(placeOrderResponse.data.amount).to.equal(100);
   });
 
-  it('supports cancelling orders in a `draft` state', async function () {
+  it('supports cancelling orders in a `reserved` state', async function () {
     const estimateResponse = await patch.estimates.createMassEstimate({
       mass_g: 100,
       create_order: true
     });
     const orderId = estimateResponse.data.order.id;
-    expect(estimateResponse.data.order.state).to.equal('draft');
+    expect(estimateResponse.data.order.state).to.equal('reserved');
 
     const placeOrderResponse = await patch.orders.cancelOrder(orderId);
     expect(placeOrderResponse.data.state).to.equal('cancelled');
@@ -101,7 +107,8 @@ describe('Orders Integration', function () {
 
   it('supports creating and querying orders by metadata', async function () {
     const createOrderResponse = await patch.orders.createOrder({
-      mass_g: 100,
+      amount: 100,
+      unit: 'g',
       metadata: { external_id: 'order-123' }
     });
 
@@ -118,7 +125,8 @@ describe('Orders Integration', function () {
 
   it('supports create orders with a vintage year', async function () {
     const createOrderResponse = await patch.orders.createOrder({
-      mass_g: 100,
+      amount: 100,
+      unit: 'g',
       vintage_year: 2022
     });
 
@@ -134,7 +142,7 @@ describe('Orders Integration', function () {
     expect(createOrderResponse.success).to.equal(true);
     expect(createOrderResponse.data.amount).to.equal(100);
     expect(createOrderResponse.data.unit).to.equal('g');
-    expect(createOrderResponse.data.inventory[0].unit).to.equal('g');
+    expect(createOrderResponse.data.line_items[0].unit).to.equal('g');
   });
 
   it('supports create orders with a total price and currency', async function () {
@@ -148,5 +156,63 @@ describe('Orders Integration', function () {
       createOrderResponse.data.price + createOrderResponse.data.patch_fee
     ).to.be.within(99, 101);
     expect(createOrderResponse.data.currency).to.equal('EUR');
+  });
+
+  it('supports creating an empty draft order and adding/editing line items', async function () {
+    const createOrderResponse = await patch.orders.createOrder({
+      state: 'draft'
+    });
+
+    expect(createOrderResponse.success).to.equal(true);
+    expect(createOrderResponse.data.price).to.equal(0);
+    expect(createOrderResponse.data.amount).to.equal(0);
+    expect(createOrderResponse.data.line_items.length).to.equal(0);
+
+    // Add project to order
+    const orderId = createOrderResponse.data.id;
+
+    const createLineItemResponse =
+      await patch.orderlineitems.createOrderLineItem(orderId, {
+        project_id: biomass_test_project_id
+      });
+
+    expect(createLineItemResponse.success).to.equal(true);
+    expect(createLineItemResponse.data.amount).to.equal(0);
+
+    // Update amount on line item
+    const lineItemId = createLineItemResponse.data.id;
+    const updateOrderLineItemResponse =
+      await patch.orderlineitems.updateOrderLineItem(orderId, lineItemId, {
+        amount: 100000,
+        unit: 'g'
+      });
+
+    expect(updateOrderLineItemResponse.success).to.equal(true);
+    expect(updateOrderLineItemResponse.data.id).to.equal(lineItemId);
+    expect(updateOrderLineItemResponse.data.amount).to.equal(100000);
+    expect(updateOrderLineItemResponse.data.price).to.be.greaterThan(0);
+
+    // Fetch order and check line item matches
+    let retrieveOrderResponse = await patch.orders.retrieveOrder(orderId);
+    expect(retrieveOrderResponse.data.id).to.equal(orderId);
+    expect(retrieveOrderResponse.data.line_items.length).to.equal(1);
+    expect(retrieveOrderResponse.data.line_items[0].id).to.equal(lineItemId);
+    expect(retrieveOrderResponse.data.line_items[0].amount).to.equal(100000);
+
+    // Delete line item
+    const deleteLineItemResponse =
+      await patch.orderlineitems.deleteOrderLineItem(orderId, lineItemId);
+    expect(deleteLineItemResponse.success).to.equal(true);
+    expect(deleteLineItemResponse.data).to.equal(lineItemId);
+
+    // Fetch order and see it has no line items
+    retrieveOrderResponse = await patch.orders.retrieveOrder(orderId);
+    expect(retrieveOrderResponse.data.id).to.equal(orderId);
+    expect(retrieveOrderResponse.data.line_items.length).to.equal(0);
+
+    // Delete order
+    const deleteOrderResponse = await patch.orders.deleteOrder(orderId);
+    expect(deleteOrderResponse.success).to.equal(true);
+    expect(deleteOrderResponse.data).to.equal(orderId);
   });
 });

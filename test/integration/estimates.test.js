@@ -14,7 +14,7 @@ describe('Estimates Integration', function () {
       estimateId
     );
     expect(retrieveEstimateResponse.data.id).to.equal(estimateId);
-    expect(retrieveEstimateResponse.data.order.state).to.equal('draft');
+    expect(retrieveEstimateResponse.data.order.state).to.equal('reserved');
 
     const retrieveEstimatesResponse = await patch.estimates.retrieveEstimates({
       page: 1

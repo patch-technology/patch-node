@@ -1,5 +1,5 @@
 /**
- * Patch API V1
+ * Patch API V2
  * The core API used to integrate with Patch's service
  *
  * Contact: engineering@usepatch.com
@@ -27,7 +27,12 @@ export default class EstimatesApi {
     this.apiClient = apiClient || ApiClient.instance;
   }
 
-  createAirShippingEstimateWithHttpInfo(createAirShippingEstimateRequest) {
+  createAirShippingEstimateWithHttpInfo(
+    createAirShippingEstimateRequest,
+    opts
+  ) {
+    opts = opts || {};
+
     const _createAirShippingEstimateRequest =
       CreateAirShippingEstimateRequest.constructFromObject(
         createAirShippingEstimateRequest,
@@ -47,7 +52,9 @@ export default class EstimatesApi {
     let postBody = _createAirShippingEstimateRequest;
     let pathParams = {};
     let queryParams = {};
-    let headerParams = {};
+    let headerParams = {
+      'Patch-Version': opts['patchVersion']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];
@@ -70,13 +77,16 @@ export default class EstimatesApi {
     );
   }
 
-  createAirShippingEstimate(createAirShippingEstimateRequest) {
+  createAirShippingEstimate(createAirShippingEstimateRequest, opts) {
     return this.createAirShippingEstimateWithHttpInfo(
-      createAirShippingEstimateRequest
+      createAirShippingEstimateRequest,
+      opts
     );
   }
 
-  createBitcoinEstimateWithHttpInfo(createBitcoinEstimateRequest) {
+  createBitcoinEstimateWithHttpInfo(createBitcoinEstimateRequest, opts) {
+    opts = opts || {};
+
     const _createBitcoinEstimateRequest =
       CreateBitcoinEstimateRequest.constructFromObject(
         createBitcoinEstimateRequest,
@@ -96,7 +106,9 @@ export default class EstimatesApi {
     let postBody = _createBitcoinEstimateRequest;
     let pathParams = {};
     let queryParams = {};
-    let headerParams = {};
+    let headerParams = {
+      'Patch-Version': opts['patchVersion']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];
@@ -119,11 +131,16 @@ export default class EstimatesApi {
     );
   }
 
-  createBitcoinEstimate(createBitcoinEstimateRequest) {
-    return this.createBitcoinEstimateWithHttpInfo(createBitcoinEstimateRequest);
+  createBitcoinEstimate(createBitcoinEstimateRequest, opts) {
+    return this.createBitcoinEstimateWithHttpInfo(
+      createBitcoinEstimateRequest,
+      opts
+    );
   }
 
-  createEcommerceEstimateWithHttpInfo(createEcommerceEstimateRequest) {
+  createEcommerceEstimateWithHttpInfo(createEcommerceEstimateRequest, opts) {
+    opts = opts || {};
+
     const _createEcommerceEstimateRequest =
       CreateEcommerceEstimateRequest.constructFromObject(
         createEcommerceEstimateRequest,
@@ -143,7 +160,9 @@ export default class EstimatesApi {
     let postBody = _createEcommerceEstimateRequest;
     let pathParams = {};
     let queryParams = {};
-    let headerParams = {};
+    let headerParams = {
+      'Patch-Version': opts['patchVersion']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];
@@ -166,13 +185,16 @@ export default class EstimatesApi {
     );
   }
 
-  createEcommerceEstimate(createEcommerceEstimateRequest) {
+  createEcommerceEstimate(createEcommerceEstimateRequest, opts) {
     return this.createEcommerceEstimateWithHttpInfo(
-      createEcommerceEstimateRequest
+      createEcommerceEstimateRequest,
+      opts
     );
   }
 
-  createEthereumEstimateWithHttpInfo(createEthereumEstimateRequest) {
+  createEthereumEstimateWithHttpInfo(createEthereumEstimateRequest, opts) {
+    opts = opts || {};
+
     const _createEthereumEstimateRequest =
       CreateEthereumEstimateRequest.constructFromObject(
         createEthereumEstimateRequest,
@@ -192,7 +214,9 @@ export default class EstimatesApi {
     let postBody = _createEthereumEstimateRequest;
     let pathParams = {};
     let queryParams = {};
-    let headerParams = {};
+    let headerParams = {
+      'Patch-Version': opts['patchVersion']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];
@@ -215,13 +239,16 @@ export default class EstimatesApi {
     );
   }
 
-  createEthereumEstimate(createEthereumEstimateRequest) {
+  createEthereumEstimate(createEthereumEstimateRequest, opts) {
     return this.createEthereumEstimateWithHttpInfo(
-      createEthereumEstimateRequest
+      createEthereumEstimateRequest,
+      opts
     );
   }
 
-  createFlightEstimateWithHttpInfo(createFlightEstimateRequest) {
+  createFlightEstimateWithHttpInfo(createFlightEstimateRequest, opts) {
+    opts = opts || {};
+
     const _createFlightEstimateRequest =
       CreateFlightEstimateRequest.constructFromObject(
         createFlightEstimateRequest,
@@ -241,7 +268,9 @@ export default class EstimatesApi {
     let postBody = _createFlightEstimateRequest;
     let pathParams = {};
     let queryParams = {};
-    let headerParams = {};
+    let headerParams = {
+      'Patch-Version': opts['patchVersion']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];
@@ -264,11 +293,16 @@ export default class EstimatesApi {
     );
   }
 
-  createFlightEstimate(createFlightEstimateRequest) {
-    return this.createFlightEstimateWithHttpInfo(createFlightEstimateRequest);
+  createFlightEstimate(createFlightEstimateRequest, opts) {
+    return this.createFlightEstimateWithHttpInfo(
+      createFlightEstimateRequest,
+      opts
+    );
   }
 
-  createHotelEstimateWithHttpInfo(createHotelEstimateRequest) {
+  createHotelEstimateWithHttpInfo(createHotelEstimateRequest, opts) {
+    opts = opts || {};
+
     const _createHotelEstimateRequest =
       CreateHotelEstimateRequest.constructFromObject(
         createHotelEstimateRequest,
@@ -288,7 +322,9 @@ export default class EstimatesApi {
     let postBody = _createHotelEstimateRequest;
     let pathParams = {};
     let queryParams = {};
-    let headerParams = {};
+    let headerParams = {
+      'Patch-Version': opts['patchVersion']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];
@@ -311,11 +347,16 @@ export default class EstimatesApi {
     );
   }
 
-  createHotelEstimate(createHotelEstimateRequest) {
-    return this.createHotelEstimateWithHttpInfo(createHotelEstimateRequest);
+  createHotelEstimate(createHotelEstimateRequest, opts) {
+    return this.createHotelEstimateWithHttpInfo(
+      createHotelEstimateRequest,
+      opts
+    );
   }
 
-  createMassEstimateWithHttpInfo(createMassEstimateRequest) {
+  createMassEstimateWithHttpInfo(createMassEstimateRequest, opts) {
+    opts = opts || {};
+
     const _createMassEstimateRequest =
       CreateMassEstimateRequest.constructFromObject(
         createMassEstimateRequest,
@@ -335,7 +376,9 @@ export default class EstimatesApi {
     let postBody = _createMassEstimateRequest;
     let pathParams = {};
     let queryParams = {};
-    let headerParams = {};
+    let headerParams = {
+      'Patch-Version': opts['patchVersion']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];
@@ -358,11 +401,16 @@ export default class EstimatesApi {
     );
   }
 
-  createMassEstimate(createMassEstimateRequest) {
-    return this.createMassEstimateWithHttpInfo(createMassEstimateRequest);
+  createMassEstimate(createMassEstimateRequest, opts) {
+    return this.createMassEstimateWithHttpInfo(createMassEstimateRequest, opts);
   }
 
-  createRailShippingEstimateWithHttpInfo(createRailShippingEstimateRequest) {
+  createRailShippingEstimateWithHttpInfo(
+    createRailShippingEstimateRequest,
+    opts
+  ) {
+    opts = opts || {};
+
     const _createRailShippingEstimateRequest =
       CreateRailShippingEstimateRequest.constructFromObject(
         createRailShippingEstimateRequest,
@@ -382,7 +430,9 @@ export default class EstimatesApi {
     let postBody = _createRailShippingEstimateRequest;
     let pathParams = {};
     let queryParams = {};
-    let headerParams = {};
+    let headerParams = {
+      'Patch-Version': opts['patchVersion']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];
@@ -405,13 +455,19 @@ export default class EstimatesApi {
     );
   }
 
-  createRailShippingEstimate(createRailShippingEstimateRequest) {
+  createRailShippingEstimate(createRailShippingEstimateRequest, opts) {
     return this.createRailShippingEstimateWithHttpInfo(
-      createRailShippingEstimateRequest
+      createRailShippingEstimateRequest,
+      opts
     );
   }
 
-  createRoadShippingEstimateWithHttpInfo(createRoadShippingEstimateRequest) {
+  createRoadShippingEstimateWithHttpInfo(
+    createRoadShippingEstimateRequest,
+    opts
+  ) {
+    opts = opts || {};
+
     const _createRoadShippingEstimateRequest =
       CreateRoadShippingEstimateRequest.constructFromObject(
         createRoadShippingEstimateRequest,
@@ -431,7 +487,9 @@ export default class EstimatesApi {
     let postBody = _createRoadShippingEstimateRequest;
     let pathParams = {};
     let queryParams = {};
-    let headerParams = {};
+    let headerParams = {
+      'Patch-Version': opts['patchVersion']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];
@@ -454,13 +512,19 @@ export default class EstimatesApi {
     );
   }
 
-  createRoadShippingEstimate(createRoadShippingEstimateRequest) {
+  createRoadShippingEstimate(createRoadShippingEstimateRequest, opts) {
     return this.createRoadShippingEstimateWithHttpInfo(
-      createRoadShippingEstimateRequest
+      createRoadShippingEstimateRequest,
+      opts
     );
   }
 
-  createSeaShippingEstimateWithHttpInfo(createSeaShippingEstimateRequest) {
+  createSeaShippingEstimateWithHttpInfo(
+    createSeaShippingEstimateRequest,
+    opts
+  ) {
+    opts = opts || {};
+
     const _createSeaShippingEstimateRequest =
       CreateSeaShippingEstimateRequest.constructFromObject(
         createSeaShippingEstimateRequest,
@@ -480,7 +544,9 @@ export default class EstimatesApi {
     let postBody = _createSeaShippingEstimateRequest;
     let pathParams = {};
     let queryParams = {};
-    let headerParams = {};
+    let headerParams = {
+      'Patch-Version': opts['patchVersion']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];
@@ -503,13 +569,16 @@ export default class EstimatesApi {
     );
   }
 
-  createSeaShippingEstimate(createSeaShippingEstimateRequest) {
+  createSeaShippingEstimate(createSeaShippingEstimateRequest, opts) {
     return this.createSeaShippingEstimateWithHttpInfo(
-      createSeaShippingEstimateRequest
+      createSeaShippingEstimateRequest,
+      opts
     );
   }
 
-  createShippingEstimateWithHttpInfo(createShippingEstimateRequest) {
+  createShippingEstimateWithHttpInfo(createShippingEstimateRequest, opts) {
+    opts = opts || {};
+
     const _createShippingEstimateRequest =
       CreateShippingEstimateRequest.constructFromObject(
         createShippingEstimateRequest,
@@ -529,7 +598,9 @@ export default class EstimatesApi {
     let postBody = _createShippingEstimateRequest;
     let pathParams = {};
     let queryParams = {};
-    let headerParams = {};
+    let headerParams = {
+      'Patch-Version': opts['patchVersion']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];
@@ -552,13 +623,16 @@ export default class EstimatesApi {
     );
   }
 
-  createShippingEstimate(createShippingEstimateRequest) {
+  createShippingEstimate(createShippingEstimateRequest, opts) {
     return this.createShippingEstimateWithHttpInfo(
-      createShippingEstimateRequest
+      createShippingEstimateRequest,
+      opts
     );
   }
 
-  createVehicleEstimateWithHttpInfo(createVehicleEstimateRequest) {
+  createVehicleEstimateWithHttpInfo(createVehicleEstimateRequest, opts) {
+    opts = opts || {};
+
     const _createVehicleEstimateRequest =
       CreateVehicleEstimateRequest.constructFromObject(
         createVehicleEstimateRequest,
@@ -578,7 +652,9 @@ export default class EstimatesApi {
     let postBody = _createVehicleEstimateRequest;
     let pathParams = {};
     let queryParams = {};
-    let headerParams = {};
+    let headerParams = {
+      'Patch-Version': opts['patchVersion']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];
@@ -601,11 +677,16 @@ export default class EstimatesApi {
     );
   }
 
-  createVehicleEstimate(createVehicleEstimateRequest) {
-    return this.createVehicleEstimateWithHttpInfo(createVehicleEstimateRequest);
+  createVehicleEstimate(createVehicleEstimateRequest, opts) {
+    return this.createVehicleEstimateWithHttpInfo(
+      createVehicleEstimateRequest,
+      opts
+    );
   }
 
-  retrieveEstimateWithHttpInfo(id) {
+  retrieveEstimateWithHttpInfo(id, opts) {
+    opts = opts || {};
+
     // verify the required parameter 'id' is set
     if (id === undefined || id === null) {
       throw new Error(
@@ -618,7 +699,9 @@ export default class EstimatesApi {
       id: id
     };
     let queryParams = {};
-    let headerParams = {};
+    let headerParams = {
+      'Patch-Version': opts['patchVersion']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];
@@ -641,8 +724,8 @@ export default class EstimatesApi {
     );
   }
 
-  retrieveEstimate(id) {
-    return this.retrieveEstimateWithHttpInfo(id);
+  retrieveEstimate(id, opts) {
+    return this.retrieveEstimateWithHttpInfo(id, opts);
   }
 
   retrieveEstimatesWithHttpInfo(opts) {
@@ -653,7 +736,9 @@ export default class EstimatesApi {
     let queryParams = {
       page: opts['page']
     };
-    let headerParams = {};
+    let headerParams = {
+      'Patch-Version': opts['patchVersion']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];

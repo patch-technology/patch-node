@@ -1,5 +1,5 @@
 /**
- * Patch API V1
+ * Patch API V2
  * The core API used to integrate with Patch's service
  *
  * Contact: engineering@usepatch.com
@@ -31,7 +31,8 @@ export default class ProjectsApi {
     };
     let queryParams = {};
     let headerParams = {
-      'Accept-Language': opts['acceptLanguage']
+      'Accept-Language': opts['acceptLanguage'],
+      'Patch-Version': opts['patchVersion']
     };
     let formParams = {};
 
@@ -74,7 +75,8 @@ export default class ProjectsApi {
       minimum_available_mass: opts['minimumAvailableMass']
     };
     let headerParams = {
-      'Accept-Language': opts['acceptLanguage']
+      'Accept-Language': opts['acceptLanguage'],
+      'Patch-Version': opts['patchVersion']
     };
     let formParams = {};
 

@@ -1,5 +1,5 @@
 /**
- * Patch API V1
+ * Patch API V2
  * The core API used to integrate with Patch's service
  *
  * Contact: engineering@usepatch.com
@@ -13,11 +13,15 @@ export default class TechnologyTypesApi {
     this.apiClient = apiClient || ApiClient.instance;
   }
 
-  retrieveTechnologyTypesWithHttpInfo() {
+  retrieveTechnologyTypesWithHttpInfo(opts) {
+    opts = opts || {};
+
     let postBody = null;
     let pathParams = {};
     let queryParams = {};
-    let headerParams = {};
+    let headerParams = {
+      'Patch-Version': opts['patchVersion']
+    };
     let formParams = {};
 
     let authNames = ['bearer_auth'];
@@ -40,7 +44,7 @@ export default class TechnologyTypesApi {
     );
   }
 
-  retrieveTechnologyTypes() {
-    return this.retrieveTechnologyTypesWithHttpInfo();
+  retrieveTechnologyTypes(opts) {
+    return this.retrieveTechnologyTypesWithHttpInfo(opts);
   }
 }

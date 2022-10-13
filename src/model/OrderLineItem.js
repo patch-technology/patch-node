@@ -1,16 +1,16 @@
 /**
- * Patch API V1
+ * Patch API V2
  * The core API used to integrate with Patch's service
  *
  * Contact: engineering@usepatch.com
  */
 
 import ApiClient from '../ApiClient';
-import OrderInventoryProject from './OrderInventoryProject';
+import OrderLineItemProject from './OrderLineItemProject';
 
-class OrderInventory {
+class OrderLineItem {
   constructor(project, vintageYear, amount, unit, price, currency) {
-    OrderInventory.initialize(
+    OrderLineItem.initialize(
       this,
       project,
       vintageYear,
@@ -32,12 +32,16 @@ class OrderInventory {
 
   static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new OrderInventory();
+      obj = obj || new OrderLineItem();
+
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      }
 
       if (data.hasOwnProperty('project')) {
         obj['project'] = ApiClient.convertToType(
           data['project'],
-          OrderInventoryProject
+          OrderLineItemProject
         );
       }
 
@@ -68,16 +72,18 @@ class OrderInventory {
   }
 }
 
-OrderInventory.prototype['project'] = undefined;
+OrderLineItem.prototype['id'] = undefined;
 
-OrderInventory.prototype['vintage_year'] = undefined;
+OrderLineItem.prototype['project'] = undefined;
 
-OrderInventory.prototype['amount'] = undefined;
+OrderLineItem.prototype['vintage_year'] = undefined;
 
-OrderInventory.prototype['unit'] = undefined;
+OrderLineItem.prototype['amount'] = undefined;
 
-OrderInventory.prototype['price'] = undefined;
+OrderLineItem.prototype['unit'] = undefined;
 
-OrderInventory.prototype['currency'] = undefined;
+OrderLineItem.prototype['price'] = undefined;
 
-export default OrderInventory;
+OrderLineItem.prototype['currency'] = undefined;
+
+export default OrderLineItem;

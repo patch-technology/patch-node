@@ -1,5 +1,5 @@
 /**
- * Patch API V1
+ * Patch API V2
  * The core API used to integrate with Patch's service
  *
  * Contact: engineering@usepatch.com
@@ -20,9 +20,7 @@ class Project {
     name,
     description,
     country,
-    developer,
-    averagePricePerTonneCentsUsd,
-    remainingMassG,
+    projectPartner,
     technologyType,
     highlights,
     inventory
@@ -34,9 +32,7 @@ class Project {
       name,
       description,
       country,
-      developer,
-      averagePricePerTonneCentsUsd,
-      remainingMassG,
+      projectPartner,
       technologyType,
       highlights,
       inventory
@@ -50,9 +46,7 @@ class Project {
     name,
     description,
     country,
-    developer,
-    averagePricePerTonneCentsUsd,
-    remainingMassG,
+    projectPartner,
     technologyType,
     highlights,
     inventory
@@ -62,9 +56,7 @@ class Project {
     obj['name'] = name;
     obj['description'] = description;
     obj['country'] = country;
-    obj['developer'] = developer;
-    obj['average_price_per_tonne_cents_usd'] = averagePricePerTonneCentsUsd;
-    obj['remaining_mass_g'] = remainingMassG;
+    obj['project_partner'] = projectPartner;
     obj['technology_type'] = technologyType;
     obj['highlights'] = highlights;
     obj['inventory'] = inventory;
@@ -96,10 +88,6 @@ class Project {
         );
       }
 
-      if (data.hasOwnProperty('type')) {
-        obj['type'] = ApiClient.convertToType(data['type'], 'String');
-      }
-
       if (data.hasOwnProperty('mechanism')) {
         obj['mechanism'] = ApiClient.convertToType(data['mechanism'], 'String');
       }
@@ -120,26 +108,15 @@ class Project {
         obj['longitude'] = ApiClient.convertToType(data['longitude'], 'Number');
       }
 
-      if (data.hasOwnProperty('developer')) {
-        obj['developer'] = ApiClient.convertToType(data['developer'], 'String');
+      if (data.hasOwnProperty('project_partner')) {
+        obj['project_partner'] = ApiClient.convertToType(
+          data['project_partner'],
+          'String'
+        );
       }
 
       if (data.hasOwnProperty('photos')) {
         obj['photos'] = ApiClient.convertToType(data['photos'], [Photo]);
-      }
-
-      if (data.hasOwnProperty('average_price_per_tonne_cents_usd')) {
-        obj['average_price_per_tonne_cents_usd'] = ApiClient.convertToType(
-          data['average_price_per_tonne_cents_usd'],
-          'Number'
-        );
-      }
-
-      if (data.hasOwnProperty('remaining_mass_g')) {
-        obj['remaining_mass_g'] = ApiClient.convertToType(
-          data['remaining_mass_g'],
-          'Number'
-        );
       }
 
       if (data.hasOwnProperty('verifier')) {
@@ -188,8 +165,6 @@ Project.prototype['name'] = undefined;
 
 Project.prototype['description'] = undefined;
 
-Project.prototype['type'] = undefined;
-
 Project.prototype['mechanism'] = undefined;
 
 Project.prototype['country'] = undefined;
@@ -200,13 +175,9 @@ Project.prototype['latitude'] = undefined;
 
 Project.prototype['longitude'] = undefined;
 
-Project.prototype['developer'] = undefined;
+Project.prototype['project_partner'] = undefined;
 
 Project.prototype['photos'] = undefined;
-
-Project.prototype['average_price_per_tonne_cents_usd'] = undefined;
-
-Project.prototype['remaining_mass_g'] = undefined;
 
 Project.prototype['verifier'] = undefined;
 

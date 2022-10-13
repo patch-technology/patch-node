@@ -1,5 +1,5 @@
 /**
- * Patch API V1
+ * Patch API V2
  * The core API used to integrate with Patch's service
  *
  * Contact: engineering@usepatch.com
@@ -18,17 +18,6 @@ class CreateOrderRequest {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new CreateOrderRequest();
-
-      if (data.hasOwnProperty('mass_g')) {
-        obj['mass_g'] = ApiClient.convertToType(data['mass_g'], 'Number');
-      }
-
-      if (data.hasOwnProperty('total_price_cents_usd')) {
-        obj['total_price_cents_usd'] = ApiClient.convertToType(
-          data['total_price_cents_usd'],
-          'Number'
-        );
-      }
 
       if (data.hasOwnProperty('project_id')) {
         obj['project_id'] = ApiClient.convertToType(
@@ -78,10 +67,6 @@ class CreateOrderRequest {
     return obj;
   }
 }
-
-CreateOrderRequest.prototype['mass_g'] = undefined;
-
-CreateOrderRequest.prototype['total_price_cents_usd'] = undefined;
 
 CreateOrderRequest.prototype['project_id'] = undefined;
 
