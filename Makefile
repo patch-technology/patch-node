@@ -3,12 +3,13 @@ SHELL = /bin/bash
 build: install lint
 
 install:
-	docker build --target build . -t patch-node-build && \
-	docker run --rm -v $(PWD):/data patch-node-build
+	docker build . -t patch-node-build && \
+	docker run --rm -v $(PWD):/data patch-node-build npm install
+	docker run --rm -v $(PWD):/data patch-node-build npm audit fix
 
 lint:
-	docker build --target lint . -t patch-node-lint && \
-	docker run --rm -v $(PWD):/data patch-node-lint .
+	docker build . -t patch-node-build && \
+	docker run --rm -v $(PWD):/data patch-node-build npx prettier --write .
 
 test:
 	npm run test

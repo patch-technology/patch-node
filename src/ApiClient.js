@@ -16,7 +16,7 @@ class ApiClient {
     };
 
     this.defaultHeaders = {
-      'User-Agent': 'patch-node/2.0.0',
+      'User-Agent': 'patch-node/2.0.1',
       'Patch-Version': 2
     };
 
