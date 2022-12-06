@@ -1,15 +1,6 @@
-FROM node:16.13 AS base
-
-
-FROM base AS build
-
-WORKDIR /data
-ENTRYPOINT [ "npm", "install"]
-
-
-FROM base AS lint
+FROM node:16.16 AS base
 
 WORKDIR /data
 
-ENTRYPOINT [ "npx", "prettier", "--write" ]
+ENTRYPOINT []
 
