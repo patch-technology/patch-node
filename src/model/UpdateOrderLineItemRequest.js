@@ -25,6 +25,20 @@ class UpdateOrderLineItemRequest {
         );
       }
 
+      if (data.hasOwnProperty('vintage_start_year')) {
+        obj['vintage_start_year'] = ApiClient.convertToType(
+          data['vintage_start_year'],
+          'Number'
+        );
+      }
+
+      if (data.hasOwnProperty('vintage_end_year')) {
+        obj['vintage_end_year'] = ApiClient.convertToType(
+          data['vintage_end_year'],
+          'Number'
+        );
+      }
+
       if (data.hasOwnProperty('price')) {
         obj['price'] = ApiClient.convertToType(data['price'], 'Number');
       }
@@ -46,6 +60,10 @@ class UpdateOrderLineItemRequest {
 }
 
 UpdateOrderLineItemRequest.prototype['vintage_year'] = undefined;
+
+UpdateOrderLineItemRequest.prototype['vintage_start_year'] = undefined;
+
+UpdateOrderLineItemRequest.prototype['vintage_end_year'] = undefined;
 
 UpdateOrderLineItemRequest.prototype['price'] = undefined;
 

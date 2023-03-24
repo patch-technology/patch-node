@@ -106,6 +106,13 @@ class CreateRoadShippingEstimateRequest {
         );
       }
 
+      if (data.hasOwnProperty('carrier_scac')) {
+        obj['carrier_scac'] = ApiClient.convertToType(
+          data['carrier_scac'],
+          'String'
+        );
+      }
+
       if (data.hasOwnProperty('project_id')) {
         obj['project_id'] = ApiClient.convertToType(
           data['project_id'],
@@ -151,6 +158,8 @@ CreateRoadShippingEstimateRequest.prototype['fuel_type'] = 'diesel';
 CreateRoadShippingEstimateRequest.prototype['number_of_containers'] = undefined;
 
 CreateRoadShippingEstimateRequest.prototype['truck_weight_t'] = undefined;
+
+CreateRoadShippingEstimateRequest.prototype['carrier_scac'] = undefined;
 
 CreateRoadShippingEstimateRequest.prototype['project_id'] = undefined;
 

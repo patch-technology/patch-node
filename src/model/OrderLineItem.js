@@ -9,11 +9,22 @@ import ApiClient from '../ApiClient';
 import OrderLineItemProject from './OrderLineItemProject';
 
 class OrderLineItem {
-  constructor(project, vintageYear, amount, unit, price, currency) {
+  constructor(
+    project,
+    vintageYear,
+    vintageStartYear,
+    vintageEndYear,
+    amount,
+    unit,
+    price,
+    currency
+  ) {
     OrderLineItem.initialize(
       this,
       project,
       vintageYear,
+      vintageStartYear,
+      vintageEndYear,
       amount,
       unit,
       price,
@@ -21,9 +32,21 @@ class OrderLineItem {
     );
   }
 
-  static initialize(obj, project, vintageYear, amount, unit, price, currency) {
+  static initialize(
+    obj,
+    project,
+    vintageYear,
+    vintageStartYear,
+    vintageEndYear,
+    amount,
+    unit,
+    price,
+    currency
+  ) {
     obj['project'] = project;
     obj['vintage_year'] = vintageYear;
+    obj['vintage_start_year'] = vintageStartYear;
+    obj['vintage_end_year'] = vintageEndYear;
     obj['amount'] = amount;
     obj['unit'] = unit;
     obj['price'] = price;
@@ -48,6 +71,20 @@ class OrderLineItem {
       if (data.hasOwnProperty('vintage_year')) {
         obj['vintage_year'] = ApiClient.convertToType(
           data['vintage_year'],
+          'Number'
+        );
+      }
+
+      if (data.hasOwnProperty('vintage_start_year')) {
+        obj['vintage_start_year'] = ApiClient.convertToType(
+          data['vintage_start_year'],
+          'Number'
+        );
+      }
+
+      if (data.hasOwnProperty('vintage_end_year')) {
+        obj['vintage_end_year'] = ApiClient.convertToType(
+          data['vintage_end_year'],
           'Number'
         );
       }
@@ -77,6 +114,10 @@ OrderLineItem.prototype['id'] = undefined;
 OrderLineItem.prototype['project'] = undefined;
 
 OrderLineItem.prototype['vintage_year'] = undefined;
+
+OrderLineItem.prototype['vintage_start_year'] = undefined;
+
+OrderLineItem.prototype['vintage_end_year'] = undefined;
 
 OrderLineItem.prototype['amount'] = undefined;
 
