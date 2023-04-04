@@ -41,6 +41,8 @@ describe('Project Integration', function () {
     const inventory = projectResponse.data.inventory;
     expect(inventory).to.be.a('array');
     expect(inventory[0].vintage_year).to.be.a('number');
+    expect(inventory[0].vintage_start_year).to.be.a('number');
+    expect(inventory[0].vintage_end_year).to.be.a('number');
     expect(inventory[0].amount_available).to.be.a('number');
     expect(inventory[0].price).to.be.a('number');
     expect(inventory[0].currency).to.be.a('string');

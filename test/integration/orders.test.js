@@ -133,6 +133,17 @@ describe('Orders Integration', function () {
     expect(createOrderResponse.success).to.equal(true);
   });
 
+  it('supports create orders with vintage start year and vintage end year', async function () {
+    const createOrderResponse = await patch.orders.createOrder({
+      amount: 100,
+      unit: 'g',
+      vintage_start_year: 2023,
+      vintage_end_year: 2025
+    });
+
+    expect(createOrderResponse.success).to.equal(true);
+  });
+
   it('supports create orders with an amount and unit', async function () {
     const createOrderResponse = await patch.orders.createOrder({
       amount: 100,
@@ -180,7 +191,7 @@ describe('Orders Integration', function () {
     expect(createLineItemResponse.data.amount).to.equal(0);
 
     // Update amount on line item
-    const lineItemId = createLineItemResponse.data.id;
+    let lineItemId = createLineItemResponse.data.id;
     const updateOrderLineItemResponse =
       await patch.orderlineitems.updateOrderLineItem(orderId, lineItemId, {
         amount: 100000,
@@ -200,8 +211,49 @@ describe('Orders Integration', function () {
     expect(retrieveOrderResponse.data.line_items[0].amount).to.equal(100000);
 
     // Delete line item
-    const deleteLineItemResponse =
-      await patch.orderlineitems.deleteOrderLineItem(orderId, lineItemId);
+    let deleteLineItemResponse = await patch.orderlineitems.deleteOrderLineItem(
+      orderId,
+      lineItemId
+    );
+    expect(deleteLineItemResponse.success).to.equal(true);
+    expect(deleteLineItemResponse.data).to.equal(lineItemId);
+
+    // Add line item via vintage_start_year and vintage_end_year
+    const createOrderLineItemResponse =
+      await patch.orderlineitems.createOrderLineItem(orderId, {
+        project_id: biomass_test_project_id,
+        amount: 200000,
+        unit: 'g',
+        vintage_start_year: 2023,
+        vintage_end_year: 2025
+      });
+
+    lineItemId = createOrderLineItemResponse.data.id;
+    expect(createOrderLineItemResponse.success).to.equal(true);
+    expect(createOrderLineItemResponse.data.id).to.equal(lineItemId);
+    expect(createOrderLineItemResponse.data.amount).to.equal(200000);
+    expect(createOrderLineItemResponse.data.price).to.be.greaterThan(0);
+    expect(createOrderLineItemResponse.data.vintage_start_year).to.equal(2023);
+    expect(createOrderLineItemResponse.data.vintage_end_year).to.equal(2025);
+
+    // Fetch order and check line item matches
+    retrieveOrderResponse = await patch.orders.retrieveOrder(orderId);
+    expect(retrieveOrderResponse.data.id).to.equal(orderId);
+    expect(retrieveOrderResponse.data.line_items.length).to.equal(1);
+    expect(retrieveOrderResponse.data.line_items[0].id).to.equal(lineItemId);
+    expect(retrieveOrderResponse.data.line_items[0].amount).to.equal(200000);
+    expect(
+      retrieveOrderResponse.data.line_items[0].vintage_start_year
+    ).to.equal(2023);
+    expect(retrieveOrderResponse.data.line_items[0].vintage_end_year).to.equal(
+      2025
+    );
+
+    // Delete line item
+    deleteLineItemResponse = await patch.orderlineitems.deleteOrderLineItem(
+      orderId,
+      lineItemId
+    );
     expect(deleteLineItemResponse.success).to.equal(true);
     expect(deleteLineItemResponse.data).to.equal(lineItemId);
 

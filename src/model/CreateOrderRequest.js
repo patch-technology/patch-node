@@ -41,6 +41,20 @@ class CreateOrderRequest {
         );
       }
 
+      if (data.hasOwnProperty('vintage_start_year')) {
+        obj['vintage_start_year'] = ApiClient.convertToType(
+          data['vintage_start_year'],
+          'Number'
+        );
+      }
+
+      if (data.hasOwnProperty('vintage_end_year')) {
+        obj['vintage_end_year'] = ApiClient.convertToType(
+          data['vintage_end_year'],
+          'Number'
+        );
+      }
+
       if (data.hasOwnProperty('total_price')) {
         obj['total_price'] = ApiClient.convertToType(
           data['total_price'],
@@ -75,6 +89,10 @@ CreateOrderRequest.prototype['metadata'] = undefined;
 CreateOrderRequest.prototype['state'] = undefined;
 
 CreateOrderRequest.prototype['vintage_year'] = undefined;
+
+CreateOrderRequest.prototype['vintage_start_year'] = undefined;
+
+CreateOrderRequest.prototype['vintage_end_year'] = undefined;
 
 CreateOrderRequest.prototype['total_price'] = undefined;
 
