@@ -46,7 +46,7 @@ describe('Estimates Integration', function () {
     );
     const estimate = createEstimateResponse.data;
 
-    expect(estimate.type).to.be.eq('shipping');
+    expect(estimate.type).to.be.eq('ecommerce');
     expect(estimate.mass_g).to.be.above(0);
     expect(estimate.production).to.be.eq(false);
     expect(estimate.order).to.be.eq(null);
