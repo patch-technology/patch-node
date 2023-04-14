@@ -6,6 +6,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import Disclaimer from './Disclaimer';
 import Highlight from './Highlight';
 import Inventory from './Inventory';
 import Photo from './Photo';
@@ -100,6 +101,13 @@ class Project {
         obj['state'] = ApiClient.convertToType(data['state'], 'String');
       }
 
+      if (data.hasOwnProperty('issuance_type')) {
+        obj['issuance_type'] = ApiClient.convertToType(
+          data['issuance_type'],
+          'String'
+        );
+      }
+
       if (data.hasOwnProperty('latitude')) {
         obj['latitude'] = ApiClient.convertToType(data['latitude'], 'Number');
       }
@@ -152,6 +160,12 @@ class Project {
           Inventory
         ]);
       }
+
+      if (data.hasOwnProperty('disclaimers')) {
+        obj['disclaimers'] = ApiClient.convertToType(data['disclaimers'], [
+          Disclaimer
+        ]);
+      }
     }
     return obj;
   }
@@ -170,6 +184,8 @@ Project.prototype['mechanism'] = undefined;
 Project.prototype['country'] = undefined;
 
 Project.prototype['state'] = undefined;
+
+Project.prototype['issuance_type'] = undefined;
 
 Project.prototype['latitude'] = undefined;
 
@@ -192,5 +208,7 @@ Project.prototype['technology_type'] = undefined;
 Project.prototype['highlights'] = undefined;
 
 Project.prototype['inventory'] = undefined;
+
+Project.prototype['disclaimers'] = undefined;
 
 export default Project;
