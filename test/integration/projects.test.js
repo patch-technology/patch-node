@@ -47,6 +47,17 @@ describe('Project Integration', function () {
     expect(inventory[0].price).to.be.a('number');
     expect(inventory[0].currency).to.be.a('string');
     expect(inventory[0].unit).to.be.a('string');
+
+    const issuance_type = projectResponse.data.issuance_type;
+    expect(issuance_type).to.be.a('string');
+
+    const disclaimers = projectResponse.data.disclaimers;
+    expect(disclaimers).to.be.a('array');
+    expect(disclaimers[0].header).to.be.a('string');
+    expect(disclaimers[0].body).to.be.a('string');
+    expect(disclaimers[0].severity).to.be.a('string');
+    expect(disclaimers[0].link_text).to.be.a('string');
+    expect(disclaimers[0].link_destination).to.be.a('string');
   });
 
   it('supports fetching a single project in a different language', async function () {
