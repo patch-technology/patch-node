@@ -2500,7 +2500,7 @@ qs@^6.11.0:
   dependencies:
     side-channel "^1.0.4"
 
-query-string@^7.0.0:
+query-string@^7.0.1:
   version "7.1.3"
   resolved "https://registry.npmjs.org/query-string/-/query-string-7.1.3.tgz"
   integrity sha512-hh2WYhq4fi8+b+/2Kg9CEge4fDPvHS534aOOvOZeQ3+Vf2mCFsaFBYj0i+iXcAq6I9Vzp5fjMFBlONvayDC1qg==

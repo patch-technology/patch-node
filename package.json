@@ -20,7 +20,7 @@
     "test": "mocha"
   },
   "dependencies": {
-    "query-string": "^7.0.0",
+    "query-string": "^7.0.1",
     "superagent": "^9.0.2"
   },
   "devDependencies": {
