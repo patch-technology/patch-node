@@ -20,12 +20,12 @@
     "test": "mocha"
   },
   "dependencies": {
-    "query-string": "^9.0.0",
+    "query-string": "^7.0.0",
     "superagent": "^9.0.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.16.0",
-    "@babel/core": "^7.16.0",
+    "@babel/cli": "^7.24.0",
+    "@babel/core": "^7.24.0",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/plugin-proposal-decorators": "^7.0.0",
     "@babel/plugin-proposal-do-expressions": "^7.0.0",
@@ -42,14 +42,14 @@
     "@babel/plugin-proposal-throw-expressions": "^7.0.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-syntax-import-meta": "^7.0.0",
-    "@babel/preset-env": "^7.16.0",
-    "@babel/register": "^7.16.0",
-    "chai": "^4.3.0",
+    "@babel/preset-env": "^7.24.0",
+    "@babel/register": "^7.23.0",
+    "chai": "^4.4.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.5.4",
-    "mocha": "^9.1.0",
-    "sinon": "^7.2.0",
-    "prettier": "^2.0.5"
+    "mocha": "^10.4.0",
+    "sinon": "^17.0.1",
+    "prettier": "^3.2.5"
   },
   "files": [
     "dist"
