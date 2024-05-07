@@ -10,9 +10,8 @@ describe('Estimates Integration', function () {
     });
     const estimateId = createEstimateResponse.data.id;
 
-    const retrieveEstimateResponse = await patch.estimates.retrieveEstimate(
-      estimateId
-    );
+    const retrieveEstimateResponse =
+      await patch.estimates.retrieveEstimate(estimateId);
     expect(retrieveEstimateResponse.data.id).to.equal(estimateId);
     expect(retrieveEstimateResponse.data.order.state).to.equal('reserved');
 
