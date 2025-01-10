@@ -9,7 +9,6 @@ import ApiClient from '../ApiClient';
 import CreateAirShippingEstimateRequest from '../model/CreateAirShippingEstimateRequest';
 import CreateBitcoinEstimateRequest from '../model/CreateBitcoinEstimateRequest';
 import CreateEcommerceEstimateRequest from '../model/CreateEcommerceEstimateRequest';
-import CreateEthereumEstimateRequest from '../model/CreateEthereumEstimateRequest';
 import CreateFlightEstimateRequest from '../model/CreateFlightEstimateRequest';
 import CreateHotelEstimateRequest from '../model/CreateHotelEstimateRequest';
 import CreateMassEstimateRequest from '../model/CreateMassEstimateRequest';
@@ -186,60 +185,6 @@ export default class EstimatesApi {
   createEcommerceEstimate(createEcommerceEstimateRequest, opts) {
     return this.createEcommerceEstimateWithHttpInfo(
       createEcommerceEstimateRequest,
-      opts
-    );
-  }
-
-  createEthereumEstimateWithHttpInfo(createEthereumEstimateRequest, opts) {
-    opts = opts || {};
-
-    const _createEthereumEstimateRequest =
-      CreateEthereumEstimateRequest.constructFromObject(
-        createEthereumEstimateRequest,
-        new CreateEthereumEstimateRequest()
-      );
-
-    // verify the required parameter 'createEthereumEstimateRequest' is set
-    if (
-      _createEthereumEstimateRequest === undefined ||
-      _createEthereumEstimateRequest === null
-    ) {
-      throw new Error(
-        "Missing the required parameter 'createEthereumEstimateRequest' when calling createEthereumEstimate"
-      );
-    }
-
-    let postBody = _createEthereumEstimateRequest;
-    let pathParams = {};
-    let queryParams = {};
-    let headerParams = {
-      'Patch-Version': opts['patchVersion']
-    };
-    let formParams = {};
-
-    let authNames = ['bearer_auth'];
-    let contentTypes = ['application/json'];
-    let accepts = ['application/json'];
-    let returnType = EstimateResponse;
-
-    return this.apiClient.callApi(
-      '/v1/estimates/crypto/eth',
-      'POST',
-      pathParams,
-      queryParams,
-      headerParams,
-      formParams,
-      postBody,
-      authNames,
-      contentTypes,
-      accepts,
-      returnType
-    );
-  }
-
-  createEthereumEstimate(createEthereumEstimateRequest, opts) {
-    return this.createEthereumEstimateWithHttpInfo(
-      createEthereumEstimateRequest,
       opts
     );
   }
