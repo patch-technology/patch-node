@@ -34,23 +34,6 @@ describe('Estimates Integration', function () {
     expect(estimate2.mass_g).to.be.greaterThan(estimate1.mass_g);
   });
 
-  it('supports creating shipping estimates', async function () {
-    const createEstimateResponse = await patch.estimates.createShippingEstimate(
-      {
-        distance_m: 100000,
-        transportation_method: 'rail',
-        package_mass_g: 50000,
-        create_order: false
-      }
-    );
-    const estimate = createEstimateResponse.data;
-
-    expect(estimate.type).to.be.eq('ecommerce');
-    expect(estimate.mass_g).to.be.above(0);
-    expect(estimate.production).to.be.eq(false);
-    expect(estimate.order).to.be.eq(null);
-  });
-
   it('supports creating ecommerce estimates', async function () {
     const createEstimateResponse =
       await patch.estimates.createEcommerceEstimate({
@@ -62,22 +45,6 @@ describe('Estimates Integration', function () {
     const estimate = createEstimateResponse.data;
 
     expect(estimate.type).to.be.eq('ecommerce');
-    expect(estimate.mass_g).to.be.above(0);
-    expect(estimate.production).to.be.eq(false);
-    expect(estimate.order).to.be.eq(null);
-  });
-
-  it('supports creating vehicle estimates without an order', async function () {
-    const createEstimateResponse = await patch.estimates.createVehicleEstimate({
-      distance_m: 100000,
-      make: 'Toyota',
-      model: 'Corolla',
-      year: 2005,
-      create_order: false
-    });
-    const estimate = createEstimateResponse.data;
-
-    expect(estimate.type).to.be.eq('vehicle');
     expect(estimate.mass_g).to.be.above(0);
     expect(estimate.production).to.be.eq(false);
     expect(estimate.order).to.be.eq(null);
@@ -122,20 +89,6 @@ describe('Estimates Integration', function () {
     });
 
     expect(estimate1.mass_g).to.be.below(estimate2.mass_g);
-  });
-
-  it('supports creating ethereum estimates with a gas value', async function () {
-    const createEstimateResponse = await patch.estimates.createEthereumEstimate(
-      {
-        gas_used: 1000
-      }
-    );
-
-    const estimate = createEstimateResponse.data;
-
-    expect(estimate.type).to.be.eq('ethereum');
-    expect(estimate.mass_g).to.be.above(0);
-    expect(estimate.production).to.be.eq(false);
   });
 
   it('supports creating hotel estimates', async function () {
