@@ -1,6 +1,6 @@
 {
   "name": "@patch-technology/patch",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Node.js wrapper for the Patch API",
   "license": "MIT",
   "repository": {
@@ -48,7 +48,7 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.5.4",
     "mocha": "^10.4.0",
-    "sinon": "^18.0.0",
+    "sinon": "^17.0.1",
     "prettier": "^3.2.5"
   },
   "files": [
