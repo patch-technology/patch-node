@@ -10,7 +10,7 @@ jobs:
       TARGET_URL: https://www.npmjs.com/package/@patch-technology/patch
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
 
       - uses: chrnorm/deployment-action@releases/v1
         name: Create GitHub deployment
@@ -20,7 +20,7 @@ jobs:
           target_url: ${{ env.TARGET_URL }}
           environment: production
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3.8.2
         with:
           node-version: 14
           registry-url: https://registry.npmjs.org/

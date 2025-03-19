@@ -13,10 +13,10 @@ jobs:
     name: Node ${{ matrix.node }} Test
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3.8.2
         with:
           node-version: ${{ matrix.node }}
 
@@ -33,7 +33,7 @@ jobs:
 
       - name: Notify slack
         if: failure()
-        uses: kpritam/slack-job-status-action@v1
+        uses: kpritam/slack-job-status-action@54eea0dd141dd572d7fbbe96416e9c5d8ba57976 # v0.1.2
         with:
           job-status: ${{ job.status }}
           slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
