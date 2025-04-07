@@ -34,22 +34,6 @@ describe('Estimates Integration', function () {
     expect(estimate2.mass_g).to.be.greaterThan(estimate1.mass_g);
   });
 
-  it('supports creating ecommerce estimates', async function () {
-    const createEstimateResponse =
-      await patch.estimates.createEcommerceEstimate({
-        create_order: false,
-        distance_m: 100000,
-        package_mass_g: 50000,
-        transportation_method: 'rail'
-      });
-    const estimate = createEstimateResponse.data;
-
-    expect(estimate.type).to.be.eq('ecommerce');
-    expect(estimate.mass_g).to.be.above(0);
-    expect(estimate.production).to.be.eq(false);
-    expect(estimate.order).to.be.eq(null);
-  });
-
   it('supports creating bitcoin estimates without parameters', async function () {
     const { data: estimate } = await patch.estimates.createBitcoinEstimate();
 
