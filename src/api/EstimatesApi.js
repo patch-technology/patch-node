@@ -8,7 +8,6 @@
 import ApiClient from '../ApiClient';
 import CreateAirShippingEstimateRequest from '../model/CreateAirShippingEstimateRequest';
 import CreateBitcoinEstimateRequest from '../model/CreateBitcoinEstimateRequest';
-import CreateEcommerceEstimateRequest from '../model/CreateEcommerceEstimateRequest';
 import CreateFlightEstimateRequest from '../model/CreateFlightEstimateRequest';
 import CreateHotelEstimateRequest from '../model/CreateHotelEstimateRequest';
 import CreateMassEstimateRequest from '../model/CreateMassEstimateRequest';
@@ -131,60 +130,6 @@ export default class EstimatesApi {
   createBitcoinEstimate(createBitcoinEstimateRequest, opts) {
     return this.createBitcoinEstimateWithHttpInfo(
       createBitcoinEstimateRequest,
-      opts
-    );
-  }
-
-  createEcommerceEstimateWithHttpInfo(createEcommerceEstimateRequest, opts) {
-    opts = opts || {};
-
-    const _createEcommerceEstimateRequest =
-      CreateEcommerceEstimateRequest.constructFromObject(
-        createEcommerceEstimateRequest,
-        new CreateEcommerceEstimateRequest()
-      );
-
-    // verify the required parameter 'createEcommerceEstimateRequest' is set
-    if (
-      _createEcommerceEstimateRequest === undefined ||
-      _createEcommerceEstimateRequest === null
-    ) {
-      throw new Error(
-        "Missing the required parameter 'createEcommerceEstimateRequest' when calling createEcommerceEstimate"
-      );
-    }
-
-    let postBody = _createEcommerceEstimateRequest;
-    let pathParams = {};
-    let queryParams = {};
-    let headerParams = {
-      'Patch-Version': opts['patchVersion']
-    };
-    let formParams = {};
-
-    let authNames = ['bearer_auth'];
-    let contentTypes = ['application/json'];
-    let accepts = ['application/json'];
-    let returnType = EstimateResponse;
-
-    return this.apiClient.callApi(
-      '/v1/estimates/ecommerce',
-      'POST',
-      pathParams,
-      queryParams,
-      headerParams,
-      formParams,
-      postBody,
-      authNames,
-      contentTypes,
-      accepts,
-      returnType
-    );
-  }
-
-  createEcommerceEstimate(createEcommerceEstimateRequest, opts) {
-    return this.createEcommerceEstimateWithHttpInfo(
-      createEcommerceEstimateRequest,
       opts
     );
   }
