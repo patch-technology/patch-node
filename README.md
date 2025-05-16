@@ -147,22 +147,6 @@ patch.estimates.createVehicleEstimate({
   year: 1995
 });
 
-// Create a hotel estimate
-const country_code = 'US'; // ISO3166 alpha-2 country code
-const city = 'New York'; // [Optional]
-const region = 'New York'; // [Optional]
-const star_rating = 4; // [Optional] Star rating of the hotel from 2 to 5
-const number_of_nights = 2; // [Optional] Default value is 1
-const number_of_rooms = 2; // [Optional] Default value is 1
-patch.estimates.createHotelEstimate({
-  country_code,
-  city,
-  region,
-  star_rating,
-  number_of_nights,
-  number_of_rooms
-});
-
 // Retrieve an estimate
 const estimateId = 'est_test_1234';
 patch.estimates.retrieveEstimate(estimate_id);

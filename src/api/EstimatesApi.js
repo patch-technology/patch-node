@@ -9,7 +9,6 @@ import ApiClient from '../ApiClient';
 import CreateAirShippingEstimateRequest from '../model/CreateAirShippingEstimateRequest';
 import CreateBitcoinEstimateRequest from '../model/CreateBitcoinEstimateRequest';
 import CreateFlightEstimateRequest from '../model/CreateFlightEstimateRequest';
-import CreateHotelEstimateRequest from '../model/CreateHotelEstimateRequest';
 import CreateMassEstimateRequest from '../model/CreateMassEstimateRequest';
 import CreateRailShippingEstimateRequest from '../model/CreateRailShippingEstimateRequest';
 import CreateRoadShippingEstimateRequest from '../model/CreateRoadShippingEstimateRequest';
@@ -184,60 +183,6 @@ export default class EstimatesApi {
   createFlightEstimate(createFlightEstimateRequest, opts) {
     return this.createFlightEstimateWithHttpInfo(
       createFlightEstimateRequest,
-      opts
-    );
-  }
-
-  createHotelEstimateWithHttpInfo(createHotelEstimateRequest, opts) {
-    opts = opts || {};
-
-    const _createHotelEstimateRequest =
-      CreateHotelEstimateRequest.constructFromObject(
-        createHotelEstimateRequest,
-        new CreateHotelEstimateRequest()
-      );
-
-    // verify the required parameter 'createHotelEstimateRequest' is set
-    if (
-      _createHotelEstimateRequest === undefined ||
-      _createHotelEstimateRequest === null
-    ) {
-      throw new Error(
-        "Missing the required parameter 'createHotelEstimateRequest' when calling createHotelEstimate"
-      );
-    }
-
-    let postBody = _createHotelEstimateRequest;
-    let pathParams = {};
-    let queryParams = {};
-    let headerParams = {
-      'Patch-Version': opts['patchVersion']
-    };
-    let formParams = {};
-
-    let authNames = ['bearer_auth'];
-    let contentTypes = ['application/json'];
-    let accepts = ['application/json'];
-    let returnType = EstimateResponse;
-
-    return this.apiClient.callApi(
-      '/v1/estimates/hotel',
-      'POST',
-      pathParams,
-      queryParams,
-      headerParams,
-      formParams,
-      postBody,
-      authNames,
-      contentTypes,
-      accepts,
-      returnType
-    );
-  }
-
-  createHotelEstimate(createHotelEstimateRequest, opts) {
-    return this.createHotelEstimateWithHttpInfo(
-      createHotelEstimateRequest,
       opts
     );
   }
