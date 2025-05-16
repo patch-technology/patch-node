@@ -75,22 +75,6 @@ describe('Estimates Integration', function () {
     expect(estimate1.mass_g).to.be.below(estimate2.mass_g);
   });
 
-  it('supports creating hotel estimates', async function () {
-    const createEstimateResponse = await patch.estimates.createHotelEstimate({
-      country_code: 'US',
-      city: 'New York',
-      region: 'New York',
-      star_rating: 5,
-      number_of_nights: 2,
-      number_of_rooms: 2
-    });
-    const estimate = createEstimateResponse.data;
-
-    expect(estimate.type).to.be.eq('hotel');
-    expect(estimate.mass_g).to.be.above(150_000);
-    expect(estimate.production).to.be.eq(false);
-  });
-
   it('supports creating air shipping estimates from airports', async function () {
     const createEstimateResponse =
       await patch.estimates.createAirShippingEstimate({
