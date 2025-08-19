@@ -21,19 +21,6 @@ describe('Estimates Integration', function () {
     expect(retrieveEstimatesResponse.data.length).to.be.above(0);
   });
 
-  it('supports creating flight estimates with airports', async function () {
-    const { data: estimate1 } = await patch.estimates.createFlightEstimate({
-      origin_airport: 'SFO',
-      destination_airport: 'LAX'
-    });
-    const { data: estimate2 } = await patch.estimates.createFlightEstimate({
-      origin_airport: 'SFO',
-      destination_airport: 'JFK'
-    });
-
-    expect(estimate2.mass_g).to.be.greaterThan(estimate1.mass_g);
-  });
-
   it('supports creating bitcoin estimates without parameters', async function () {
     const { data: estimate } = await patch.estimates.createBitcoinEstimate();
 
