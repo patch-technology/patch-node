@@ -8,7 +8,6 @@
 import ApiClient from '../ApiClient';
 import CreateAirShippingEstimateRequest from '../model/CreateAirShippingEstimateRequest';
 import CreateBitcoinEstimateRequest from '../model/CreateBitcoinEstimateRequest';
-import CreateFlightEstimateRequest from '../model/CreateFlightEstimateRequest';
 import CreateMassEstimateRequest from '../model/CreateMassEstimateRequest';
 import CreateRailShippingEstimateRequest from '../model/CreateRailShippingEstimateRequest';
 import CreateRoadShippingEstimateRequest from '../model/CreateRoadShippingEstimateRequest';
@@ -129,60 +128,6 @@ export default class EstimatesApi {
   createBitcoinEstimate(createBitcoinEstimateRequest, opts) {
     return this.createBitcoinEstimateWithHttpInfo(
       createBitcoinEstimateRequest,
-      opts
-    );
-  }
-
-  createFlightEstimateWithHttpInfo(createFlightEstimateRequest, opts) {
-    opts = opts || {};
-
-    const _createFlightEstimateRequest =
-      CreateFlightEstimateRequest.constructFromObject(
-        createFlightEstimateRequest,
-        new CreateFlightEstimateRequest()
-      );
-
-    // verify the required parameter 'createFlightEstimateRequest' is set
-    if (
-      _createFlightEstimateRequest === undefined ||
-      _createFlightEstimateRequest === null
-    ) {
-      throw new Error(
-        "Missing the required parameter 'createFlightEstimateRequest' when calling createFlightEstimate"
-      );
-    }
-
-    let postBody = _createFlightEstimateRequest;
-    let pathParams = {};
-    let queryParams = {};
-    let headerParams = {
-      'Patch-Version': opts['patchVersion']
-    };
-    let formParams = {};
-
-    let authNames = ['bearer_auth'];
-    let contentTypes = ['application/json'];
-    let accepts = ['application/json'];
-    let returnType = EstimateResponse;
-
-    return this.apiClient.callApi(
-      '/v1/estimates/flight',
-      'POST',
-      pathParams,
-      queryParams,
-      headerParams,
-      formParams,
-      postBody,
-      authNames,
-      contentTypes,
-      accepts,
-      returnType
-    );
-  }
-
-  createFlightEstimate(createFlightEstimateRequest, opts) {
-    return this.createFlightEstimateWithHttpInfo(
-      createFlightEstimateRequest,
       opts
     );
   }

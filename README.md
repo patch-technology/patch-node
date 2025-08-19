@@ -118,10 +118,6 @@ Estimates allow API users to get a quote for the cost of compensating a certain 
 const mass_g = 1000000; // Pass in the mass in grams (i.e. 1 metric tonne)
 patch.estimates.createMassEstimate({ mass_g });
 
-// Create a flight estimate
-const distance_m = 9000000; // Pass in the distance traveled in meters
-patch.estimates.createFlightEstimate({ distance_m });
-
 // Create an ecommerce estimate
 const distance_m = 9000000;
 // Pass in the shipping distance in meters, the transportation method, and the package mass
