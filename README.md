@@ -53,12 +53,6 @@ npm install install-peers
 
 ### Orders
 
-In Patch, orders represent a purchase of carbon offsets or negative emissions by mass.
-Place orders directly if you know the amount of carbon dioxide you would like to sequester.
-If you do not know how much to purchase, use an estimate.
-You can also create an order with a maximum desired price, and we'll allocate enough mass to
-fulfill the order for you.
-
 [API Reference](https://docs.patch.io/#/?id=orders)
 
 #### Examples
@@ -103,53 +97,6 @@ patch.orders.cancelOrder(orderId);
 // Retrieve a list of orders
 const page = 1; // Pass in which page of orders you'd like
 patch.orders.retrieveOrders({ page });
-```
-
-### Estimates
-
-Estimates allow API users to get a quote for the cost of compensating a certain amount of CO2. When creating an estimate, an order in the `draft` state will also be created, reserving the allocation of a project for 5 minutes. If you don't place your draft order within those 5 minutes, the order will automatically be cancelled.
-
-[API Reference](https://docs.patch.io/#/?id=estimates)
-
-#### Examples
-
-```javascript
-// Create a mass estimate
-const mass_g = 1000000; // Pass in the mass in grams (i.e. 1 metric tonne)
-patch.estimates.createMassEstimate({ mass_g });
-
-// Create an ecommerce estimate
-const distance_m = 9000000;
-// Pass in the shipping distance in meters, the transportation method, and the package mass
-patch.estimates.createEcommerceEstimate({
-  distance_m,
-  package_mass_g: 1000,
-  transportation_method: 'air'
-});
-
-// Create a bitcoin estimate
-const transaction_value_btc_sats = 1000; // [Optional] Pass in the transaction value in satoshis
-patch.estimates.createBitcoinEstimate({
-  transaction_value_btc_sats
-});
-
-// Create a vehicle estimate
-const distance_m = 9000000;
-// Pass in the driving distance in meters and the model/make/year of the vehicle
-patch.estimates.createVehicleEstimate({
-  distance_m,
-  make: 'Toyota',
-  model: 'Corolla',
-  year: 1995
-});
-
-// Retrieve an estimate
-const estimateId = 'est_test_1234';
-patch.estimates.retrieveEstimate(estimate_id);
-
-// Retrieve a list of estimates
-const page = 1; // Pass in which page of estimates you'd like
-patch.estimates.retrieveEstimates({ page });
 ```
 
 ### Projects
