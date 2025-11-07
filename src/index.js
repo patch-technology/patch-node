@@ -6,7 +6,6 @@
  */
 
 import ApiClient from './ApiClient';
-import EstimatesApi from './api/EstimatesApi';
 import OrderLineItemsApi from './api/OrderLineItemsApi';
 import OrdersApi from './api/OrdersApi';
 import ProjectsApi from './api/ProjectsApi';
@@ -17,8 +16,6 @@ export default function Patch(accessToken) {
 
   this.client = ApiClient.instance;
   this.client.authentications['bearer_auth'].accessToken = accessToken;
-
-  this.estimates = new EstimatesApi(this.client);
 
   this.orderlineitems = new OrderLineItemsApi(this.client);
 

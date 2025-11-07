@@ -44,65 +44,19 @@ describe('Orders Integration', function () {
   });
 
   it('supports placing orders in a `draft` state', async function () {
-    const estimateResponse = await patch.orders.createOrder({
+    const draft = await patch.orders.createOrder({
       amount: 100,
       unit: 'g',
       state: 'draft'
     });
 
-    const orderId = estimateResponse.data.id;
-    expect(estimateResponse.data.state).to.equal('draft');
+    const orderId = draft.data.id;
+    expect(draft.data.state).to.equal('draft');
 
     const placeOrderResponse = await patch.orders.placeOrder(orderId);
     expect(placeOrderResponse.data.created_at).to.be.an.instanceOf(Date);
     expect(placeOrderResponse.data.production).to.equal(false);
     expect(placeOrderResponse.data.amount).to.equal(100);
-  });
-
-  it('supports placing orders in a `reserved` state with issued_to', async function () {
-    const estimateResponse = await patch.estimates.createMassEstimate({
-      mass_g: 100,
-      create_order: true
-    });
-    const orderId = estimateResponse.data.order.id;
-    expect(estimateResponse.data.order.state).to.equal('reserved');
-
-    const issuedTo = { email: 'issuee@companyc.com', name: 'Bob Dylan' };
-
-    const placeOrderResponse = await patch.orders.placeOrder(orderId, {
-      issued_to: issuedTo
-    });
-    expect(placeOrderResponse.data.created_at).to.be.an.instanceOf(Date);
-    expect(placeOrderResponse.data.production).to.equal(false);
-    expect(placeOrderResponse.data.amount).to.equal(100);
-    expect(placeOrderResponse.data.issued_to.email).to.equal(issuedTo.email);
-    expect(placeOrderResponse.data.issued_to.name).to.equal(issuedTo.name);
-  });
-
-  it('supports placing orders in a `reserved` state using an estimate', async function () {
-    const estimateResponse = await patch.estimates.createMassEstimate({
-      mass_g: 100,
-      create_order: true
-    });
-    const orderId = estimateResponse.data.order.id;
-    expect(estimateResponse.data.order.state).to.equal('reserved');
-
-    const placeOrderResponse = await patch.orders.placeOrder(orderId);
-    expect(placeOrderResponse.data.created_at).to.be.an.instanceOf(Date);
-    expect(placeOrderResponse.data.production).to.equal(false);
-    expect(placeOrderResponse.data.amount).to.equal(100);
-  });
-
-  it('supports cancelling orders in a `reserved` state', async function () {
-    const estimateResponse = await patch.estimates.createMassEstimate({
-      mass_g: 100,
-      create_order: true
-    });
-    const orderId = estimateResponse.data.order.id;
-    expect(estimateResponse.data.order.state).to.equal('reserved');
-
-    const placeOrderResponse = await patch.orders.cancelOrder(orderId);
-    expect(placeOrderResponse.data.state).to.equal('cancelled');
   });
 
   it('supports creating and querying orders by metadata', async function () {
