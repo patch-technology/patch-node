@@ -12,6 +12,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: production
     env:
       TARGET_URL: https://www.npmjs.com/package/@patch-technology/patch
 
